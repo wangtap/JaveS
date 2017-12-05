@@ -1,0 +1,11 @@
+package test;
+
+public class Student {
+	public void small(){
+		System.out.println("笑");
+	}
+	private void cry(){
+		System.out.println("哭水是发生的水电费");
+	}
+
+}

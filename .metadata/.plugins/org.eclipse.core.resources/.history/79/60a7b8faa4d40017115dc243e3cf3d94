@@ -1,0 +1,13 @@
+package lanou3g.homework;
+
+public class Main {
+	public static void main(String [] args){
+		Father father =new Father();
+		Mother mother=new Mother();
+		Child child =new Child();
+		father.setMother(mother);
+		father.setChild(child);
+		father.showFamily();
+	}
+
+}

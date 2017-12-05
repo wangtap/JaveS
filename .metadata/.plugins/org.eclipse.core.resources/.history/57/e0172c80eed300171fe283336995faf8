@@ -1,0 +1,26 @@
+package test;
+
+public class Main {
+	public static void main(String[] args){
+		Student s= new Student() ;
+		Student stu= new Student() ;
+//		得到sad方法执行的结果
+//		把这个结果赋值给了result这个变量;
+		String result =s.sad();
+		String name=s.getName();
+		System.out.println(name);
+		
+		stu.setName("122");
+		String name1 = stu.getName();
+		System.out.println(name1);
+//		System.out.println(name);
+	
+		
+		
+		//String name=s.getName();
+		//当执行setName方法时，就将这个字传给了参数列表中的参数n
+		
+		
+	}
+
+}

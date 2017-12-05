@@ -1,0 +1,12 @@
+package com.lanou3g.homework;
+
+import com.lanou3g.study.Animal;
+
+public class Pig extends Animal {
+	/*
+	 * extend关键字：继承
+	 * A   extend   B  
+	 * 就是A类继承B类，只能在类的声明时使用
+	 */
+
+}

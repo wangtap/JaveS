@@ -1,0 +1,8 @@
+package com.lanou3g.homework;
+
+public class Login {
+	public  Login (){
+		System.out.println("请输入用户名和密码");
+	}
+
+}

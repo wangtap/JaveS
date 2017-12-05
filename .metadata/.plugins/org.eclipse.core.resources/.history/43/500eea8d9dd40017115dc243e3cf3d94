@@ -1,0 +1,7 @@
+package com.lanou3g.main;
+
+public class Tether {
+	private String name;
+	private String genter;
+
+}

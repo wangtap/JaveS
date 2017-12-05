@@ -1,0 +1,35 @@
+package com.lanou3g.inter;
+/**
+ *  文档注释
+ *  WatchDog类，通过implements关键字
+ *  与Work接口产生了关联，导致WatchDog就满足了Work这个接口的规范
+ *  
+ *  imlements 关键字：实现
+ *  通过imlements  关键字，可以让一个类
+ *  实现多个接口，多个接口之间通过逗号分隔
+ *  这样就让这个类满足了接口的规范
+ *  也叫实现了接口
+ *  a继承了b ，那么a叫做子类，b叫做父类
+ *  a实现了c，那么a叫做实现类：实现接口 的类    c叫做接口
+ *  
+ *  
+ *  
+ *  
+ *  
+ *  
+ */
+public class WatchDog implements Work {
+
+	@Override
+	public void work() {
+		System.out.println("上岗了，谁来咬谁");
+		
+	}
+
+	@Override
+	public void go() {
+		System.out.println("go");
+		
+	}
+
+}

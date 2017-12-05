@@ -1,0 +1,13 @@
+package com.lanou3g.study.extend;
+
+public class Test {
+
+	public static void main(String[] args) {
+//		Pig ֵוחק=new Pig();
+//		ֵוחק.sleep();
+
+		Monkey monker=new Monkey();
+		monker.sleep();
+	}
+
+}

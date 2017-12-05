@@ -1,0 +1,18 @@
+package test;
+
+public class Student {
+	public void small(){
+		System.out.println("笑");
+	}
+	private void cry (){
+		System.out.println("哭");
+	}
+	protected void angry(){
+		System.out.println("气的像一只dog");
+	}
+	String sad(){
+		return "爱是一道光";
+	}
+	
+	}
+

@@ -1,0 +1,11 @@
+package com.lanou3g.abs;
+
+public class Rain extends Weather {
+
+	public void description() {
+		System.err.println("обсЙ");
+
+	}
+	
+
+}

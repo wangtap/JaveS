@@ -1,0 +1,54 @@
+
+
+
+public class Hello {
+     public static void main(String[] args){
+    	 System.out.println("第二个java程序");
+    	//我是注释
+    	 
+    	 /*
+    	  * 
+    	  * 
+    	  * 我是多行注释
+    	  */
+    	 
+    	 
+    	 
+    	 /**我是文档注释
+    	  * 
+    	  */ 
+    	 /*定义一个变量
+    	 这个变量值就是18
+    	 18是在内存中的，我们如果使用
+    	 内存地址去找18的话，太费劲了
+    	 所以我们使用一个变量去找到它
+    	 age就是变量名*/
+    	 int age=18;
+    	 /*下面这行代码，就会将括号中的内容
+    	  * 输出到控制台
+    	  * 输出的是18，而不是ege，因为会根
+    	  * 据age变量名，找到18这个变量。
+    	  */
+    	 System.out.println(age);
+    	 double score =91.72;
+    	 int increment=2;
+    	 double decondScore=
+    			 score+increment;
+    	 byte d=127;
+    	 long l =d;
+    	 /*强制转换；
+    	  * 将long类型的1强制转换成int
+    
+    	  */
+    	//
+    	// int i=l;
+    	 //定义一个字符
+    	 char c='a';
+    	 //使用int类型发变量IC接受c的值
+    	int d=  c;
+    	 System.out.println(d);
+    	 
+    	 
+    	 
+     }
+}

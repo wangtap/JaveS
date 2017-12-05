@@ -1,0 +1,16 @@
+package com.lanou3g.inter;
+
+public class Main {
+
+	public static void main(String[] args) {
+		/*
+		 * interface表示接口
+		 * class 类
+		 * 这两东西在java中是一个级别的
+		 * 属于一种并列的关系
+		 * java中的接口，表示 一个规范或者规则
+		 * 
+		 */
+	}
+
+}

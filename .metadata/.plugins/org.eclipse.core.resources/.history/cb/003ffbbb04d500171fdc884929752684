@@ -1,0 +1,5 @@
+package Homework;
+
+public class Child extends Person {
+
+}

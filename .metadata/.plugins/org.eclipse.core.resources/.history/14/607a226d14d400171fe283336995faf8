@@ -1,0 +1,29 @@
+package test;
+
+public class Student {
+	//封装
+	private String name="天山";
+	
+	public void setName(String n){
+		name =n;
+	}
+	
+	//public Stiring n=name;
+		public String getName(){
+		return name;
+	}
+	public void small(){
+		System.out.println("笑");
+	}
+	private void cry (){
+		System.out.println("哭");
+	}
+	protected void angry(){
+		System.out.println("气的像一只dog");
+	}
+	String sad(){
+		return "爱是一道光";
+	}
+	
+	}
+

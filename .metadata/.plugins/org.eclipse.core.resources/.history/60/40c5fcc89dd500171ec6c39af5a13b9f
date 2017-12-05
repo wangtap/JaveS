@@ -1,0 +1,8 @@
+package com.lanou3g.statics;
+
+public class Statics {
+	
+	public static int  score =100;
+	
+
+}

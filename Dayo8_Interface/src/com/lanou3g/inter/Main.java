@@ -1,0 +1,39 @@
+package com.lanou3g.inter;
+
+import com.lanou3g.studay.Doctor;
+import com.lanou3g.studay.Teather;
+
+public class Main {
+
+	public static void main(String[] args) {
+		/*
+		 * interface表示接口
+		 * class 类
+		 * 这两东西在java中是一个级别的
+		 * 属于一种并列的关系
+		 * java中的接口，表示 一个规范或者规则
+		 * 
+		 * 抽象类不能直接创建对象，但是可以使用抽象类的引用
+		 * 比如说刚才讲的Person就是抽象类 Person p 就是一个引用
+		 * 
+		 * 
+		 * 接口也是类是的，也不能直接创建对象但是可是使用接口的引用
+		 * 
+		 * 这里的对象的名字就是wd
+		 * 这个对象是有名的
+		 * 如果对象没有名字
+		 * 那么他叫匿名对象
+		 * 
+		 * 
+		 * 
+		 */
+		WatchDog wd =new WatchDog();
+		Company facebook =new  Company();
+//		这里的work我要传进去什么呢？
+//		facebook.setWork(new Doctor());
+		facebook.setWork(new WatchDog());
+		facebook.startWork();
+		facebook.endWork();
+	}
+
+}

@@ -1,0 +1,19 @@
+
+public class Test {
+       public static void main (String[] args){
+    	  // System .out.println();
+    	   int r=2;
+    	   if (r==1){
+    		   System.out.println("参加一个月夏令营");
+    	   }
+    	   else  if (r==2){
+    		   System .out.println("奖励惠普笔记本电脑一部");
+    	   }
+    	   else if(r==3){
+    		   System .out.println("奖励移动硬盘一个");
+    	   }
+    	   else {
+    		   System.out.println("无奖励");
+    	   }
+       }
+}

@@ -1,0 +1,11 @@
+package com.lanou3g.homework;
+
+import javax.xml.crypto.Data;
+
+public class UserData {
+	String[][] data=new String [4][4];
+	String [0]=new String [4];
+	String [1]=new String [4];
+	
+}
+

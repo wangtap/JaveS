@@ -1,0 +1,27 @@
+package com.lanou3g.string;
+
+public class StringDemo {
+
+	public static void main(String[] args) {
+		String a = "abcdefa";
+		
+		
+		/*
+		 * 获取字符串长度
+		 * 
+		 */
+		System.err.println(a.length());
+		//替换，把a替换成h
+		System.err.println(a.replace("a", "b"));
+		//取字符串中的子串
+		//从0位置开始，取到1
+//		这是一个左闭右开的区间
+//		[0,2)  所以就是从0取到1
+		System.err.println(a.substring(0, 2));
+		System.err.println(a.substring(4));
+		
+		
+		
+	}
+
+}

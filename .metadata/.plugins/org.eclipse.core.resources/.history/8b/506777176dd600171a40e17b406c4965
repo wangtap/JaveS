@@ -1,0 +1,23 @@
+package com.lanou3g.change;
+
+public class Child extends Father {
+	String name;
+	
+	
+		
+
+
+	@Override
+	public void work() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	public void play(){
+		System.out.println("Íæ");
+	}
+}

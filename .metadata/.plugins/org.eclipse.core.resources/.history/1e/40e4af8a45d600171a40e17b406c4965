@@ -1,0 +1,9 @@
+package com.lanou3g.inter;
+/**
+ *  文档注释
+ *  WatchDog类，通过implements关键字
+ *  与Work接口产生了关联，导致WatchDog就满足了Work这个接口的规范
+ */
+public class WatchDog implements Work {
+
+}

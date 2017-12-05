@@ -1,0 +1,27 @@
+package ื๗าต;
+
+public class addition {
+	private int a;
+	private int b;
+	private int c;
+	public void setA(int a){
+		this.a=a;
+	}
+	public int getA(){
+		return a;
+	}
+	public void  a (){
+		System.out.println(a);
+	}
+	public void setb(int b){
+		this.b=b;
+		System.out.println(b);
+	}
+	public int aandb (){
+		return a+b;
+	}
+	public int add (int a,int b){
+		return a=b;
+	}
+
+}

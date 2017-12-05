@@ -1,0 +1,65 @@
+import java.awt.TexturePaint;
+import java.util.Scanner;
+//import java.util.Scanner;
+
+public class Main2 {
+    public static void main (String[] args){
+    	//System.out.println("1");
+    	int w=51 ;
+    	while (w<50) {
+    		//System.out.println(w);
+    		//w++;
+    		w*=7;
+    		//break;
+    	}//System.out.println(w);
+    	int progress=1;
+    	/*do-while与while的区别
+    	 * do-while是先执行一次循环体，然后在判断
+    	 * while是先判断然后在执行循环体
+    	 */
+    	
+    	do {
+			progress+=2;
+			//System.out.print(progress);
+			// System.out.print("\n");
+		} while (progress<10);
+    	int i=100,j=0;
+    	do {
+			//System .out.println("好好学习天天向上");
+			i--;j++;
+		} while (i!=0);
+    	//System .out.println(j);
+    	/*
+    	 * int k=0设置初始条件
+    	 * k<100;循环条件
+    	 * k++ 循环增量
+    	 * {}中的内容：循环体
+    	 */
+    	for (int k=100;k<100;k++){
+    		System.out.println(k+"好好学习，天天向上");
+    	}
+    	//下面 两个一样的
+    	for(;;){
+    		break;
+    	}
+    	while (true){
+    		break;
+    	}
+    	int f =0;
+    	for (;f<10;f++){
+    		
+    	}
+    	for(;f<10;f+=5){
+    		
+    	}
+    	//固定格式，就是一个工具
+    	Scanner input=new Scanner(System .in);
+    	//下面这句话，会得到控制台输入的内容
+    	//我们建立一个变量去接受得到的内容
+    	String c=input.nextLine(); 
+    	System.out.println(c);
+    	
+    			
+  
+    }
+}

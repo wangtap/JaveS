@@ -1,0 +1,17 @@
+package 作业;
+
+//import java.util.jar.Attributes.Name;
+
+public class 家具 {
+	private  String name;
+	int price;
+	String species ;
+	public void setName(String name1){
+		name=name1;
+		
+	}
+	public String getName(){
+		return name ;
+	}
+
+}

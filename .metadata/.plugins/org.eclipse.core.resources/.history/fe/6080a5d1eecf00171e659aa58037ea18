@@ -1,0 +1,10 @@
+
+public class Main {
+     public static void main(String[] arg){
+     int javaScore=100;
+    		 if (javaScore >90){
+    			 System .out.println("≥…º®”≈–„");
+    		 }
+		
+	}
+}

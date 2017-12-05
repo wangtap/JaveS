@@ -1,0 +1,7 @@
+
+
+public class Tether {
+	private String name;
+	private String genter;
+
+}

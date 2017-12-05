@@ -1,0 +1,15 @@
+package Homework;
+
+public class People {
+	private Contact people1 =new Contact("1",1);
+	private Contact people2 =new Contact("2",2);
+	private Contact people3 =new Contact("3",3);
+	private Contact people4 =new Contact("4",4);
+	private Contact people5 =new Contact("5",5);
+	private Contact people6 =new Contact("6",6);
+	private Contact people7 =new Contact("7",7);
+	private Contact people8 =new Contact("8",8);
+	private Contact people9 =new Contact("9",9);
+
+
+}

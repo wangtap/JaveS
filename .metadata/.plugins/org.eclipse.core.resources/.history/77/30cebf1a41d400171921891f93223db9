@@ -1,0 +1,32 @@
+package 作业;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
+
+public class game {
+	private String name;
+	private int number;
+	private String partner;
+	public void setName(String name){
+		this.name=name;
+	}
+	public String setName(){
+		return name;
+	}
+	public void name(){
+		
+		System.out.println(name);
+	}
+	public void number(int number){
+		this.number=number;
+		System.out.println(number);
+	}
+	public String partner(){
+		//partner ="小明";
+		System.out.println(partner);
+		return partner;
+	}
+	public String withsbgame(String name){
+		return name ;
+	}
+
+}

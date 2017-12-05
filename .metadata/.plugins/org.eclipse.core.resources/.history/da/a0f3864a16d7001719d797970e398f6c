@@ -1,0 +1,27 @@
+package com.lanou3g.homework;
+
+public class Doctor   extends Person  implements UserInter{
+
+	@Override
+	public void onLine() {
+		System.out.println("医生手术做完了");
+		
+	}
+
+	@Override
+	public void offLine() {
+		System.out.println("医生做完回家了");
+		
+	}
+	
+	
+	
+	
+	
+	
+	public void 白大褂(){
+		System.out.println("白大褂");
+		
+	}
+
+}

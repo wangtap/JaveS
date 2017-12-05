@@ -1,0 +1,36 @@
+package com.lanou3g.studay;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner input =new Scanner(System.in);
+		
+		System.out.println("输入1，老师干活，输入2，医生干活");
+//		获取控制台的输入的整数值
+//		这个方法有阻塞性
+//		当执行到这个方法时,如果控制台一直不输入内容,程序就卡在这里
+		int choice=input.nextInt();
+		Company company=new Company();
+		
+		if(choice==1){
+			Teather t =new Teather();
+			t.work();
+		}else if (choice==2) {
+			Doctor doctor=new Doctor();
+			doctor.work();
+			Doctor doc =new Doctor();
+			company.setDoc(doc);
+			
+		}
+		
+		company.work();
+		
+		
+		
+		
+
+	}
+
+}

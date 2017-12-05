@@ -1,0 +1,10 @@
+
+public class Student {
+	public void small(){
+		System.out.println("аІ");
+	}
+	public void cry(){
+		System.out.println("По");
+	}
+
+}

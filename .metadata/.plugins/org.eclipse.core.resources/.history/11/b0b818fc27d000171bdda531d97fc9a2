@@ -1,0 +1,22 @@
+
+public class Main2 {
+    public static void main (String[] args){
+    	System.out.println("1");
+    	int w=51 ;
+    	while (w<50) {
+    		System.out.println(w);
+    		//w++;
+    		w*=7;
+    		//break;
+    	}//System.out.println(w);
+    	int progress=1;
+    	do {
+			progress+=2;
+			System.out.print(progress);
+			 System.out.print("\n");
+		} while (progress<10);
+    	
+    	
+    	
+    }
+}

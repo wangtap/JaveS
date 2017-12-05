@@ -1,0 +1,21 @@
+package lanou3g.homework;
+
+public class Mother {
+	 private  Father  father ;
+	 private Child child;
+	 private String name;
+	public Father getFather() {
+		return father;
+	}
+	public void setFather(Father father) {
+		this.father = father;
+	}
+	public Child getChild() {
+		return child;
+	}
+	public void setChild(Child child) {
+		this.child = child;
+	}
+	 
+
+}

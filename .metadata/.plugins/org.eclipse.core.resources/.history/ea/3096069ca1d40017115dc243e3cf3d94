@@ -1,0 +1,22 @@
+package ื๗าต;
+
+public class Father {
+	private  String name;
+	private Mother mother;
+	private Child child;
+	public Mother getMother() {
+		return mother;
+	}
+	public void setMother(Mother mother) {
+		this.mother = mother;
+	}
+	public Child getChild() {
+		return child;
+	}
+	public void setChild(Child child) {
+		this.child = child;
+	}
+		
+			
+
+}

@@ -1,0 +1,9 @@
+package com.lanou3g.abs;
+
+public class Rain extends Weather {
+
+	
+	
+	
+
+}

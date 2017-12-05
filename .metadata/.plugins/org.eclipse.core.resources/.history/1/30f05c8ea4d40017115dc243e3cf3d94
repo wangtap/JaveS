@@ -1,0 +1,8 @@
+package lanou3g.homework;
+
+public class Main {
+	public static void mian(String [] args){
+		
+	}
+
+}

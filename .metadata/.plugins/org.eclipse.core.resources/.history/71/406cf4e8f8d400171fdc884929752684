@@ -1,0 +1,9 @@
+package Homework;
+
+public class Father extends Person {
+
+	public Father() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,37 @@
+package test;
+
+import org.ietf.jgss.Oid;
+
+public class Student {
+	//封装
+	private String name="天山";//属性
+	//暴露出一个公有的方法去设置/获得
+	//括号中的内容叫参数
+	public void setName(String name){
+		this.name =name;
+	}
+	//public void 
+	
+	public String getName(){
+		return name;
+	}
+	
+	
+	
+	
+	
+	public void small(){
+		System.out.println("笑");
+	}
+	private void cry (){
+		System.out.println("哭");
+	}
+	protected void angry(){
+		System.out.println("气的像一只dog");
+	}
+	String sad(){
+		return "爱是一道光";
+	}
+	
+	}
+

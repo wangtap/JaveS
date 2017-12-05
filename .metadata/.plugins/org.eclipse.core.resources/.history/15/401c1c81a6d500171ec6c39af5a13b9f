@@ -1,0 +1,12 @@
+package com.lanou3g.statics;
+
+public class Statics {
+	
+	public static int  score ;
+	public static void show (){
+		System.err.println(score);
+	}
+	public int a=1;
+	
+
+}

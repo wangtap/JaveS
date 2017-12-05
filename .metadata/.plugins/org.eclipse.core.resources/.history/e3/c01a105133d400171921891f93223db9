@@ -1,0 +1,17 @@
+package ื๗าต;
+
+//import java.util.jar.Attributes.Name;
+
+public class Furnishings {
+	private  String name;
+	int price;
+	String species ;
+	public void setName(String name1){
+		name=name1;
+		
+	}
+	public String getName(){
+		return name ;
+	}
+
+}

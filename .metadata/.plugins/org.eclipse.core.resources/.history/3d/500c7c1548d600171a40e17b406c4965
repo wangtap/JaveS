@@ -1,0 +1,6 @@
+package com.lanou3g.inter;
+
+public interface Work {
+	
+
+}

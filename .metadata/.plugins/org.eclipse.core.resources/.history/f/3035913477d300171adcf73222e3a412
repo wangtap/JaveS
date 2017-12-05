@@ -1,0 +1,23 @@
+
+public class Child {
+	String XM="小明";
+	String school="大学";
+	String m="小红";
+	public void showInfo(){
+		System.out.println("姓名是："+XM+"\n学校是："+school+"\n对象名字是："+m);
+	}
+	public Child(){
+		System.out.println("Child");
+	}
+
+public static int[] reverse(int[] list) {
+  int[] result = new int[list.length];
+ 
+  for (int i = 0, j = result.length - 1; i < list.length; i++, j--) {
+    result[j] = list[i];
+  }
+  return result;
+}
+
+
+}

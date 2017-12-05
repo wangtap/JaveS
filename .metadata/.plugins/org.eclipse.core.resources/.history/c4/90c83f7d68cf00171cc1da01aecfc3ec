@@ -1,0 +1,99 @@
+
+
+
+public class Hello {
+     public static void main(String[] args){
+    	 System.out.println("第二个java程序");
+    	//我是注释
+    	 
+    	 /*
+    	  * 
+    	  * 
+    	  * 我是多行注释
+    	  */
+    	 
+    	 
+    	 
+    	 /**我是文档注释
+    	  * 
+    	  */ 
+    	 /*定义一个变量
+    	 这个变量值就是18
+    	 18是在内存中的，我们如果使用
+    	 内存地址去找18的话，太费劲了
+    	 所以我们使用一个变量去找到它
+    	 age就是变量名*/
+    	 int age=18;
+    	 /*下面这行代码，就会将括号中的内容
+    	  * 输出到控制台
+    	  * 输出的是18，而不是ege，因为会根
+    	  * 据age变量名，找到18这个变量。
+    	  */
+    	 System.out.println(age);
+    	 double score =91.72;
+    	 int increment=2;
+    	 double decondScore=
+    			 score+increment;
+    	 byte d=127;
+    	 long l =d;
+    	 /*强制转换；
+    	  * 将long类型的1强制转换成int类型的i
+    	 
+    
+    	  */
+    	//
+    	// int i=l;
+    	 //定义一个字符
+    	 char c='a';
+    	 //使用int类型发变量IC接受c的值
+    	 int ic=c;
+    	 short q=97;
+    	 char w= (char) q ;
+    	 //定义一个数
+    	 int i =0;
+         //定义一个小数
+    	 double d1=0.35;
+    	 //定义一个字符
+    	 char c1='男';
+    	 System.out.println(w);
+    	 /*
+    	  * 驼峰规则：
+    	  * 
+    	  * int helloWorld;
+    	  */
+    	 //多块羊肉串起来就是羊肉串
+    	 //多个字符串起来就是字符串
+    	 
+    	 String yourName = null;
+    	 //初始化：就是给一个变量赋值的过程
+    	 //如果只创建了变量，但是没有给这个变量赋值
+    	 //那么这个附值的过程叫声明
+    	 System.out.println(yourName);
+    	 int a = 10;
+         int b = 20;
+         int c11 = 25;
+         int d11 = 25;
+         System.out.println("a + b = " + (a + b) );
+         System.out.println("a - b = " + (a - b) );
+         System.out.println("a * b = " + (a * b) );
+         System.out.println("b / a = " + (b / a) );
+         System.out.println("b % a = " + (b % a) );
+         System.out.println("c % a = " + (c11 % a) );
+         System.out.println("a++   = " +  (a++) );
+         System.out.println("a--   = " +  (a--) );
+         // 查看  d++ 与 ++d 的不同
+         System.out.println("d++   = " +  (d11++) );
+         System.out.println("++d   = " +  (+d11) );
+    	 
+         int big =5;
+        		 int result=big/2;
+         System.out.println(result);
+         /*big是int类型
+          * 所以big/2也是int类型
+          * 就会将2.5取整，得2
+          * big是int类型
+          * 2.0是浮点型
+          * 这时候big/2就是带小数点的浮点型也就是2.5
+          */
+     }
+}

@@ -1,0 +1,9 @@
+package com.lanou3g.abs;
+
+public abstract class Person {
+	public void work() {
+		System.out.println("นคื๗");
+		// TODO Auto-generated constructor stub
+	}
+
+}

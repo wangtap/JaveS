@@ -1,0 +1,36 @@
+package com.lanou3g.homework;
+
+public class Login  {
+	public  Login (){
+//		System.out.println("请输入用户名和密码");
+	}
+	
+	public UserInter login (String [][] arr ,String  str1 , String  str2
+			/*,UserData boss,UserData cooker,UserData doctor,UserData worker*/){
+		UserInter ui=null;
+		for (int i=0 ;i<arr.length;i++ ){
+			for (int j=0;j<arr[i].length;j++){
+				if (str1.equals(arr[i][1])&&str2.equals(arr[i][2])){
+					switch (arr[i][3]){
+					case  "Boss":
+						return  ui=new Boss();  
+					case "Cooker":
+						return ui= new Cooker();
+					case "Doctor":
+						return ui=new  Doctor();
+					case "Worker":
+						return ui=new Worker() ;
+					default:break;
+					}
+				}else System.out.println("用户名或密码错误");
+			}
+		}
+		return null;
+		
+	}
+	
+	
+	
+	
+
+}

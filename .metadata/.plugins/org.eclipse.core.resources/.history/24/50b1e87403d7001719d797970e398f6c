@@ -1,0 +1,49 @@
+package com.lanou3g.homework;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		UserData userData=new UserData();
+		Login login =new Login();
+		Scanner scanner=new Scanner(System.in);
+		Boss boss=new Boss();
+		Cooker cooker =new Cooker();
+		Doctor doctor =new Doctor();
+		Worker worker=new Worker();
+		DateFormat df = new  SimpleDateFormat("GG-yyyy-MM-dd  :hh:mm:ss");
+		String time= df.format(System.currentTimeMillis());
+		System.out.println("请输入用户名");
+		String  use=scanner.nextLine();
+		System.out.println("请输入密码");
+		String  password=scanner.nextLine();
+		UserInter fan=login.login(userData.date, use, password);
+		if (fan!=null){
+			System.out.println("当前用户名为"+use+"密码为"+use+"当前时间为"+time);
+		}
+		System.out.println("是否开始工作：1，是 2，否");
+		int  work=scanner.nextInt();
+		 if (work==1){
+			 fan.onLine();
+		 }else if (work==2){
+			 fan.onLine();
+		 }else {
+			System.out.println("请输入正确参数");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

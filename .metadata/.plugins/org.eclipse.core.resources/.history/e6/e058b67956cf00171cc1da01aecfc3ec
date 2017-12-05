@@ -1,0 +1,27 @@
+
+
+
+public class Hello {
+     public static void main(String[] args){
+    	 System.out.println("第二个java程序");
+    	 int age=18;
+    	 
+    	 
+    	 
+    	 
+    	 
+    	 //我是注释
+    	 
+    	 /*
+    	  * 
+    	  * 
+    	  * 我是多行注释
+    	  */
+    	 
+    	 
+    	 
+    	 /**我是文档注释
+    	  * 
+    	  */
+     }
+}
