@@ -1,3 +1,4 @@
+import javax.xml.bind.Element;
 import java.util.*;
 
 
@@ -35,6 +36,7 @@ public class Main {
         }
 
         Map m =new HashMap();
+        iterate(map);
         /*
         put方法，向map中添加信息
         括号中接收两个参数
@@ -58,10 +60,10 @@ public class Main {
             冒号后面接收的是一个集合
             也就是接收了一堆数据
              */
-            System.out.println(m.get(o).toString());
+//            System.out.println(m.get(o).toString());
 
         }
-        System.out.println("遍历map的第二种方式");
+//        System.out.println("遍历map的第二种方式");
         //获得m这个map中所有的键值对
 //        放进可这个set集合中
         Set set1 = m.entrySet();
@@ -75,7 +77,7 @@ public class Main {
 
         for (Object o : set1) {
             Map.Entry entry = (Map.Entry) o;
-            System.out.println("K的值为"+entry.getKey()+"-------value的值为"+entry.getValue());
+//            System.out.println("K的值为"+entry.getKey()+"-------value的值为"+entry.getValue());
 //            System.out.println(o.getClass().getName());
 //            System.out.println(entry.getClass().getName());
                      /*
@@ -84,9 +86,42 @@ public class Main {
                       */
 
 
+
+
+            }
+
+
+
+
         }
+    private static void iterate(Map map) {
+        //迭代器：Iterator
+
+        System.out.println("开始使用迭代器遍历map集合");
+
+        Iterator iterator =
+                map.entrySet().iterator();
 
 
+        while (iterator.hasNext()){
+            //如果有下一个，则返回true，进入到while循环
 
+
+            //获得的对象，是Object类型的
+            //父类的引用next，只能使用父类的方法
+            //无法使用子类独有的方法
+            Object next = iterator.next();
+
+            //所以要把next强转成子类
+            Map.Entry entry = (Map.Entry) next;
+
+            System.out.println(
+                    "key为："+entry.getKey()
+                            +"---value为："+entry.getValue());
+        }
     }
+
+
+
+
 }
