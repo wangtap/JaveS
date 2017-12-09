@@ -1,0 +1,1 @@
+package com.lanou3g.study;import com.lanou3g.study.syn.TicketDemo;public class Main4 {    public static void main(String[] args) {        /*        synchronized,        同步：如果你先开始，那等你干完了我再开始        异步：你干你的，我干我的         */        TicketDemo td =new TicketDemo();        /*        再这个线程中，调用td的方法时        我们说这个现象为线程进入了sellticket方法         */    }}
