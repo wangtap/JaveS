@@ -7,16 +7,16 @@ public class HomeWoke {
         Map map= new HashMap();
         map.put("wang","nan");
                 for(Object o:   map.keySet() ){
-            System.out.println("key的值为："+o+"value的值为:"+map.get(o).toString() );
+            System.out.println("key锟斤拷值为锟斤拷"+o+"value锟斤拷值为:"+map.get(o).toString() );
         }
         for(Object o:   map.values() ){
 
-            System.out.println("value的值为："+o);
+            System.out.println("value锟斤拷值为锟斤拷"+o);
         }
         for(Object o : map.entrySet()){
             Map.Entry entry = (Map.Entry) o;
-            System.out.println("key的值为："+entry.getKey()
-                    +"value的值为："+entry.getValue());
+            System.out.println("key锟斤拷值为锟斤拷"+entry.getKey()
+                    +"value锟斤拷值为锟斤拷"+entry.getValue());
 
         }
 
@@ -24,13 +24,10 @@ public class HomeWoke {
         Iterator iterator =map.entrySet().iterator();
 
         while (iterator.hasNext()){
-
-            Object next = iterator.next();
-             Map.Entry entry = (Map.Entry) next;
-
+                         Map.Entry entry = (Map.Entry)  iterator.next();
             System.out.println(
-                    "key为："+entry.getKey()
-                            +"value为："+entry.getValue());
+                    "key为锟斤拷"+entry.getKey()
+                            +"value为锟斤拷"+entry.getValue());
 
 
         }
