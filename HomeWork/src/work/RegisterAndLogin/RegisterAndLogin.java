@@ -9,7 +9,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.junit.Test;
-import work.tool.User;
+import work.bean.User;
 import work.tool.Validator;
 
 import java.io.FileWriter;

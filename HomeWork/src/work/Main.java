@@ -2,7 +2,7 @@ package work;
 
 import org.dom4j.DocumentException;
 import work.RegisterAndLogin.RegisterAndLogin;
-import work.tool.*;
+import work.bean.User;
 
 
 import java.io.IOException;
@@ -72,6 +72,7 @@ public class Main {
                                 String game = choose.nextLine();
                                 switch (game) {
                                     case "1": {
+
                                     }
                                     case "2": {
                                     }

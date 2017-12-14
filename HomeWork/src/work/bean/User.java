@@ -1,4 +1,4 @@
-package work.tool;
+package work.bean;
 
 public class User {
 
