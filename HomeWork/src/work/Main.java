@@ -1,7 +1,7 @@
 package work;
 
 import org.dom4j.DocumentException;
-import work.Weather.WeatherReportByCity;
+import work.RegisterAndLogin.RegisterAndLogin;
 import work.tool.*;
 
 
@@ -16,9 +16,6 @@ public class Main {
         boolean d=true;
         Scanner input = new Scanner(System.in);
         RegisterAndLogin registerAndLogin =new RegisterAndLogin();
-
-
-
             System.out.println("欢迎来到xxx系统\n1:注册  2:登入");
             String s = input.nextLine();
             switch (s) {
@@ -27,14 +24,12 @@ public class Main {
                     Scanner n = new Scanner(System.in);
                     String name = n.nextLine();
                     System.out.println("请输入你的用户名\n用户名只能是手机号或邮箱");
-
                     Scanner un = new Scanner(System.in);
                     String username = un.nextLine();
                     System.out.println("请输入你的密码\n密码要大于6位小于14位，一定要有大小写字母和数字");
                     Scanner pw = new Scanner(System.in);
                     String password = pw.nextLine();
                     User user = new User(name, username, password);
-
                     if (registerAndLogin.register(user) == true) {
                         System.out.println("注册成功\n昵称：" + name + "\n用户名：" + username);
                     }
@@ -84,7 +79,6 @@ public class Main {
                                     }
                                 }
                                 break;
-
                             }
                             case "4": {
                             }
