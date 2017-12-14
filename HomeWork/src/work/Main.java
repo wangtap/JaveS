@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import static work.Weather.WeatherReportByCity.GetTodayTemperatureByCity;
+import static work.phone.AddressReportByPhone.GetAddressReportByPhone;
 
 public class Main {
     public static void main(String[] args) throws IOException, DocumentException {
@@ -60,8 +61,11 @@ public class Main {
                            System.out.println("请输入需要查询的手机号");
                            Scanner i = new Scanner(System.in);
                            String phone = i.nextLine();
+                           System.out.println(phone+"的归属地为"+GetAddressReportByPhone(phone));
                        }
-                       case "3":{}
+                       case "3":{
+
+                       }
                        case "4":{}
                    }
 

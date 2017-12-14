@@ -12,7 +12,7 @@ import java.net.URLConnection;
 public class Weather {
     @Test
     public  void weatherForecast() throws IOException {
-        URL url =new URL("http://v.juhe.cn/weather/index?format=2&cityname=%E6%AD%A6%E6%B1%89&key=3c5c839d9f73f6217e504371e9611120");
+        URL url =new URL("http://api.k780.com/?app=phone.get&phone=13800138000&appkey=29836&sign=4fe58a60443a900a251f8b05763d4622&format=json");
         URLConnection conn =url.openConnection();
         InputStream is =conn.getInputStream();
         byte []buff=new byte[1024*1024*10];
