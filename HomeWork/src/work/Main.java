@@ -13,9 +13,10 @@ import static work.phone.AddressReportByPhone.GetAddressReportByPhone;
 
 public class Main {
     public static void main(String[] args) throws IOException, DocumentException {
+        boolean d=true;
         Scanner input = new Scanner(System.in);
         RegisterAndLogin registerAndLogin =new RegisterAndLogin();
-        while (true) {
+
 
 
             System.out.println("欢迎来到xxx系统\n1:注册  2:登入");
@@ -49,9 +50,10 @@ public class Main {
                     User user = new User(username, password);
                     String name = registerAndLogin.login(user);
                     if (name!= null) {
-                        System.out.println("登入成功\n欢迎" + name + "来到xxx系统" +
-                                "\n请输入你需要的服务\n1:查询天气2:查询手机号归属地" +
-                                "3:手速游戏4:查询手速游戏前十用户");
+                        System.out.println("登入成功\n欢迎" + name + "来到xxx系统" );
+                        while (d){
+                        System.out.println(("请输入你需要的服务\n1:查询天气2:查询手机号归属地" +
+                                "3:手速游戏4:查询手速游戏前十用户5:退出"));
                         Scanner s1 = new Scanner(System.in);
                         String skill = s1.nextLine();
                         switch (skill) {
@@ -87,6 +89,12 @@ public class Main {
                             case "4": {
                             }
                             break;
+                            case "5": {
+                                d=false;
+                                break;
+                            }
+                        }
+
                         }
 
 
@@ -99,5 +107,4 @@ public class Main {
             }
 
         }
-    }
-}
+   }

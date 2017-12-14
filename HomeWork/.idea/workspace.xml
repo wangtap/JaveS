@@ -44,8 +44,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/work/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+            <state relative-caret-position="353">
+              <caret line="109" column="3" lean-forward="false" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,8 +121,8 @@
       <file leaf-file-name="WeatherReportByCity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/work/Weather/WeatherReportByCity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="19" column="114" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="114" />
+            <state relative-caret-position="390">
+              <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
               <folding>
                 <element signature="e#1580#1581#0" expanded="true" />
                 <element signature="e#1647#1648#0" expanded="true" />
@@ -298,6 +298,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="work" type="462c0819:PsiDirectoryNode" />
               <item name="tool" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HomeWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HomeWork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+              <item name="Weather" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -551,7 +558,7 @@
       <workItem from="1513151022365" duration="7926000" />
       <workItem from="1513162344965" duration="8286000" />
       <workItem from="1513171368347" duration="3254000" />
-      <workItem from="1513213537366" duration="8802000" />
+      <workItem from="1513213537366" duration="9991000" />
     </task>
     <servers />
   </component>
@@ -588,7 +595,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28268000" />
+    <option name="totallyTimeSpent" value="29457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -1252,28 +1259,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/work/Weather/WeatherReportByCity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="19" column="114" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="114" />
-          <folding>
-            <element signature="e#1580#1581#0" expanded="true" />
-            <element signature="e#1647#1648#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/work/phone/AddressReportByPhone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="65" />
-          <folding>
-            <element signature="e#1339#1340#0" expanded="true" />
-            <element signature="e#1413#1414#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/0_JavaSE练习项目.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1354,10 +1339,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/work/phone/AddressReportByPhone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="65" />
+          <folding>
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1413#1414#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/work/Weather/WeatherReportByCity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+          <folding>
+            <element signature="e#1580#1581#0" expanded="true" />
+            <element signature="e#1647#1648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/work/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+        <state relative-caret-position="353">
+          <caret line="109" column="3" lean-forward="false" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
