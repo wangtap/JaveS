@@ -86,6 +86,7 @@ public class RegisterAndLogin {
         }
         public  String login (User u) throws DocumentException {
                 boolean b=false;
+                String name=null;
                 SAXReader saxReader =new SAXReader();
                 Document document = saxReader.read("src/out1.xml");
                 Element root = document.getRootElement();
@@ -93,28 +94,21 @@ public class RegisterAndLogin {
                 for (int i = 0; i < users.size(); i++) {
                         Element un = users.get(i).element("username");
                         Element pw = users.get(i).element("password");
-                        String username = un.getText();
-                        String password = pw.getText();
-                        if (username.equals(u.getUsername())){
+                        String username = un.getText().toString();
+                        String password = pw.getText().toString();
+                         if (username.equals(u.getUsername())){
                                 if(password.equals(u.getPassword())){
                                        b=true;
-                                       break;
-                                }else {
-                                        System.out.println("密码不匹配");
+                                   name = users.get(i).attributeValue("name");
+
                                 }
                         }
-                                else {
-                                        System.out.println("用户名不匹配");
-                                }
                 }
-
-
-              if (b==true){
-                        return u.getName();
-              }else return  null;
-
+               if (b==true){
+                        return name;
+              }else {
+                      System.out.println("用户名或密码错误");
+                      return  null;
+              }
         }
-
-
-
 }
