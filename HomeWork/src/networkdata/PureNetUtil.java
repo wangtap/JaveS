@@ -1,4 +1,4 @@
-package work.Weather;
+package networkdata;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

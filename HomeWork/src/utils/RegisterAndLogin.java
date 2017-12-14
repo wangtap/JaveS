@@ -1,4 +1,4 @@
-package work.RegisterAndLogin;
+package utils;
 
 
 import org.dom4j.Document;
@@ -9,8 +9,8 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.junit.Test;
-import work.bean.User;
-import work.tool.Validator;
+import bean.User;
+import tool.Validator;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -72,7 +72,7 @@ public class RegisterAndLogin {
                  }
                 if (a==true) {
                         Element user = root.addElement("user");
-                        user.addAttribute("name", u.getName());
+                        user.addAttribute("name", u.getNickname());
                         Element username = user.addElement("username");
                         username.addText(u.getUsername());
                         Element password = user.addElement("password");
