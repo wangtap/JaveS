@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/0_JavaSE练习项目.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Day09_Collection/src/com/lanou3g/Student.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/homework/1_list实现注册" charset="GBK" />
-    <file url="PROJECT" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Day12_XmlParse/src/com/lanou3g/study/Main.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

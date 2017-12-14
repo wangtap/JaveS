@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<users> 
+  <user name="w"> 
+    <username>t</username>  
+    <password>123</password> 
+  </user>  
+  <user name="w"> 
+    <username>q</username>  
+    <password>123</password> 
+  </user>  
+  <user name="wangtao"> 
+    <username>13027136665</username>  
+    <password>wt369369</password> 
+  </user>  
+  <user name="wangtao"> 
+    <username>646492193@qq.com</username>  
+    <password>wt369369</password> 
+  </user>  
+  <user name="fsdf"> 
+    <username>13879795810</username>  
+    <password>sdfsfs41554</password> 
+  </user>  
+  <user name="kfjskldjf">
+    <username>13027136666</username>
+    <password>fsdfsfs2452352</password>
+  </user>
+</users>

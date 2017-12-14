@@ -10,12 +10,9 @@ import java.net.URLConnection;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        /*
-        统一资源定位符 ，就是一个网址（绝对路径）
-         */
+//        统一资源定位符 ，就是一个网址（绝对路径）
         URL url =new URL("https://api.douban.com/v2/book/1220562");
         URLConnection conn =url.openConnection();
-
         //获得网络连接的流，从流中获得数据
         InputStream is =conn.getInputStream();
         byte []buff=new byte[1024*1024*10];
@@ -28,8 +25,5 @@ public class Main {
         JSONObject jsonObject=JSONObject.fromObject(result);
         Book book =(Book)JSONObject.toBean(jsonObject,Book.class);
         System.out.println("id为："+book.getId());
-
-
-
     }
 }
