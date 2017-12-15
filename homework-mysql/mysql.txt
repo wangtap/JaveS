@@ -1,0 +1,19 @@
+insert into student values(1,'zhangSan','man',13,90,61.25,40);
+insert into student values(2,'liSi','woman',13,92,71.50,48);
+insert into student values(3,'wangWu','man',14,60,66.50,57);
+insert into student values(4,'zhaoLiu','man',14,59,0.00,32);
+insert into student values(5,'zhouQi','woman',13,90,85.00,80);
+
+delete from student where (chinese+math+english)<180;
+
+alter table student modify name varchar(50);
+
+select avg(age) from student;
+
+alter table student drop age;
+
+select gender='woman' && (chinese+math+english)>240 or gender='man' && (chinese+math+english)>180  from student;
+
+alter table student rename to hw_stu;
+
+alter table hw_stu add(age int);
