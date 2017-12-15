@@ -201,11 +201,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="40" />
     <option name="y" value="23" />
     <option name="width" value="1240" />
-    <option name="height" value="777" />
+    <option name="height" value="1001" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -288,7 +288,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="public" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../whj1103/Day17_练习项目" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../g/whj1103" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -529,7 +529,7 @@
       <workItem from="1513213537366" duration="12713000" />
       <workItem from="1513250848897" duration="6258000" />
       <workItem from="1513300286871" duration="407000" />
-      <workItem from="1513317989441" duration="662000" />
+      <workItem from="1513317989441" duration="1416000" />
     </task>
     <servers />
   </component>
@@ -566,10 +566,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39506000" />
+    <option name="totallyTimeSpent" value="40260000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -730,6 +730,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
           <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -737,6 +738,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;field#REGEX_USERNAME#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_PASSWORD#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_MOBILE#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_UNICOM#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_TELECOM#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_PHONE_NUMBER#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_EMAIL#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINESE#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_ID_CARD#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_URL#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_IP_ADDR#0;class#Validator#0" expanded="false" />
+            <element signature="e#1847#1848#0" expanded="false" />
+            <element signature="e#1911#1912#0" expanded="false" />
+            <element signature="e#2679#2680#0" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2877#2878#0" expanded="false" />
+            <element signature="e#2931#2932#0" expanded="false" />
+            <element signature="e#3057#3058#0" expanded="false" />
+            <element signature="e#3118#3119#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -798,6 +820,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
           <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -805,6 +828,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;field#REGEX_USERNAME#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_PASSWORD#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_MOBILE#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_UNICOM#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_TELECOM#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_PHONE_NUMBER#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_EMAIL#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINESE#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_ID_CARD#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_URL#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_IP_ADDR#0;class#Validator#0" expanded="false" />
+            <element signature="e#1847#1848#0" expanded="false" />
+            <element signature="e#1911#1912#0" expanded="false" />
+            <element signature="e#2679#2680#0" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2877#2878#0" expanded="false" />
+            <element signature="e#2931#2932#0" expanded="false" />
+            <element signature="e#3057#3058#0" expanded="false" />
+            <element signature="e#3118#3119#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -841,6 +885,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1833">
           <caret line="67" column="36" lean-forward="false" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;field#REGEX_USERNAME#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_PASSWORD#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_MOBILE#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_UNICOM#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_TELECOM#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_PHONE_NUMBER#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_EMAIL#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINESE#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_ID_CARD#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_URL#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_IP_ADDR#0;class#Validator#0" expanded="false" />
+            <element signature="e#1847#1848#0" expanded="false" />
+            <element signature="e#1911#1912#0" expanded="false" />
+            <element signature="e#2679#2680#0" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2877#2878#0" expanded="false" />
+            <element signature="e#2931#2932#0" expanded="false" />
+            <element signature="e#3057#3058#0" expanded="false" />
+            <element signature="e#3118#3119#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -848,6 +913,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
           <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -877,6 +943,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -884,6 +951,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="2886" column="17" lean-forward="true" selection-start-line="2886" selection-start-column="17" selection-end-line="2886" selection-end-column="17" />
+          <folding>
+            <element signature="e#113343#113344#0" expanded="false" />
+            <element signature="e#113370#113371#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -907,6 +978,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding>
+            <element signature="docComment;field#REGEX_USERNAME#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_PASSWORD#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_MOBILE#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_UNICOM#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINA_TELECOM#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_PHONE_NUMBER#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_EMAIL#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_CHINESE#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_ID_CARD#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_URL#0;class#Validator#0" expanded="false" />
+            <element signature="docComment;field#REGEX_IP_ADDR#0;class#Validator#0" expanded="false" />
+            <element signature="e#1847#1848#0" expanded="false" />
+            <element signature="e#1911#1912#0" expanded="false" />
+            <element signature="e#2679#2680#0" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2877#2878#0" expanded="false" />
+            <element signature="e#2931#2932#0" expanded="false" />
+            <element signature="e#3057#3058#0" expanded="false" />
+            <element signature="e#3118#3119#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
