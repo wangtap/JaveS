@@ -17,3 +17,9 @@ select gender='woman' && (chinese+math+english)>240 or gender='man' && (chinese+
 alter table student rename to hw_stu;
 
 alter table hw_stu add(age int);
+
+select id from hw_stu where chinese>math order by chinese asc,math desc;
+
+update hw_stu set math=80 where english between 40 and 60 && gender='man' ;
+
+select * from  hw_stu where  (chinese+mach+english)/3 as 'Æ½¾ù·Ö'   ; 
