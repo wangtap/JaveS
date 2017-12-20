@@ -14,10 +14,11 @@ import tool.Validator;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.*;
 import java.util.List;
 
 public class RegisterAndLogin {
-
+        private String username=null;
         public void newXML() throws IOException {
                 OutputFormat outputFormat = getOutputFormat();
         XMLWriter xmlWriter =new XMLWriter(new FileWriter("src/out1.xml"),outputFormat);
@@ -45,6 +46,45 @@ public class RegisterAndLogin {
 //                System.out.println(register(user));
 
         }
+//        public boolean register(User u) throws DocumentException, IOException {
+//                boolean a=true;
+//                SAXReader saxReader =new SAXReader();
+//                Document document = saxReader.read("src/out1.xml");
+//                Element root = document.getRootElement();
+//                List<Element> users = root.elements();
+//                for (int i = 0; i < users.size(); i++) {
+//                        Element un = users.get(i).element("username");
+////                        Element pw = users.get(i).element("password");
+//                        String   username= un.getText();
+////                        String password = pw.getText();
+//                        if (username.equals(u.getUsername())){
+//                                System.out.println("用户名重复");
+//                                a=false;
+//                                break;
+//                        }
+//                }
+//                if(!(Validator.isMobile(u.getUsername())^Validator.isEmail(u.getUsername()))){
+//                        System.out.println("用户名只能是手机号或邮箱");
+//                        a=false;
+//                }
+//                if (Validator.isPassword(u.getPassword())==false){
+//                        System.out.println("密码要大于6位小于14位，一定要有大小写字母和数字");
+//                        a=false;
+//                 }
+//                if (a==true) {
+//                        Element user = root.addElement("user");
+//                        user.addAttribute("name", u.getNickname());
+//                        Element username = user.addElement("username");
+//                        username.addText(u.getUsername());
+//                        Element password = user.addElement("password");
+//                        password.addText(u.getPassword());
+//                        OutputFormat outputFormat = getOutputFormat();
+//                        XMLWriter xmlWriter = new XMLWriter(new FileWriter("src/out1.xml"), outputFormat);
+//                        xmlWriter.write(document);
+//                        xmlWriter.close();
+//                }
+//                return a;
+//        }
         public boolean register(User u) throws DocumentException, IOException {
                 boolean a=true;
                 SAXReader saxReader =new SAXReader();
@@ -71,44 +111,183 @@ public class RegisterAndLogin {
                         a=false;
                  }
                 if (a==true) {
-                        Element user = root.addElement("user");
-                        user.addAttribute("name", u.getNickname());
-                        Element username = user.addElement("username");
-                        username.addText(u.getUsername());
-                        Element password = user.addElement("password");
-                        password.addText(u.getPassword());
-                        OutputFormat outputFormat = getOutputFormat();
-                        XMLWriter xmlWriter = new XMLWriter(new FileWriter("src/out1.xml"), outputFormat);
-                        xmlWriter.write(document);
-                        xmlWriter.close();
+                        JDBCUtil.execute(new ExecuteInter() {
+                                @Override
+                                public Statement execute1(Connection coon)  throws  SQLException{
+                                        System.out.println(u.getPassword());
+                                        String username = u.getUsername();
+                                        String nickname = u.getNickname();
+                                        String password = u.getPassword();
+
+
+//                                        String sql ="INSERT INTO  users(username,nickname,password) VALUES  ("+u.getUsername()+","  +u.getNickname()+","+u.getPassword()+")";
+                                       String sql ="INSERT INTO  users VALUES (NULL ,?,?,?)";
+                                        PreparedStatement pstate = coon.prepareStatement(sql);
+                                        pstate.setString(1,username);
+                                        pstate.setString(2,nickname);
+                                        pstate.setString(3,password);
+                                         pstate.executeUpdate();
+                                        return  pstate;
+//                        JDBCUtil.execute(coon -> {
+//                                try {
+//                                        String username = u.getUsername();
+//                                        String nickname = u.getNickname();
+//                                        String password = u.getPassword();
+//                                        PreparedStatement pstate = coon.prepareStatement(
+//                                              "INSERT INTO  users VALUES (NULL ,?,?,?)");
+//                                        pstate.setString(1,username);
+//                                        pstate.setString(2,nickname);
+//                                        pstate.setString(3,password);
+//
+//
+//
+//                                        int i = pstate.executeUpdate();
+//
+//                                        return  pstate;
+//                                } catch (SQLException e) {
+//                                        e.printStackTrace();
+//                                }
+//                                return null;
+//                        });
+
+
+                                }
+                        });
                 }
                 return a;
         }
-        public  String login (User u) throws DocumentException {
-                boolean b=false;
-                String name=null;
-                SAXReader saxReader =new SAXReader();
-                Document document = saxReader.read("src/out1.xml");
-                Element root = document.getRootElement();
-                List<Element> users = root.elements();
-                for (int i = 0; i < users.size(); i++) {
-                        Element un = users.get(i).element("username");
-                        Element pw = users.get(i).element("password");
-                        String username = un.getText().toString();
-                        String password = pw.getText().toString();
-                         if (username.equals(u.getUsername())){
-                                if(password.equals(u.getPassword())){
-                                       b=true;
-                                   name = users.get(i).attributeValue("name");
 
-                                }
-                        }
-                }
-               if (b==true){
-                        return name;
-              }else {
-                      System.out.println("用户名或密码错误");
-                      return  null;
-              }
+//        public  String login (User u) throws DocumentException {
+//                boolean b=false;
+//                String name=null;
+//                SAXReader saxReader =new SAXReader();
+//                Document document = saxReader.read("src/out1.xml");
+//                Element root = document.getRootElement();
+//                List<Element> users = root.elements();
+//                for (int i = 0; i < users.size(); i++) {
+//                        Element un = users.get(i).element("username");
+//                        Element pw = users.get(i).element("password");
+//                        String username = un.getText().toString();
+//                        String password = pw.getText().toString();
+//                         if (username.equals(u.getUsername())){
+//                                if(password.equals(u.getPassword())){
+//                                       b=true;
+//                                   name = users.get(i).attributeValue("name");
+//
+//                                }
+//                        }
+//                }
+//               if (b==true){
+//                        return name;
+//              }else {
+//                      System.out.println("用户名或密码错误");
+//                      return  null;
+//              }
+//        }
+              public  String login (User u) throws DocumentException {
+
+
+                      JDBCUtil.execute(new ExecuteInter() {
+
+
+                              @Override
+                              public Statement execute1(Connection coon)  throws  SQLException{
+
+                                      String username1 = u.getUsername();
+                                      String password = u.getPassword();
+
+
+                                      String sql ="SELECT  username FROM  users WHERE username=? AND password=?";
+                                      PreparedStatement pstate = coon.prepareStatement(sql);
+                                      pstate.setString(1,username1);
+                                      pstate.setString(2,password);
+
+
+                                      ResultSet resultSet = pstate.executeQuery();
+                                      if (resultSet.next()){
+                                      username = resultSet.getString(1);}
+
+
+                                      return  pstate;
+                              }
+                      });
+                      return username;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//                boolean b=false;
+//                String name=null;
+//                SAXReader saxReader =new SAXReader();
+//                Document document = saxReader.read("src/out1.xml");
+//                Element root = document.getRootElement();
+//                List<Element> users = root.elements();
+//                for (int i = 0; i < users.size(); i++) {
+//                        Element un = users.get(i).element("username");
+//                        Element pw = users.get(i).element("password");
+//                        String username = un.getText().toString();
+//                        String password = pw.getText().toString();
+//                         if (username.equals(u.getUsername())){
+//                                if(password.equals(u.getPassword())){
+//                                       b=true;
+//                                   name = users.get(i).attributeValue("name");
+//
+//                                }
+//                        }
+//                }
+//               if (b==true){
+//                        return name;
+//              }else {
+//                      System.out.println("用户名或密码错误");
+//                      return  null;
+//              }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

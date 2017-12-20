@@ -27,5 +27,7 @@
     <orderEntry type="library" name="xmlpull_1_0_5" level="project" />
     <orderEntry type="library" name="xpp3_min-1.1.4c" level="project" />
     <orderEntry type="library" name="xstream-1.4.7" level="project" />
+    <orderEntry type="library" name="commons-dbutils-1.6" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.18-bin" level="project" />
   </component>
 </module>
