@@ -15,12 +15,6 @@ public class Main7 {
      */
     public static void main(String[] args) {
         JDBCTool.execute(coon -> {
-
-            /*
-
-             */
-
-
             PreparedStatement pstate=null;
             try {
                 coon.setAutoCommit(false);

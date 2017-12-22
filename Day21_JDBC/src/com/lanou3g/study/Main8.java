@@ -13,7 +13,6 @@ public class Main8 {
     public static void main(String[] args) throws SQLException {
 
 //        /Util是apache公司给我们提供的一个工具类
-
 //                /行翻译为，询问执行者
         QueryRunner qr=new QueryRunner();
         String sql="select * from hw_user";
@@ -24,7 +23,6 @@ public class Main8 {
                     public List<User> handle(ResultSet resultSet) throws SQLException {
                         //TODO 把resultset中的数
                         //封装到一个对象中
-
                         List<User> users=new ArrayList<>();
                         while (resultSet.next()){
                             User user=new User();
@@ -32,15 +30,11 @@ public class Main8 {
                             user.setUname(resultSet.getString(2));
                             user.setAge(resultSet.getInt(3));
                             user.setLoc(resultSet.getString(4));
-
                             users.add(user);
-
                         }
-
                         return users;
                     }
                 });
-
         System.out.println(query.toString());
 
     }

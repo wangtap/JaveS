@@ -1,4 +1,4 @@
-package utils;
+package utils.JDBC;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

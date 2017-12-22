@@ -45,7 +45,6 @@ public class Main4 {
         JDBCTool.execute(new ExecuteInter() {
            @Override
            public Statement execute1(Connection coon)  throws  SQLException{
-
                    Statement statement = coon.createStatement();
                    String sql ="select*from hw_user";
                    ResultSet rs = statement.executeQuery(sql);

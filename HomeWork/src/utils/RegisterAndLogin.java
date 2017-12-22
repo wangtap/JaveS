@@ -11,10 +11,14 @@ import org.dom4j.io.XMLWriter;
 import org.junit.Test;
 import bean.User;
 import tool.Validator;
+import utils.JDBC.ExecuteInter;
+import utils.JDBC.InsertDeleteUpdateQuery;
+import utils.JDBC.JDBCUtil;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterAndLogin {
@@ -111,48 +115,33 @@ public class RegisterAndLogin {
                         a=false;
                  }
                 if (a==true) {
-                        JDBCUtil.execute(new ExecuteInter() {
-                                @Override
-                                public Statement execute1(Connection coon)  throws  SQLException{
-                                        System.out.println(u.getPassword());
-                                        String username = u.getUsername();
-                                        String nickname = u.getNickname();
-                                        String password = u.getPassword();
+                        InsertDeleteUpdateQuery IDUP = new InsertDeleteUpdateQuery();
+                        String sql ="INSERT INTO  users VALUES (NULL ,?,?,?)";
+                        List<Object> params = new ArrayList<Object>();
+                        params.add(u.getUsername());
+                        params.add(u.getNickname());
+                        params.add(u.getPassword());
+                        boolean flag = false;
+                        try {
+                                flag = IDUP.updateByPreparedStatement(sql, params);
+                        } catch (SQLException e) {
+                                e.printStackTrace();
+                        }
+                        System.out.println(flag);
 
-
-//                                        String sql ="INSERT INTO  users(username,nickname,password) VALUES  ("+u.getUsername()+","  +u.getNickname()+","+u.getPassword()+")";
-                                       String sql ="INSERT INTO  users VALUES (NULL ,?,?,?)";
-                                        PreparedStatement pstate = coon.prepareStatement(sql);
-                                        pstate.setString(1,username);
-                                        pstate.setString(2,nickname);
-                                        pstate.setString(3,password);
-                                         pstate.executeUpdate();
-                                        return  pstate;
-//                        JDBCUtil.execute(coon -> {
-//                                try {
-//                                        String username = u.getUsername();
-//                                        String nickname = u.getNickname();
-//                                        String password = u.getPassword();
-//                                        PreparedStatement pstate = coon.prepareStatement(
-//                                              "INSERT INTO  users VALUES (NULL ,?,?,?)");
-//                                        pstate.setString(1,username);
-//                                        pstate.setString(2,nickname);
-//                                        pstate.setString(3,password);
+//                        JDBCUtil.execute(new ExecuteInter() {
+//                                @Override
+//                                public Statement execute1(Connection coon)  throws  SQLException{
+//                                       String sql ="INSERT INTO  users VALUES (NULL ,?,?,?)";
+//                                        PreparedStatement pstate = coon.prepareStatement(sql);
 //
-//
-//
-//                                        int i = pstate.executeUpdate();
-//
+//                                        pstate.setString(1,u.getUsername());
+//                                        pstate.setString(2,u.getNickname());
+//                                        pstate.setString(3,u.getPassword());
+//                                         pstate.executeUpdate();
 //                                        return  pstate;
-//                                } catch (SQLException e) {
-//                                        e.printStackTrace();
 //                                }
-//                                return null;
 //                        });
-
-
-                                }
-                        });
                 }
                 return a;
         }
@@ -185,52 +174,22 @@ public class RegisterAndLogin {
 //              }
 //        }
               public  String login (User u) throws DocumentException {
-
-
                       JDBCUtil.execute(new ExecuteInter() {
-
-
                               @Override
                               public Statement execute1(Connection coon)  throws  SQLException{
-
                                       String username1 = u.getUsername();
                                       String password = u.getPassword();
-
-
-                                      String sql ="SELECT  username FROM  users WHERE username=? AND password=?";
+                                      String sql ="SELECT  nickname FROM  users WHERE username=? AND password=?";
                                       PreparedStatement pstate = coon.prepareStatement(sql);
                                       pstate.setString(1,username1);
                                       pstate.setString(2,password);
-
-
                                       ResultSet resultSet = pstate.executeQuery();
                                       if (resultSet.next()){
                                       username = resultSet.getString(1);}
-
-
                                       return  pstate;
                               }
                       });
                       return username;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //                boolean b=false;
@@ -259,35 +218,6 @@ public class RegisterAndLogin {
 //                      return  null;
 //              }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
