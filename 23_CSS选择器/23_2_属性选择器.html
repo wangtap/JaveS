@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+    <style type="text/css">
+        [name]{
+            /*选择所有，被赋予name属性的标签*/
+            color: #ff0000;
+            /*
+           #FFF:白
+           #000：黑
+           #ff0000：红
+           #00ff00:绿
+           #0000ff:蓝
+             */
+        }
+        [name='username']{
+            /*选中name属性为username的元素*/
+            color: green;
+        }
+        /*
+        选择器优先级总结
+        范围小的 优先级高
+        范围相同，就近原则（先写的被后写的覆盖）
+        对于组合选择器：
+        div>ul>li span ,div>table>tr span
+        权值：用来区分优先级 的
+        行内：1000
+        id选择器：100
+        类选择器：10
+        标签选择器：1
+        */
+    </style>
+</head>
+<body>
+
+给了username
+<input type="text" name="username">
+<br>
+没给name属性的
+<input type="text">
+<br>
+给了password
+<input type="text" name="password">
+</body>
+</html>

@@ -39,17 +39,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="RegisterAndLogin.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RegisterAndLogin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/RegisterAndLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="897">
+            <state relative-caret-position="39">
               <caret line="113" column="45" lean-forward="false" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#newXML#0;class#RegisterAndLogin#0" expanded="false" />
                 <element signature="method#getOutputFormat#0;class#RegisterAndLogin#0" expanded="false" />
                 <element signature="method#text#0;class#RegisterAndLogin#0" expanded="false" />
-                <element signature="e#5469#5477#0" expanded="true" />
                 <element signature="method#execute1#0;class#8279:9250" expanded="false" />
                 <marker date="1513866182784" expanded="true" signature="8630:8658" ph="SELECT usern... users" />
                 <marker date="1513866182784" expanded="true" signature="8630:8690" ph="SELECT usern... users" />
@@ -58,16 +57,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InsertDeleteUpdateQuery.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="InsertDeleteUpdateQuery.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utils/JDBC/InsertDeleteUpdateQuery.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+            <state relative-caret-position="606">
+              <caret line="51" column="20" lean-forward="false" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Insert#0;class#InsertDeleteUpdateQuery#0" expanded="false" />
                 <element signature="class#444:951" expanded="false" />
-                <element signature="method#updateByPreparedStatement#0;class#InsertDeleteUpdateQuery#0" expanded="false" />
-                <marker date="1513864575378" expanded="true" signature="590:621" ph="INSERT INTO ?" />
+                <marker date="1513905665821" expanded="true" signature="590:621" ph="INSERT INTO ?" />
               </folding>
             </state>
           </provider>
@@ -76,8 +75,8 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/JDBC/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="12" column="64" lean-forward="true" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+            <state relative-caret-position="195">
+              <caret line="12" column="64" lean-forward="false" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,7 +87,7 @@
       <file leaf-file-name="QueryRunner.class" pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/libs/commons-dbutils-1.6.jar!/org/apache/commons/dbutils/QueryRunner.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
+            <state relative-caret-position="3237">
               <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
               <folding />
             </state>
@@ -98,8 +97,8 @@
       <file leaf-file-name="WhQueryRunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/JDBC/WhQueryRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-78">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="195">
+              <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -214,10 +213,11 @@
         <option value="$PROJECT_DIR$/src/utils/JDBC/JDBCUtil.java" />
         <option value="$PROJECT_DIR$/src/utils/JDBC/ExecuteInter.java" />
         <option value="$PROJECT_DIR$/src/jdbc.properties" />
-        <option value="$PROJECT_DIR$/src/utils/JDBC/InsertDeleteUpdateQuery.java" />
         <option value="$PROJECT_DIR$/libs/commons-dbutils-1.6.jar!/org/apache/commons/dbutils/QueryRunner.class" />
         <option value="$PROJECT_DIR$/src/utils/JDBC/Test.java" />
         <option value="$PROJECT_DIR$/src/utils/RegisterAndLogin.java" />
+        <option value="$PROJECT_DIR$/src/utils/JDBC/WhQueryRunner.java" />
+        <option value="$PROJECT_DIR$/src/utils/JDBC/InsertDeleteUpdateQuery.java" />
       </list>
     </option>
   </component>
@@ -235,8 +235,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="774" />
-    <option name="y" value="96" />
+    <option name="x" value="40" />
+    <option name="y" value="23" />
     <option name="width" value="1240" />
     <option name="height" value="777" />
   </component>
@@ -292,7 +292,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -318,10 +317,18 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="HomeWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HomeWork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="JDBC" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -585,6 +592,7 @@
       <workItem from="1513783476439" duration="490000" />
       <workItem from="1513854567897" duration="541000" />
       <workItem from="1513855705492" duration="8641000" />
+      <workItem from="1513904691741" duration="1322000" />
     </task>
     <servers />
   </component>
@@ -621,7 +629,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60225000" />
+    <option name="totallyTimeSpent" value="61547000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -634,31 +642,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32317737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19420601" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19688842" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32317737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -738,7 +745,6 @@
             <element signature="method#newXML#0;class#RegisterAndLogin#0" expanded="false" />
             <element signature="method#getOutputFormat#0;class#RegisterAndLogin#0" expanded="false" />
             <element signature="method#text#0;class#RegisterAndLogin#0" expanded="false" />
-            <element signature="e#5469#5477#0" expanded="true" />
             <element signature="method#execute1#0;class#8279:9250" expanded="false" />
             <marker date="1513866182784" expanded="true" signature="8630:8658" ph="SELECT usern... users" />
             <marker date="1513866182784" expanded="true" signature="8630:8690" ph="SELECT usern... users" />
@@ -750,10 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
-          <folding>
-            <element signature="method#initGame#0;class#Main#0" expanded="false" />
-            <element signature="method#startGame#0;class#Main#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -839,7 +841,6 @@
             <element signature="method#newXML#0;class#RegisterAndLogin#0" expanded="false" />
             <element signature="method#getOutputFormat#0;class#RegisterAndLogin#0" expanded="false" />
             <element signature="method#text#0;class#RegisterAndLogin#0" expanded="false" />
-            <element signature="e#5469#5477#0" expanded="true" />
             <element signature="method#execute1#0;class#8279:9250" expanded="false" />
             <marker date="1513866182784" expanded="true" signature="8630:8658" ph="SELECT usern... users" />
             <marker date="1513866182784" expanded="true" signature="8630:8690" ph="SELECT usern... users" />
@@ -860,10 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="2886" column="17" lean-forward="true" selection-start-line="2886" selection-start-column="17" selection-end-line="2886" selection-end-column="17" />
-          <folding>
-            <element signature="e#113343#113344#0" expanded="false" />
-            <element signature="e#113370#113371#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -931,7 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -947,7 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -962,10 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="55" column="47" lean-forward="false" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
-          <folding>
-            <element signature="method#initGame#0;class#Main#0" expanded="false" />
-            <element signature="method#startGame#0;class#Main#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -973,9 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -995,17 +983,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/JDBC/WhQueryRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/commons-dbutils-1.6.jar!/org/apache/commons/dbutils/QueryRunner.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="3237">
           <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding />
         </state>
@@ -1026,26 +1006,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/JDBC/InsertDeleteUpdateQuery.java">
+    <entry file="file://$PROJECT_DIR$/src/utils/JDBC/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+        <state relative-caret-position="195">
+          <caret line="12" column="64" lean-forward="false" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#444:951" expanded="false" />
-            <element signature="method#updateByPreparedStatement#0;class#InsertDeleteUpdateQuery#0" expanded="false" />
-            <marker date="1513864575378" expanded="true" signature="590:621" ph="INSERT INTO ?" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/JDBC/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/utils/RegisterAndLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="12" column="64" lean-forward="true" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+        <state relative-caret-position="39">
+          <caret line="113" column="45" lean-forward="false" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#newXML#0;class#RegisterAndLogin#0" expanded="false" />
+            <element signature="method#getOutputFormat#0;class#RegisterAndLogin#0" expanded="false" />
+            <element signature="method#text#0;class#RegisterAndLogin#0" expanded="false" />
+            <element signature="method#execute1#0;class#8279:9250" expanded="false" />
+            <marker date="1513866182784" expanded="true" signature="8630:8658" ph="SELECT usern... users" />
+            <marker date="1513866182784" expanded="true" signature="8630:8690" ph="SELECT usern... users" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/JDBC/WhQueryRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,19 +1053,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/RegisterAndLogin.java">
+    <entry file="file://$PROJECT_DIR$/src/utils/JDBC/InsertDeleteUpdateQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="113" column="45" lean-forward="false" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
+        <state relative-caret-position="606">
+          <caret line="51" column="20" lean-forward="false" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#newXML#0;class#RegisterAndLogin#0" expanded="false" />
-            <element signature="method#getOutputFormat#0;class#RegisterAndLogin#0" expanded="false" />
-            <element signature="method#text#0;class#RegisterAndLogin#0" expanded="false" />
-            <element signature="e#5469#5477#0" expanded="true" />
-            <element signature="method#execute1#0;class#8279:9250" expanded="false" />
-            <marker date="1513866182784" expanded="true" signature="8630:8658" ph="SELECT usern... users" />
-            <marker date="1513866182784" expanded="true" signature="8630:8690" ph="SELECT usern... users" />
+            <element signature="method#Insert#0;class#InsertDeleteUpdateQuery#0" expanded="false" />
+            <element signature="class#444:951" expanded="false" />
+            <marker date="1513905665821" expanded="true" signature="590:621" ph="INSERT INTO ?" />
           </folding>
         </state>
       </provider>

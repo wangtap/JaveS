@@ -36,16 +36,21 @@ public class InsertDeleteUpdateQuery {
 
         JDBCUtil.execute(new ExecuteInter() {
             @Override
-            public Statement execute1(Connection coon) throws SQLException {
+            public Statement execute1(Connection coon)  {
                 int index = 1;
                 int result = -1;
-                PreparedStatement pstate = coon.prepareStatement(sql);
-                if (params != null && !params.isEmpty()) {
-                    for (int i = 0; i < params.size(); i++) {
-                        pstate.setObject(index++, params.get(i));
+                PreparedStatement pstate = null;
+                try {
+                    pstate = coon.prepareStatement(sql);
+                    if (params != null && !params.isEmpty()) {
+                        for (int i = 0; i < params.size(); i++) {
+                            pstate.setObject(index++, params.get(i));
+                        }
                     }
+                    result = pstate.executeUpdate();
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
-                result = pstate.executeUpdate();
                 flag = result > 0 ? true : false;
                 return pstate;
             }
@@ -53,12 +58,17 @@ public class InsertDeleteUpdateQuery {
                       return flag;
     }
 
-    public  <T> Object query(String sql,ResultSetHandler t) throws SQLException {
-        Object query = new WhQueryRunner().query(
-                JDBCUtil.init(),
-                sql,
-                t
-        );
+    public  <T> Object query(String sql,ResultSetHandler t)  {
+        Object query = null;
+        try {
+            query = new WhQueryRunner().query(
+                    JDBCUtil.init(),
+                    sql,
+                    t
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return  query;
     }
 }

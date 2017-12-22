@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS各种选择器</title>
+    <style type="text/css">
+        #zhangSan  .big{
+            /*
+            在id选择器找到的那个标签中，所有的class属性为big的
+            后代标签都会被选择器赋予样式
+            后代 选择器
+            */
+            font-size: 40px;
+            color: red;
+        }
+        #zhangSan>span{
+            /*
+            这是子代选择器
+            会选择id为zhangSan的标签得到子标签
+            大于号后面是一个标签选择器
+            也就是说会选择span子标签
+             */
+            font-size: 10px;
+            color: yellow;
+        }
+        /**{*/
+            /*!**/
+            /*通用选择器所有的标签都会被选择优先级低*/
+            /**!*/
+            /*line-height: 80px;*/
+            /*word-spacing: 40px;*/
+            /*background-color: green;*/
+
+        /*}*/
+        /*
+        子标签会继承父标签 的样式只不过优先级很低
+
+        选择器的优先级，与我们书写的顺序有关
+        临近原则
+        离标签近的先加载
+         */
+        .small,.middle,#lisi{
+            /*组合选择器*/
+            font-family: "Adobe Ming Std L";
+        }
+
+        #zhangSan~.show{
+            /*
+            在张三下面  的所有的div
+            都会被选择并赋予样式
+
+            前提是div与zhangSan拥有同一个标签
+             */
+            background-color: #6269ef;
+        }
+        #zhangSan+div{
+            /*
+            紧跟着id为zhangSan的标签后面 的div标签
+            会被选择并赋予样式
+             */
+            background-color: #efcac8;
+        }
+        /*
+        子标签会继承父标签
+         */
+
+    </style>
+</head>
+<body>
+<div id ="zhangSan">
+    我是div的文本内容
+    <h1>  我是一级标签的文本内容<span class="big">我不是</span>   </h1>
+    <p  class="big">w我是一个段落</p>
+    <span>我是div的子标签</span>
+    <p><span>        我是div子标签p的子标签span  how are you  </span></p>
+</div>
+
+<div class="show">
+
+    <p id="lisi" >whatever ? who care"</p>
+    <q class="small"> small</q>
+    <span class="middle">sfds</span>
+
+</div>
+
+<div>
+    我不是紧跟着zhangSan的div
+</div>
+</body>
+</html>

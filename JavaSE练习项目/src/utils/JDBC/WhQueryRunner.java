@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class WhQueryRunner extends QueryRunner {
+    
     @Override
     public <T> T query(Connection conn, String sql, ResultSetHandler<T> rsh) throws SQLException {
         //开启事务
