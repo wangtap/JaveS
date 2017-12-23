@@ -23,7 +23,7 @@ public class Main4 {
         第二步调用e的execute的方法。将连接传入
         这里就会回来执行这个匿名实现类
         在这个方法中我们获得state，执行sql语句
-        并且将stste作为返回值返回
+        并且将sta·te作为返回值返回
         三，将e.execute1（）得到的返回值关闭
         四 关闭连接
 
