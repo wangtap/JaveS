@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数Funnction</title>
+    <script type="text/javascript">
+//        声明一个function名字叫helloFunction
+//但是并不会执行，只有调用了才会执行
+          function helloFunction() {
+              console.log("hello is function")
+          }
+//          helloFunction();
+//对于带参数的函数，如果在调用时。传递的参数数量少于
+// 参数列表中参数的总数那么，未被赋值的形参的值为undefined
+// 如果在调用时，传递的参数数量大于参数列表中参数的总数，
+// 那么多余的参数不会进入函数体中，不会有影响
+        function paramFunction(name,age) {
+            console.log(name);
+            console.log(age);
+            console.log(sex);
+        }
+        function resultFunc(a,b) {
+            return a+b;
+        }
+        function cf(a,b) {
+            console.log(a+'*'+b+'='+a*b)
+        }
+        function biao() {
+            for (var i = 1; i <=9; i++) {
+                for (var j = 1; j <=9; j++) {
+                   console.log(i+'*'+j+'='+i*j)
+                }
+            }
+          }
+function show(n) {
+    var content = "";
+    for (var i = 1; i <= n; i++) {
+        content = content + i + "*" + n + "=" + (i * n) + "\t";
+    }
+    console.log(content);
+    if (n != 9) {
+        show(n + 1);
+    }
+}
+//show(1);
+//biao();
+//        我们定义的函数，都给了window，也就是说我们定义的成员变量，
+// 成员方法都变成了window的属性，方法
+        var name='张三';
+    </script>
+</head>
+<body>
+<button onclick="helloFunction()">请点击</button>
+<br>
+<button onclick="paramFunction('张三',19,'男')">paramFunction</button>
+<button onclick="window.alert(
+    resultFunc(
+    10,
+resultFunc(20,
+resultFunc(30,40,50)
+)));  ">点我看结果</button>
+
+<button onclick="console.log(biao()
+)">乘法表</button>
+</body>
+</html>

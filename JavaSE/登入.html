@@ -28,7 +28,7 @@
         .a{width:100%;
             height:100%;
             position: absolute;
-            background-color: #8fbb98}
+            background-color: #FFFDFC}
 
         h1{
             position: relative;
@@ -105,29 +105,70 @@
 <div class="a">
     <div class="b1">
     <img id="1" src="456.png" >
-
+        <span id="2"  style="float: right ;width: 500px ; font-size: 30px"  ></span>
     </div>
     <div class="b2">
         <div class="c1" ><h1  align="center">网易云登入</h1> </div>
         <div class="c2">
             <div class="c22">
             <div class="t1"></div>
-            <input placeholder="手机或邮箱" type="text" id="username" name="username">
+            <input placeholder="手机或邮箱" type="text" id="username" name="username" onfocus="fou(this)" onblur="lev(this)">
             </div>
         </div>
-        <div class="c3">
+        <div class="c3" >
             <div class="c33">
             <div class="t2"></div>
-            <input placeholder="密码" type="text" id="password" name="password">
+            <input placeholder="密码" type="text" id="password" name="password" onfocus="fou(this)" onblur="lev(this)">
             </div>
         </div>
-        <div class="c4">  <input  type="submit" id="region" value="登入"></div>
+        <div class="c4">  <input  type="submit" id="region" value="登入" ></div>
         <div class="c5">
             <a href=""   class="forget">忘记密码</a>
             <a href="注册.html"  class="goLogin">去注册</a>
         </div>
     </div>
-
 </div>
 </body>
+<script type="text/javascript">
+    function fou(ele) {
+        ele.style.fontSize="30px";
+        ele.style.borderColor="red";
+    }
+    function lev(ele) {
+        ele.style.fontSize="22px";
+        ele.style.borderColor="#A9A9A9";
+    }
+    function CurentTime()
+    {
+        var now = new Date();
+        var year = now.getFullYear();       //年
+        var month = now.getMonth() + 1;     //月
+        var day = now.getDate();            //日
+        var hh = now.getHours();            //时
+        var mm = now.getMinutes();          //分
+        var seconds = now.getSeconds();
+        var clock = year + "-";
+        if(month < 10)
+            clock += "0";
+        clock += month + "-";
+        if(day < 10)
+            clock += "0";
+        clock += day + " ";
+        if(hh < 10)
+            clock += "0";
+        clock += hh + ":";
+        if (mm < 10) clock += '0';
+        clock += mm+":";
+        if(seconds<10)clock+='0';
+        clock+=seconds;
+        return(clock);
+    }
+    function t() {
+        var id = document.getElementById("2");
+        setInterval(function () {
+            id.innerText=CurentTime();
+        },1000)
+    }
+    t();
+</script>
 </html>

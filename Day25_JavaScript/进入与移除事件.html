@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进入与移除事件</title>
+</head>
+<body>
+<!--需求：
+鼠标进入img标签，显示图片a
+鼠标移除img标签，显示图片b
+1，默认图片b
+-->
+<!--事件监听器
+事件源(this就是事件源)
+谁导致了事件的发生，谁就是源
+或者事件在哪发生的，那就是源 -->
+<!--
+可以在onxxx等监听器中，通过this，改变当前元素的属性值
+-->
+<img
+     src="img/123.jpg"
+        onmouseover="this.src='img/111.jpg' "
+        onmouseout="this.src='img/123.jpg'">
+
+
+<div style="background-color: green"
+     onmouseenter="console.log('进入')"
+     onmouseleave="console.log('出去')" >
+    进入与出去
+</div>
+</body>
+</html>
