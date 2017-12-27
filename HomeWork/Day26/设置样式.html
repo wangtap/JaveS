@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)http://localhost:58666/JavaSE/HomeWork/setupcss.html?_ijt=ml1gh9b2vgb1vgfda9r377cccb -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Title</title>
+    <script src="./设置样式_files/jquery-3.2.1.min.js.下载"></script>
+    <style type="text/css">
+        .father{
+            border: 1px solid black;
+            width: 600px;
+            height: 600px;
+            /*border-bottom: #000000;*/
+            /*border: 1px;*/
+
+        }
+        #set{
+            height: 100px;
+            width: 600px;
+            background-color: blue;
+        }
+        #hh{
+            margin: 0 auto;
+            border:1px solid black;
+            background-color: black;
+            width: 70px;
+            height: 70px;
+            position: relative;
+            /*left: 0px;*/
+        }
+        span{
+            font-size: 10px;
+            position: relative;
+            left: 7%;
+            top: 30%;
+            font-weight: 600;
+
+        }
+        #h1{
+            height: auto;
+            width: auto;
+            position: relative;
+            left: 30%;
+            top: 30%;
+            background-color: blue;
+            font-size: 30px;
+        }
+        #rr{
+            position: fixed;
+            border: 1px solid black;
+            display: none;
+            width: 200px;
+            height: 400px;
+            left: 610px;
+            top: 10px;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            margin: 6px;
+            background-color: #767577;
+            border:10px;
+        }
+        a{
+            position: relative;
+            left: 35%;
+        }
+        #hf,#qd{
+            width: auto;height: auto;
+            background-color: white;
+            position: relative;
+            left: 50px;
+        }
+        strong{
+            margin:0 auto;
+            color: white;
+            position: absolute;
+            left: 50%;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div id="set"><button id="h1">点击设置样式</button></div>
+     <div id="hh"><strong>哈哈</strong></div>
+</div>
+    <div id="rr">
+        <a>选择背景</a>
+        <div>
+            <button id="red" style="background-color: red"><span>红色</span></button>
+            <button id="yellow" style="background-color: yellow"><span>黄色</span></button>
+            <button id="blue" style="background-color: blue"><span>蓝色</span></button>
+        </div>
+        <a>选择宽度</a>
+        <div>
+            <button id="k100"><span>100</span></button>
+            <button id="k200"><span>200</span></button>
+            <button id="k300"><span>300</span></button>
+        </div>
+        <a>选择高度</a>
+        <div>
+            <button id="g100"><span>100</span></button>
+            <button id="g200"><span>200</span></button>
+            <button id="g300"><span>300</span></button>
+        </div>
+        <div>
+            <button id="hf">恢复</button>
+            <button id="qd">确定</button>
+        </div>
+
+    </div>
+<!--<button id="btn">天气</button>-->
+<!--<h1 id="city">123</h1>-->
+<!--<h1 id="weather">123</h1>-->
+
+<script type="text/javascript">
+$('#h1').click(function () {
+    $('#rr').show();
+});
+$('#qd').click(function () {
+    $('#rr').hide();
+});
+$('#red').click(function () {
+    $('#hh').css({"background":"red"})
+});
+$('#yellow').click(function () {
+    $('#hh').css({"background":"yellow"})
+});
+$('#blue').click(function () {
+    $('#hh').css({"background":"blue"})
+});
+$('#k100').click(function () {
+    $('#hh').css({"width":"100px"})
+});
+$('#k200').click(function () {
+    $('#hh').css({"width":"200px"})
+});
+$('#k300').click(function () {
+    $('#hh').css({"width":"300px"})
+});
+$('#g100').click(function () {
+    $('#hh').css({"height":"100px"})
+});
+$('#g200').click(function () {
+    $('#hh').css({"height":"200px"})
+});
+$('#g300').click(function () {
+    $('#hh').css({"height":"300px"})
+});
+$('#hf').click(function () {
+    $('#hh').css({"background":"black","height":"50","width":"50"})
+})
+$('#btn').click(btnClicked);
+function btnClicked() {
+
+    $.html("http://v.juhe.cn/weather/index?cityname=武汉&key=3c5c839d9f73f6217e504371e9611120",function (jsonData) {
+        console.log(jsonData);
+//        console.log(123);
+//        alert(index);
+//        var nickname = jsonData['nickname'];
+//        var score = jsonData['score'];
+//        $('#btn').click(btnClicked);
+//        $('#score').text("分数："+score);
+//        $('#nickname').text("匿名："+nickname);
+    })
+}
+
+
+
+
+
+
+</script>
+</body></html>

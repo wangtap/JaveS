@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加和删除元素</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+<div></div>
+</body>
+<script type="text/javascript">
+$('div').append('添加的内容').
+before("before添加的内容").
+before("before添加的内容").
+after("after添加的内容").
+append($('<p>').css({"height":"100px","background":"green"}).append($('<span>').text("我是span"))).
+after($('<div>')).css({"background":"blue","height":"100px"});
+///($('<p>')：生成一个p标签
+//$('div').arrt({"class":"show"});
+//删除谁，就要找到谁
+//    $('p').remove();
+
+
+</script>
+</html>
