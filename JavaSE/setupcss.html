@@ -153,7 +153,7 @@ $('#hf').click(function () {
 $('#btn').click(btnClicked);
 function btnClicked() {
 
-    $.html("http://v.juhe.cn/weather/index?cityname=武汉&key=3c5c839d9f73f6217e504371e9611120",function (jsonData) {
+    $.getJSON("http://v.juhe.cn/weather/index?cityname=武汉&key=3c5c839d9f73f6217e504371e9611120",function (jsonData) {
         console.log(jsonData);
 //        console.log(123);
 //        alert(index);

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<button  id="btn">点击获取信息</button>
+<h1 id="nickname"></h1>
+<h1 id="password"></h1>
+<h1 id="username"></h1>
+<h1 id="id"></h1>
+</body>
+<script type="text/javascript">
+    function btnClicked() {
+        $.getJSON("http://localhost:8080/hs",function (jsonData) {
+            console.log(jsonData);
+            $.each (jsonData,function (i, jsonData) {
+
+
+            var nickname = jsonData['nickname'];
+            var password = jsonData['password'];
+            var username = jsonData['username'];
+            var id = jsonData['id'];
+            console.log(id+nickname+password+username);
+
+            $('#password').text("密码："+password);
+            $('#nickname').text("昵称："+nickname);
+            $('#username').text("用户名："+username);
+            $('#id').text("ID："+id);
+            })
+        })
+    }
+    $('#btn').click(btnClicked);
+
+</script>
+</html>

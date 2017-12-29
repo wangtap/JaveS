@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+<style type="text/css">
+#father{
+    width: 600px;
+    height: 600px;
+}
+#a,#b,#c,#d,#e,#f{
+    width: 600px;
+    height: 70px;
+    background-color: #767577;
+}
+#add,#move,#xy,#dy,#refresh,#display{
+    margin: 10px;
+    width: 70px;
+    height: 50px;
+
+}
+ #b1,#c1,#d1,#e1,#f1{
+     position: absolute;
+     left: 35%;
+     display: block;
+ }
+    p{
+       text-align: center;
+        margin: 5px;
+    }
+
+
+
+</style>
+</head>
+<body>
+<div id="father">
+    <div id="a">
+        <button id="add">添加</button>
+        <button id="move">删除</button>
+        <button id="dy">小于0</button>
+        <button id="xy">大于0</button>
+        <button id="refresh">刷新</button>
+        <button id="display">显示全部</button>
+    </div >
+
+</div>
+</body>
+<script type="text/javascript">
+    var n = 0;
+    function color() {
+    setColor="rgb("+GetRandomNum(0,255)+","+GetRandomNum(0,255)+","+GetRandomNum(0,255)+")";
+        return setColor;
+    }
+    function GetRandomNum(Min,Max)
+    {
+        var Range = Max - Min;
+        var Rand = Math.random();
+        return(Min + Math.round(Rand * Range));
+    }
+
+        $('#add').click(function () {
+
+        $('#father').append($('<p>').css({"background":color(),"height":"50px","width":"600px"}).text(GetRandomNum(-50,50)))
+      n++;
+        })
+    $('#move').click(function () {
+//$('#')  .animate({"marginRight":"10000px"},800);
+        $('p')[n-1].animate({marginRight:"200px"},800);
+//            .animate({"marginRight":"500px"},1000);
+//            .remove();
+         n--;
+    })
+    $('#refresh').click(function () {
+        $.each($('p'),function (index, data) {
+            $(this).css({"background":color(),"height":"50px","width":"600px"}).text(GetRandomNum(-50,50));
+        })
+    })
+    $('#dy').click(function () {
+
+        $.each($('p'),function (index, data) {
+            var text = $(this).text();
+                $(this).css({"display":"block"})
+            if (text>0){
+                $(this).css({"display":"none"})
+            }
+        })
+    })
+
+    $('#xy').click(function () {
+        $.each($('p'),function (index, data) {
+            var text = $(this).text();
+                $(this).css({"display":"block"})
+            if (text<0){
+                $(this).css({"display":"none"})
+            }
+        })
+    })
+    $('#display').click(function () {
+        $.each($('p'),function (index,data) {
+            $(this).css({"display":"block"})
+        })
+    })
+    
+
+
+</script>
+</html>
