@@ -9,7 +9,7 @@
 <form action="main" method="post">
     <input type="submit" value="获取信息">
 </form>
-<button  id="btn">点击获取第一名信息</button>
+<!--<button  id="btn">点击获取第一名信息</button>-->
 <h1 id="nickname"></h1>
 <h1 id="username"></h1>
 </body>
@@ -17,9 +17,8 @@
     function btnClicked() {
 
         $.getJSON("http://localhost:8080/login",function (jsonData) {
-        console.log(jsonData+'1');
-        alert(1);
-
+//        console.log(jsonData+'1');
+//        alert(1);
             var nickname = jsonData['nickname'];
             var score = jsonData['username'];
             $('#score').text("用户名："+score);
@@ -27,6 +26,5 @@
         })
     }
     $('#btn').click(btnClicked);
-
 </script>
 </html>

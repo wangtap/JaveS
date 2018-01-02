@@ -17,9 +17,8 @@
     function btnClicked() {
 
         $.getJSON("http://localhost:8080/login",function (jsonData) {
-        console.log(jsonData+'1');
-        alert(1);
-
+//        console.log(jsonData+'1');
+//        alert(1);
             var nickname = jsonData['nickname'];
             var score = jsonData['username'];
             $('#score').text("用户名："+score);
