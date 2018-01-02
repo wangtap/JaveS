@@ -11,6 +11,14 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+ <form action="insert" method="post">
+   <label for="username">用户名</label>
+   <input  id="username" name="username" type="text" >
+   <label for="nickname">昵称</label>
+   <input type="text" id="nickname" name="nickname">
+   <label for="password">密码</label>
+   <input type="password" id="password" name="password">
+<input type="submit">
+ </form>
   </body>
 </html>

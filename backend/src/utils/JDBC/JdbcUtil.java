@@ -47,6 +47,15 @@ public class JdbcUtil {
 //        }
 //    }
 
+    private static String getString(Connection connection, PreparedStatement pstate, ResultSet resultSet) throws SQLException {
+        if (resultSet.next()){
+            String a = resultSet.getString(1);
+            pstate.close();
+            connection.close();
+            return a;
+        }
+        return null;
+    }
     public static void showRs(ResultSet rs) throws SQLException {
         while (rs.next()){
             System.out.print(rs.getString(1)+"\t");
@@ -68,7 +77,8 @@ public class JdbcUtil {
         return null;
     }
 
-    public static String getPassword(int uid) throws SQLException {
+     public static String getPassword(int uid) throws SQLException {
+
         Connection connection = getConnection();
         String sql = "SELECT password FROM users WHERE uid=?";
         PreparedStatement pstate = connection.prepareStatement(sql);
@@ -78,16 +88,6 @@ public class JdbcUtil {
         if (a != null) return a;
         pstate.close();
         connection.close();
-        return null;
-    }
-
-    private static String getString(Connection connection, PreparedStatement pstate, ResultSet resultSet) throws SQLException {
-        if (resultSet.next()){
-            String a = resultSet.getString(1);
-            pstate.close();
-            connection.close();
-            return a;
-        }
         return null;
     }
 
@@ -129,6 +129,7 @@ public class JdbcUtil {
         connection.close();
         return null;
     }
+
     public static String getGender(int uid) throws SQLException{
         Connection connection = getConnection();
         String sql = "SELECT gender FROM person WHERE uid=?";

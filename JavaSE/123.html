@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,22 +10,23 @@
     <button id="btn">点击</button>
     <table id="info" border="2px">
         <tr id="infoO">
-            <th>姓名：</th>
-            <th>性别：</th>
-            <th>年龄：</th>
-            <th>职业：</th>
+            <th>ID：</th>
+            <th>用户名：</th>
+            <th>昵称：</th>
+            <th>密码：</th>
         </tr>
     </table>
 </div>
 </body>
 <script type="text/javascript">
     function btnClicked() {
-        $.getJSON("/hs",
+        $('table>tr').remove();
+        $.getJSON("http://192.168.20.208:8080/hs",
             function (data, status) {
                 console.log(data);
                 $.each(data,function (i,data) {
-                    $('#info').append($('<tr>').append($('<td>').text(data['name'])).append($('<td>').text(data['gender']))
-                        .append($('<td>').text(data['age'])).append($('<td>').text(data['job'])));
+                    $('#info').append($('<tr>').append($('<td>').text(data['id'])).append($('<td>').text(data['username']))
+                        .append($('<td>').text(data['nickname'])).append($('<td>').text(data['password'])));
                 })
             }
         )

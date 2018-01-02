@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <style type="text/css">
+
+        #username{
+            height: 40px;
+            margin: -20px auto;
+            width: 347px;
+            font-size: 22px;
+            text-indent: 35px;
+
+        }
+        #password{
+            margin-top: -40px;
+            margin-bottom: -10px;
+            width: 347px;
+            height: 40px;
+            font-size: 22px;
+            text-indent: 35px;
+        }
+        #region{ font-size: 30px ;
+            font-weight: 100;
+            width: 355px;
+            position: relative; left: 90px;top: 30px;
+            background-color: #1e88e5; color: white}
+        .a{width:100%;
+            height:100%;
+            position: absolute;
+            background-color: white}
+
+        h1{
+            position: relative;
+            top: 45px;
+        }
+        .b1{height: 5% ;
+            background : white;
+        }
+        .view{
+            position: absolute;
+            right:60%;
+            top: 25%
+        }
+        .b2{height: 500px;
+            width: 500px ;
+            background-color: white;
+            position: absolute;
+            right: 20%;
+            top: 25%}
+       .c1{position: relative;
+            height: 100px;
+            background-color: white}
+        .c2{position: relative;
+            height: 100px;
+            background-color: white}
+        .c22{
+            border: 1px;
+            position: relative;
+            height: 0px;
+            width: 350px;
+            background-color: white;
+            left:90px;
+            top : 25px;
+        }
+        .c3{position: relative;
+            height: 100px;
+            background-color: white}
+        .c33{
+            position: relative;
+            height: 0px;
+            width: 350px;
+            background-color: white;
+            left:90px;
+            top : 25px;
+        }
+        .c4{position: relative;
+            height: 100px;
+            background-color:white}
+       .c5{position: relative;
+            height: 100px;
+            background-color:white}
+
+        .forget{
+            float: left;position: relative;left: 90px;top: 10px ; color: #1e88e5;
+        }
+        .t1{
+            left: 5px;top: 17px;
+           position: relative;
+            /*background-color: green;*/
+            width: 21px;height: 21px;
+            background: url("img/123.png");
+        }
+        .t2{
+            left: 5px;top: 17px;
+            position: relative;
+            /*background-color: green;*/
+            width: 21px;height: 21px;
+            background: url("img/123.png")-21px -3px no-repeat;
+        }
+        .t0{
+            left: 155px;top: 65px;
+            position: relative;
+            /*background-color: green;*/
+            width: 21px;height: 21px;
+            background: url("img/789.png")-0px -0px no-repeat;
+            }
+        a{
+            position: relative;
+            left: 180px;
+            right: 20px;
+            font-size: 20px;
+            top: 45px;
+        }
+        #point,#point1{
+            position: relative;
+            left: 355px;
+            top:-23px;
+            font-size: 13px;
+            color: red;
+            display: none;
+        }
+        #2{
+
+
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div
+        class="a">
+    <div class="b1">
+    <img id="1" src="img/456.png" >
+       <span id="2"  style="float: right ;width: 500px ; font-size: 20px"  ></span>
+    </div>
+    <form action="register" method="post" class="b2">
+        <div class="c1" >
+            <div class="b22">
+                <div class="t0"></div>
+            <a  align="center">邮箱号注册</a>
+
+        </div>
+        </div>
+        <div class="c2">
+            <div class="c22">
+            <div class="t1"></div>
+            <input  placeholder="请输入邮箱地址" type="text" id="username" name="username" onblur="onblur1()" onfocus="onfocus1()">
+            <input  placeholder="请输入昵称" type="text" id="nickname" name="nickname" onblur="onblur1()" onfocus="onfocus1()">
+                <div id="point">请输入正确的邮箱格</div>
+            </div>
+        </div>
+        <div class="c3">
+            <div class="c33">
+            <div class="t2"></div>
+            <input placeholder="请输入登入密码" type="text" id="password" name="password" onfocus="onfocus2()" onblur="onblur2()">
+                <div id="point1">密码要大于6位小于14位，一定要有大小写字母和数字</div>
+            </div>
+        </div>
+        <div
+                class="c4">  <input  type="submit" id="region" value="注册" >
+        </div>
+        <div class="c5">
+             <a href="login.html" class="forget">去登入</a>
+        </div>
+    </form>
+    <img src="img/timg.jpg" class="view">
+</div>
+</body>
+<script type="text/javascript">
+    function onfocus1() {
+        var ele = document.getElementById("point");
+        ele.style.display="block";
+    }
+    function onblur1() {
+        var ele = document.getElementById("point");
+        ele.style.display="none";
+    }
+
+    function onfocus2() {
+        var ele = document.getElementById("point1");
+        ele.style.display="block";
+    }
+    function onblur2() {
+        var ele = document.getElementById("point1");
+        ele.style.display="none";
+    }
+    function CurentTime()
+    {
+        var now = new Date();
+        var year = now.getFullYear();       //年
+        var month = now.getMonth() + 1;     //月
+        var day = now.getDate();            //日
+        var hh = now.getHours();            //时
+        var mm = now.getMinutes();          //分
+        var seconds = now.getSeconds();
+        var clock = year + "-";
+        if(month < 10)
+            clock += "0";
+        clock += month + "-";
+        if(day < 10)
+            clock += "0";
+        clock += day + " ";
+        if(hh < 10)
+            clock += "0";
+        clock += hh + ":";
+        if (mm < 10) clock += '0';
+        clock += mm+":";
+        if(seconds<10)clock+='0';
+        clock+=seconds;
+        return(clock);
+    }
+    function t() {
+        var id = document.getElementById("2");
+        setInterval(function () {
+        id.innerText=CurentTime();
+        },1000)
+    }
+    t();
+$('#username').blur(function () {
+
+})
+
+
+
+
+
+
+</script>
+
+</html>

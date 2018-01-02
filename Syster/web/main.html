@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<form action="main" method="post">
+    <input type="submit" value="获取信息">
+</form>
+<!--<button  id="btn">点击获取第一名信息</button>-->
+<h1 id="nickname"></h1>
+<h1 id="username"></h1>
+</body>
+<script type="text/javascript">
+    function btnClicked() {
+
+        $.getJSON("http://localhost:8080/login",function (jsonData) {
+        console.log(jsonData+'1');
+        alert(1);
+
+            var nickname = jsonData['nickname'];
+            var score = jsonData['username'];
+            $('#score').text("用户名："+score);
+            $('#nickname').text("匿名："+nickname);
+        })
+    }
+    $('#btn').click(btnClicked);
+</script>
+</html>

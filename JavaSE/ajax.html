@@ -15,16 +15,21 @@
 <script type="text/javascript">
     function btnClicked() {
         $.getJSON("http://localhost:8080/hs",function (jsonData) {
+            console.log(jsonData);
+            $.each (jsonData,function (i, jsonData) {
+
 
             var nickname = jsonData['nickname'];
             var password = jsonData['password'];
             var username = jsonData['username'];
             var id = jsonData['id'];
-            console.log(id);
+            console.log(id+nickname+password+username);
+
             $('#password').text("密码："+password);
-            $('#nickname').text("匿名："+nickname);
-            $('#username').text("匿名："+username);
-            $('#id').text("匿名："+id);
+            $('#nickname').text("昵称："+nickname);
+            $('#username').text("用户名："+username);
+            $('#id').text("ID："+id);
+            })
         })
     }
     $('#btn').click(btnClicked);

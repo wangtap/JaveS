@@ -180,7 +180,7 @@ public class RegisterAndLogin {
                                       String username1 = u.getUsername();
                                       String password = u.getPassword();
                                       String sql ="SELECT  nickname FROM  users WHERE username=? AND password=?";
-                                      PreparedStatement pstate = coon.prepareStatement(sql);
+                                              PreparedStatement pstate = coon.prepareStatement(sql);
                                       pstate.setString(1,username1);
                                       pstate.setString(2,password);
                                       ResultSet resultSet = pstate.executeQuery();

@@ -4,20 +4,20 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <servlet>
-        <!--
-        给HelloServlet的类，指定一个名字
-        -->
         <servlet-name>hello</servlet-name>
-        <servlet-class>work.Work</servlet-class>
+        <servlet-class>web.Work</servlet-class>
     </servlet>
     <servlet-mapping>
-        <!--
-        给名字为hello的Servlet
-        添加一个路径
-        ！！！！路径前一定加/
-        -->
         <servlet-name>hello</servlet-name>
         <url-pattern>/hs</url-pattern>
+    </servlet-mapping>
+   <servlet>
+        <servlet-name>insert</servlet-name>
+        <servlet-class>web.insert</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>insert</servlet-name>
+        <url-pattern>/insert</url-pattern>
     </servlet-mapping>
 
 

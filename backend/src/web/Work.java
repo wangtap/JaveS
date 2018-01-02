@@ -1,8 +1,9 @@
-package work;
+package web;
 
 import net.sf.json.JSONArray;
 //import utils.JDBC.JDBCUtil;
 import utils.JDBC.JdbcUtil;
+import work.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,13 @@ import java.util.List;
 public class Work extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 指定允许其他域名访问
+        resp.addHeader("Access-Control-Allow-Origin","*");
+// 响应类型
+        resp.addHeader("Access-Control-Allow-Methods","POST");
+// 响应头设置
+        resp.addHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
+
 //        resp.setContentType("text/htm;charset=utf-8");
 //        InsertDeleteUpdateQuery insertDeleteUpdateQuery = new InsertDeleteUpdateQuery();
 //        String sql ="select*from users";

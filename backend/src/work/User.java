@@ -6,6 +6,22 @@ public class User {
     private String password;
     private String id;
 
+    public User(String username, String nickname, String password, String id) {
+        this.username = username;
+        this.nickname = nickname;
+        this.password = password;
+        this.id = id;
+    }
+
+    public User() {
+    }
+
+    public User(String username, String nickname, String password) {
+        this.username = username;
+        this.nickname = nickname;
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "User{" +
