@@ -18,6 +18,7 @@ public class Userdao {
         String sql = "insert into users value(null,?,?,?)";
         Connection connection = JDBCUtil.getConnection();
         try {
+
             queryRunner.update(connection,sql,user.getUsername(),user.getNickname(),user.getPassword());
             connection.close();
         } catch (SQLException e) {
@@ -37,6 +38,7 @@ public class Userdao {
             if (resultSet.next()){
                     nickname=resultSet.getString(1);
             }
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -30,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
         String insert = userdao.insert(user);
             if (insert=="SUCCESS"){
                 response.setStatus(302);
-                response.sendRedirect("http://localhost:8080/login.html");
+                response.sendRedirect("http://localhost:8080/login.jsp");
             }else {
                 response.setStatus(302);
                 response.sendRedirect("http://localhost:8080/register.html");

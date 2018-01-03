@@ -37,13 +37,17 @@ public class LoginServlet extends HttpServlet {
             getServletContext().setAttribute("nickname",nickname);
             getServletContext().setAttribute("username",user.getUsername());
             getServletContext().setAttribute("password",user.getPassword());
-            JSONArray jsonArray = JSONArray.fromObject(user);
-            response.getWriter().write(jsonArray.toString());
-            response.setStatus(302);
-            response.sendRedirect("http://localhost:8080/main.html");
+
+            request.getSession().setAttribute("nickname",nickname);
+            request.getSession().setAttribute("username",user.getUsername());
+            request.getRequestDispatcher("/index.jsp")
+                    .forward(request,response);
+
+//            response.setStatus(302);
+//            response.sendRedirect("http://localhost:8080/main.html");
         }else {
             response.setStatus(302);
-            response.sendRedirect("http://localhost:8080/login.html");
+            response.sendRedirect("http://localhost:8080/login.jsp");
         }
 
     }

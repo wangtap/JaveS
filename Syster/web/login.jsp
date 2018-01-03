@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -112,13 +112,15 @@
         <div class="c2">
             <div class="c22">
             <div class="t1"></div>
-            <input placeholder="手机或邮箱" type="text" id="username" name="username" onfocus="fou(this)" onblur="lev(this)">
+            <input placeholder="手机或邮箱" type="text" id="username"
+                   name="username"  value='<%=session.getAttribute("username")%>'
+                  onfocus="fou(this)" onblur="lev(this)">
             </div>
         </div>
         <div class="c3" >
             <div class="c33">
             <div class="t2"></div>
-            <input placeholder="密码" type="text" id="password" name="password" onfocus="fou(this)" onblur="lev(this)">
+            <input placeholder="密码" type="password" id="password" name="password" onfocus="fou(this)" onblur="lev(this)">
             </div>
         </div>
         <div class="c4">  <input  type="submit" id="region" value="登入" ></div>
