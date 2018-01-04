@@ -88,7 +88,7 @@
             background: url("img/123.png");
         }
         .t2{
-            left: 5px;top: 17px;
+            left: 5px;top: -9px;
             position: relative;
             /*background-color: green;*/
             width: 21px;height: 21px;
@@ -113,7 +113,13 @@
             <div class="c22">
             <div class="t1"></div>
             <input placeholder="手机或邮箱" type="text" id="username"
-                   name="username"  value='<%=session.getAttribute("username")%>'
+                   name="username"
+
+                   <%
+                   if(request.getSession().getAttribute("username")!=null){
+                               %>
+                   value='${sessionScope.username}'
+                        <% }%>
                   onfocus="fou(this)" onblur="lev(this)">
             </div>
         </div>

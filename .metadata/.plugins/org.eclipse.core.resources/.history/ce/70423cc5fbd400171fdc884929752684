@@ -1,5 +1,0 @@
-package Homework;
-
-public class Child1 extends Father1 {
-
-}

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class BookDao {
      private static QueryRunner qr=   new   QueryRunner();
-    public List<Book> queryBook(){
+    public List<Book> queryAllBook(){
         Connection connection = JDBCUtil.getConnection();
         String sql="select * from book ";
         try {

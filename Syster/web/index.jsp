@@ -15,9 +15,18 @@
     <title>$Title$</title>
   </head>
   <body>
-  用户名：<%=session.getAttribute("username")%>
-  昵称：<%=session.getAttribute("nickname")%>
-  <a href="login.jsp">退出</a>
+  <%
+  if (session.getAttribute("username1")==null){
+    response.sendRedirect("http://localhost:8080/login.jsp");
+  }
+  else{
+  %>
+  用户名：${sessionScope.username}
+  昵称：${sessionScope.nickname}
+  <form action="quit" method="post">
+    <input type="submit" value="退出" >
+  </form>
+  <%--<a href="login.jsp" methods="get">退出</a>--%>
   <%
     if(session.getAttribute("username")!=null){
   %>
@@ -27,19 +36,15 @@
       <th>作者</th>
       <th>价钱</th>
     </tr>
-  <%!BookDao bookDao = new BookDao();%>
+
 <%
-  List<Book> bookList = bookDao.queryBook();
+  List<Book> bookList = (List<Book>)request.getAttribute("bookList");
   for (Book o :bookList ) {
-    String bookname = o.getBookname();
-    String auther = o.getAuther();
-    double price = o.getPrice();
-    String website = o.getWebsite();
 %>
     <tr>
-      <td> <a href=<%=website%>><%=bookname%></a></td>
-      <td><%=auther%></td>
-      <td><%=price%></td>
+      <td> <a href=<%=o.getWebsite()%>><%=o.getBookname()%></a></td>
+      <td><%=o.getAuther()%></td>
+      <td><%=o.getPrice()%></td>
      </tr>
     <%
   }
@@ -50,7 +55,7 @@
   %>
   <h1><a href="login.jsp">请去登入</a></h1>
   <%
-    }
+    }}
   %>
   </body>
 </html>
