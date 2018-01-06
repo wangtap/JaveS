@@ -1,0 +1,30 @@
+*{
+    font-size: large;
+}
+#head{
+    height: 200px;
+}
+.top{
+    width: 1300px;
+    height: 50px;
+}
+.content{
+    float: right;
+}
+.head_1{
+    height:100px;
+}
+.nav{
+    height: 50px;
+    background: #adeeba;
+}
+.nav_1{
+    margin: 40px;
+    line-height: 50px;
+
+}
+.left{
+    width: 200px;
+    height: 400px;
+    float: left;
+}

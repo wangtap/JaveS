@@ -1,4 +1,4 @@
-package homework.bean;
+package homework.domain;
 
 public class Book {
     private  int id;

@@ -1,4 +1,4 @@
-package homework.bean;
+package homework.domain;
 
 /**
  * Created by zyf on 2017/12/14.

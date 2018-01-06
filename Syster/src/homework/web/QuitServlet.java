@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet(name = "QuitServlet",urlPatterns = "/quit")
 public class QuitServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().removeAttribute("username1");
+        request.getSession().removeAttribute("user");
         response.sendRedirect("http://localhost:8080/login.jsp");
     }
 

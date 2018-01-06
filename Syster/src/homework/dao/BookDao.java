@@ -1,6 +1,6 @@
 package homework.dao;
 
-import homework.bean.Book;
+import homework.domain.Book;
 import homework.utils.JDBCUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;

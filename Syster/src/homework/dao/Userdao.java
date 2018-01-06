@@ -1,8 +1,9 @@
 package homework.dao;
 
-import homework.bean.User;
+import homework.domain.User;
 import homework.utils.JDBCUtil;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
@@ -11,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class Userdao {
+public class UserDao {
     private  static String nickname=null;
     private QueryRunner queryRunner= new QueryRunner();
     public  String insert(User user){
@@ -24,6 +25,13 @@ public class Userdao {
             e.printStackTrace();
         }
         return "SUCCESS";
+    }
+
+    public User queryByUsername(String username) throws SQLException {
+        String  sql="select * from users where username="+username;
+        Connection connection = JDBCUtil.getConnection();
+        User user = queryRunner.query(connection, sql, new BeanHandler<User>(User.class));
+        return user;
     }
 
     public  String login(User user)  {

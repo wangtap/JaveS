@@ -1,105 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>登入</title>
-    <style type="text/css">
+    <link type="text/css" href="css/login.css" rel="stylesheet">
 
-        #username{
-            height: 40px;
-            margin: -20px auto;
-            width: 347px;
-            font-size: 22px;
-            text-indent: 35px;
-        }
-        #password{
-            margin-top: -40px;
-            margin-bottom: -10px;
-            width: 347px;
-            height: 40px;
-            font-size: 22px;
-            text-indent: 35px;
-        }
-        #region{ font-size: 30px ;
-            font-weight: 100;
-            width: 355px;
-            position: relative; left: 90px;top: 30px;
-            background-color: #1e88e5; color: white}
-        .a{width:100%;
-            height:100%;
-            position: absolute;
-            background-color: #FFFDFC}
-
-        h1{
-            position: relative;
-            top: 45px;
-        }
-        .b1{height: 5% ;
-            background-color: white }
-        .b2{height: 500px;
-            width: 500px ;
-            background-color: white;
-            position: absolute;
-            right: 35%;
-            top: 25%}
-       .c1{position: relative;
-            height: 100px;
-            background-color: white}
-        .c2{position: relative;
-            height: 100px;
-            background-color: white}
-        .c22{
-            border: 1px;
-            position: relative;
-            height: 0px;
-            width: 350px;
-            background-color: white;
-            left:90px;
-            top : 25px;
-        }
-        .c3{position: relative;
-            height: 100px;
-            background-color: white}
-        .c33{
-            position: relative;
-            height: 0px;
-            width: 350px;
-            background-color: white;
-            left:90px;
-            top : 25px;
-        }
-        .c4{position: relative;
-            height: 100px;
-            background-color:white}
-       .c5{position: relative;
-            height: 100px;
-            background-color:white}
-        .goLogin{
-            float: right;position: relative;right: 55px;top: 10px ; color: #1e88e5;
-        }
-        .forget{
-            float: left;position: relative;left: 90px;top: 10px ; color: #1e88e5;
-        }
-        .t1{
-            left: 5px;top: 17px;
-           position: relative;
-            /*background-color: green;*/
-            width: 21px;height: 21px;
-            background: url("img/123.png");
-        }
-        .t2{
-            left: 5px;top: -9px;
-            position: relative;
-            /*background-color: green;*/
-            width: 21px;height: 21px;
-            background: url("img/123.png")-21px -3px no-repeat;
-        }
-
-
-
-
-
-    </style>
 </head>
 <body>
 <div class="a">
@@ -114,20 +20,17 @@
             <div class="t1"></div>
             <input placeholder="手机或邮箱" type="text" id="username"
                    name="username"
-
-                   <%
-                   if(request.getSession().getAttribute("username")!=null){
-                               %>
-                   value='${sessionScope.username}'
-                        <% }%>
-                  onfocus="fou(this)" onblur="lev(this)">
+                   <c:if test="${cookie.get('username')!=null}">
+                  value='${cookie.get('username').value}'
+                   </c:if>
+               onfocus="fou(this)" onblur="lev(this)">
             </div>
         </div>
         <div class="c3" >
             <div class="c33">
             <div class="t2"></div>
             <input placeholder="密码" type="password" id="password" name="password" onfocus="fou(this)" onblur="lev(this)">
-            </div>
+           </div>
         </div>
         <div class="c4">  <input  type="submit" id="region" value="登入" ></div>
         <div class="c5">

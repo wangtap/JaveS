@@ -1,10 +1,9 @@
 package homework.web;
 
-import homework.bean.User;
-import homework.dao.Userdao;
+import homework.domain.User;
+import homework.dao.UserDao;
 import org.apache.commons.beanutils.BeanUtils;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +16,7 @@ import java.util.Map;
 @WebServlet(name ="RegisterServlet",urlPatterns ="/register")
 public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Userdao userdao = new Userdao();
+        UserDao userdao = new UserDao();
         Map<String, String[]> map = request.getParameterMap();
             User user = new User();
             try {
