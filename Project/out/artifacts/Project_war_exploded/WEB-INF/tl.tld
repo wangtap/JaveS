@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>showBook</short-name>
+    <uri>http://showbook.com</uri>
+    <function>
+        <name>classification</name>
+        <function-class>homework.book.dao.BookDao</function-class>
+        <function-signature>java.util.List classificationByCname(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>queryAll</name>
+        <function-class>homework.book.dao.BookDao</function-class>
+        <function-signature>java.util.List queryAll()</function-signature>
+    </function>
+    <function>
+        <name>bookDao</name>
+        <function-class>homework.book.dao.BookDao</function-class>
+        <function-signature>homework.book.domain.Book queryByBid(int)</function-signature>
+    </function>
+    <function>
+        <name>queryAllOrderitemByOid</name>
+        <function-class>homework.orderitem.dao.OrderItemDao</function-class>
+        <function-signature>java.util.List queryAllByoid(int)</function-signature>
+    </function>
+
+
+    <!-- Invoke 'Generate' action to add tags or functions -->
+
+</taglib>

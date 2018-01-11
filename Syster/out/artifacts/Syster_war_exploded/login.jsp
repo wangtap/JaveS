@@ -32,7 +32,7 @@
             <input placeholder="密码" type="password" id="password" name="password" onfocus="fou(this)" onblur="lev(this)">
            </div>
         </div>
-        <div class="c4">  <input  type="submit" id="region" value="登入" ></div>
+        <div class="c4">  <button  type="button" id="region" value="登入"></button></div>
         <div class="c5">
             <a href=""   class="forget">忘记密码</a>
             <a href="register.html" class="goLogin">去注册</a>
