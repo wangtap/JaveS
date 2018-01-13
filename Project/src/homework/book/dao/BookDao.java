@@ -5,6 +5,7 @@ import homework.utils.JDBCUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -77,6 +78,30 @@ public class BookDao {
             e.printStackTrace();
         }
         return  bookList;
+    }
+    public Object queyrCountByCid(int cid){
+        String sql="select count(*)  from book where cid=?";
+        Connection connection=JDBCUtil.getConnection();
+        Object object=null;
+        try {
+            object = queryRunner.query(connection, sql, new ScalarHandler<>(), cid);
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
+    public Object queyrCount(){
+        String sql="select count(*)  from book ";
+        Connection connection=JDBCUtil.getConnection();
+        Object object=null;
+        try {
+            object = queryRunner.query(connection, sql, new ScalarHandler<>());
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return object;
     }
 
 }

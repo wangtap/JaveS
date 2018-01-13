@@ -109,5 +109,38 @@
          }
      });
     })
+
+    $.get("http://192.168.20.221:8080/day16/ten",function (data,status) {
+        //第一个参数：
+        //获得的数据
+        //第二个参数：
+        //访问是否成功
+        if(status=="success"){
+//                        console.log(data);
+            //使用parseJSON方法
+            ///将data数据解析成JS中json对象
+            var jsonData = $.parseJSON(data);
+            var json = $.parseJSON(data);
+//                        console.log(jsonData[0]['score']);
+            if (jsonData!=null){
+                $('table').append($('<tr>')
+                    .append($("<td>").text('昵称'))
+                    .append($("<td>").text('分数')))
+
+                //角标，元素
+                $.each(jsonData,function (index,obj) {
+//                            console.log(index);
+//                            console.log(obj);
+                    $('table').append(
+                        $('<tr>').append(
+                            $('<td>').text(obj['nickname'])
+                        ).append(
+                            $('<td>').text(obj['score'])
+                        )
+                    )
+                })
+            }
+        }
+    })
 </script>
 </html>

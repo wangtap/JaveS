@@ -34,26 +34,15 @@
   
   <body>
 <div>
-	<a href="<c:url value='/bookList?cid=-1'/>">全部分类</a>
+	<a href="<c:url value='/bookList?cid=-1&pc=1'/>">全部分类</a>
 </div>
 
 <c:forEach var="category" items="${showcategory:showAllCategory()}">
 	<div>
-		<a href="<c:url value='/bookList?cid=${category.getCid()}'/>" >${category.getCname()}</a>
+		<a href="<c:url value='/bookList?cid=${category.getCid()}&pc=1'/>" >${category.getCname()}</a>
 	</div>
 </c:forEach>
 
-
-<%--<div>--%>
-	<%--<a href="<c:url value='/jsps/book/JavaSE.jsp'/>" >JavaSE分类</a>--%>
-<%--</div>--%>
-<%--<div>--%>
-	<%--<a href="<c:url value='/jsps/book/JavaEE.jsp'/>">JavaEE分类</a>--%>
-<%--</div>--%>
-<%--<div>--%>
-	<%--<a href="<c:url value='/jsps/book/Javascript.jsp'/>">Javascript分类</a>--%>
-<%--</div>--%>
-  <%----%>
   </body>
 
 </html>

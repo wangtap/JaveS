@@ -25,18 +25,67 @@
 		text-align: center;
 		float: left;
 	}
+    .code{
+        /*position: relative;*/
+        /*top: 500px;*/
+        /*background-color:red;*/
+    }
+
+
 </style>
   </head>
     <body>
-    <c:forEach var="bookList" items="${requestScope.get('bookList')}">
+<c:if test="${requestScope.page !=null}">
+    <c:forEach var="book" items="${requestScope.page.books}">
        <div class="icon">
-          <a href="<c:url value='/descBook?${bookList.getBid()}'/>" >
-              <img border="0" src=/${bookList.getImage()}>
+          <a href="<c:url value='/descBook?${book.bid}'/>" >
+              <img border="0" class="img" src=/${book.image}>
           </a>
           <br>
-          <a href="">${bookList.getBname()}</a>
+          <a href="">${book.bname}</a>
       </div>
   </c:forEach>
-  </body>
+    <c:set var="totalPages" value="${requestScope.page.totalPages}"/>
+    <c:set var="pageCode" value="${requestScope.page.pageCode}"/>
+    <c:set var="begin" value="1"/>
+    <c:set var="end" value="10"/>
+    <c:if test="${totalPages<10}">
+        <c:set var="end" value="${totalPages}"/>
+    </c:if>
+    <c:if test="${pageCode>6}">
+        <c:set var="begin" value="${pageCode-5}"/>
+        <c:set var="end" value="${pageCode+4}"/>
+        <c:if test="${pageCode>totalPages-4}">
+            <c:set var="begin" value="${totalPages-9}"/>
+            <c:set var="end" value="${totalPages}"/>
+        </c:if>
+    </c:if>
+    <c:if test="${pageCode>1}">
+        <a href="bookList?cid=${requestScope.page.cid}&pc=${pageCode-1}">上一页</a>
+    </c:if>
+
+
+  <div>  <c:forEach begin="${begin}" end="${end}" var="v">
+        &nbsp;
+       <a  class="code" href="bookList?cid=${requestScope.page.cid}&pc=${v}">
+            <c:if test="${requestScope.page.pageCode==v}">
+                ${v}
+            </c:if>
+            <c:if test="${requestScope.page.pageCode!=v}">
+                [${v}]
+            </c:if>
+        </a>
+        &nbsp;
+    </c:forEach></div>
+    <c:if test="${totalPages>pageCode}">
+        <a  href="bookList?cid=${requestScope.page.cid}&pc=${pageCode+1}">下一页</a>
+    </c:if>
+    <form action="bookList" method="get">
+        <input type="text" name="pc"  value="${pageCode}">/${totalPages}
+        <input type="hidden" name="cid" value="${requestScope.page.cid}">
+        <input type="submit" value="跳页">
+    </form>
+</c:if>
+    </body>
  </html>
 

@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebFilter(filterName = "UserFilter",urlPatterns ={ "*"})
+@WebFilter(filterName = "UserFilter",urlPatterns ={ "*.jsp","*.do"})
 public class UserFilter implements Filter {
     private List<String> list = new ArrayList<String>();
     public void destroy() {
@@ -31,7 +31,6 @@ public class UserFilter implements Filter {
             HttpServletResponse response= (HttpServletResponse) resp;
             response.sendRedirect("http://localhost:8080/jsps/user/login.jsp");
         }
-
     }
 
     public void init(FilterConfig config) throws ServletException {

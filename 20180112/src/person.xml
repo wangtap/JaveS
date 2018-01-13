@@ -1,0 +1,16 @@
+<Person>
+  <users>
+    <User>
+      <name>zhangSan</name>
+      <password>2</password>
+    </User>
+    <User>
+      <name>Lisi</name>
+      <password>2</password>
+    </User>
+    <User>
+      <name>1</name>
+      <password>2</password>
+    </User>
+  </users>
+</Person>

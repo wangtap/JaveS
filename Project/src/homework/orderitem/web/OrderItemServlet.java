@@ -30,11 +30,11 @@ public class OrderItemServlet extends HttpServlet {
         Orders orders = orderDao.queryOrderByOid(oid);
         request.setAttribute("orders",orders);
         List<OrderItem> orderItems = OrderItemDao.queryAllByoid(oid);
-        int newoid = (int) ((Math.random() * 9 + 1) * 100000);
-        request.getSession().setAttribute("oid",newoid);
+        int newOid = (int) ((Math.random() * 9 + 1) * 100000);
+        request.getSession().setAttribute("oid",newOid);
         try {
             User user = (User) request.getSession().getAttribute("user");
-            orderDao.insertOrderByOidAndUid(newoid,user.getUid());
+            orderDao.insertOrderByOidAndUid(newOid,user.getUid());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -44,7 +44,7 @@ public class OrderItemServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int oid = Integer.valueOf(request.getParameter("oid")).intValue();
+        int oid = Integer.parseInt(request.getParameter("oid"));
         OrderDao orderDao=new OrderDao();
         Orders orders = orderDao.queryOrderByOid(oid);
         request.setAttribute("orders",orders);
