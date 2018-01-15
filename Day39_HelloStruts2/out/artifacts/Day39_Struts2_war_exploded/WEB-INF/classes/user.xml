@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="user" extends="struts-default" namespace="/user">
+        <action name="*_*" class="User" method="{1}">
+            <result name="{1}">{2}.jsp</result>
+            <allowed-methods>add,move,updata,query</allowed-methods>
+
+        </action>
+        <action name="add" class="User" method="add">
+            <result name="add">move.jsp</result>
+        </action>
+
+        <action name="move" class="User" method="move">
+            <result name="move">move.jsp</result>
+        </action>
+
+        <action name="updata" class="User" method="updata">
+            <result name="updata">updata.jsp</result>
+        </action>
+
+        <action name="query" class="User" method="query">
+            <result name="query">query.jsp</result>
+        </action>
+
+
+
+    </package>
+
+
+
+</struts>

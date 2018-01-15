@@ -10,7 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebFilter(filterName = "UserFilter",urlPatterns ={ "*.jsp","*.do"})
+@WebFilter(filterName = "UserFilter",urlPatterns ={
+//        "*.jsp","*.do"
+})
 public class UserFilter implements Filter {
     private List<String> list = new ArrayList<String>();
     public void destroy() {

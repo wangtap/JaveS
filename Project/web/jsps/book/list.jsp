@@ -26,9 +26,13 @@
 		float: left;
 	}
     .code{
+        display: inline;
         /*position: relative;*/
         /*top: 500px;*/
         /*background-color:red;*/
+    }
+    body{
+        width: 740px;
     }
 
 
@@ -61,13 +65,11 @@
         </c:if>
     </c:if>
     <c:if test="${pageCode>1}">
-        <a href="bookList?cid=${requestScope.page.cid}&pc=${pageCode-1}">上一页</a>
+        <a  class="code" href="bookList?cid=${requestScope.page.cid}&pc=${pageCode-1}">上一页</a>
     </c:if>
-
-
-  <div>  <c:forEach begin="${begin}" end="${end}" var="v">
+    <c:forEach begin="${begin}" end="${end}" var="v">
         &nbsp;
-       <a  class="code" href="bookList?cid=${requestScope.page.cid}&pc=${v}">
+       <a   class="code" href="bookList?cid=${requestScope.page.cid}&pc=${v}">
             <c:if test="${requestScope.page.pageCode==v}">
                 ${v}
             </c:if>
@@ -76,12 +78,12 @@
             </c:if>
         </a>
         &nbsp;
-    </c:forEach></div>
+    </c:forEach>
     <c:if test="${totalPages>pageCode}">
-        <a  href="bookList?cid=${requestScope.page.cid}&pc=${pageCode+1}">下一页</a>
+        <a class="code" href="bookList?cid=${requestScope.page.cid}&pc=${pageCode+1}">下一页</a>
     </c:if>
-    <form action="bookList" method="get">
-        <input type="text" name="pc"  value="${pageCode}">/${totalPages}
+    <form class="code" action="bookList" method="get">
+        <input type="text" name="pc"  style="width: 50px" value="${pageCode}">/${totalPages}
         <input type="hidden" name="cid" value="${requestScope.page.cid}">
         <input type="submit" value="跳页">
     </form>

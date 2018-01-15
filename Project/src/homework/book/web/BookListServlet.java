@@ -26,6 +26,9 @@ public class BookListServlet extends HttpServlet {
         BookListService bookListService = new BookListService();
         String parameter = request.getParameter("pc");
         String c = request.getParameter("cid");
+        if (parameter==null||parameter.equals("")){
+            parameter="1";
+        }
         int cid = Integer.parseInt(c);
         int pc = Integer.parseInt(parameter);
         int begin=(pc-1)*page.getPageSize();
