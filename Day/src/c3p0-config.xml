@@ -5,8 +5,9 @@
         <!--<property name="jdbcUrl">jdbc:mysql://172.16.52.203:3306/stu</property>-->
         <!--<property name="user">root</property>-->
         <!--<property name="password">1987222</property>-->
-        <property name="jdbcUrl">jdbc:mysql://localhost:3306/jeehw</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/fouruser</property>
         <property name="user">root</property>
+
         <property name="password">123</property>
 
         <!--#初始化时获取连接数，取值应在minPoolSize与maxPoolSize之间Default: 3 -->

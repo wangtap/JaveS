@@ -2,15 +2,17 @@ package user.domain;
 
 public class User {
     private String username;
-    private String nickname;
     private String password;
+    private int phone;
+    private String email;
 
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
-                ", nickname='" + nickname + '\'' +
                 ", password='" + password + '\'' +
+                ", phone=" + phone +
+                ", email='" + email + '\'' +
                 '}';
     }
 
@@ -22,14 +24,6 @@ public class User {
         this.username = username;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -38,14 +32,31 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, String nickname, String password) {
+    public int getPhone() {
+        return phone;
+    }
 
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User(String username, String password, int phone, String email) {
+    
         this.username = username;
-        this.nickname = nickname;
         this.password = password;
+        this.phone = phone;
+        this.email = email;
     }
 
     public User() {
-
+    
     }
 }

@@ -12,14 +12,14 @@ import java.sql.SQLException;
 public class UserDao {
     QueryRunner queryRunner=new QueryRunner() ;
     public int insert(User user){
-        String sql="insert into users values(?,?,?,?)";
+        String sql="insert into user values(?,?,?,?)";
        Connection connection = C3P0Util.getConnection();
         try {
             int i = queryRunner.update(connection, sql,
-                    null,
                     user.getUsername(),
-                    user.getNickname(),
-                    user.getPassword());
+                    user.getPassword(),
+                    user.getPhone(),
+                    user.getEmail());
                     connection.close();
             return i;
         } catch (SQLException e) {
@@ -29,8 +29,8 @@ public class UserDao {
 
     }
 
-    public  User queryUserByUsername(String username){
-        String sql="select * from users where username=?";
+    public User queryUserByUsername(String username){
+        String sql="select * from user where username=?";
         Connection connection = C3P0Util.getConnection();
         User user=null;
         try {
@@ -42,8 +42,8 @@ public class UserDao {
         return user;
     }
 
-    public  User queryUserByPassword(String password){
-        String sql="select * from users where password=?";
+    public User queryUserByPassword(String password){
+        String sql="select * from user where password=?";
         Connection connection = C3P0Util.getConnection();
         User user=null;
         try {

@@ -18,7 +18,7 @@ public class C3P0Util {
     private static DataSource dataSource = new ComboPooledDataSource();
     public static Connection getConnection() {
         try {
-            //获取连接并返回
+            //获取连接并返回值
             return dataSource.getConnection();
         } catch (SQLException e) {
             //如果连接失败抛出服务器忙的异常

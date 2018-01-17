@@ -23,6 +23,7 @@ public class RegiterStruts2 extends ActionSupport implements ServletResponseAwar
 
     @Override
     public void setServletRequest(HttpServletRequest httpServletRequest) {
+        
         this.request = httpServletRequest;
     }
     public String register(){

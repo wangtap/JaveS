@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <package namespace="/global" name="my-global" extends="struts-default" abstract="true">
+        <global-results>
+            <result name="show">show.jsp</result>
+            <!--
+            当action中，找不到name属性为show的result标签时
+            会到这个 全局变量结果里找
+            找到了就显示对应的界面
+            -->
+        </global-results>
+    </package>
+
+    <package name="GLOBAL" extends="my-global">
+        <action name="gr" class="action.GlovalResyltAction" method="show">
+            <result name="success" >success.jsp</result>
+        </action>
+    </package>
+
+    <include file="result.xml"/>
+
+    <package name="code" extends="struts-default">
+        <!--
+        若想用自己自定义的结果视图集类型
+        需使用如下标签声明
+        -->
+        <result-types>
+            <result-type name="codeing" class="result.CodeImgResult">
+            </result-type>
+        </result-types>
+        <action name="codeImg" class="action.CodeImgAction" >
+            <result name="success" type="codeing"/>
+        </action>
+
+    </package>
+
+    <include file="param.xml"/>
+
+</struts>

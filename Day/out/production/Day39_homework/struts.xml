@@ -5,18 +5,50 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <package name="Day39" extends="struts-default" namespace="/user" >
-        <action name="register" class="user.web.Struts2" method="register">
-            <result name="success">login.jsp</result>
-            <result name="none">register.jsp</result>
-        </action>
-        <action name="login" class="user.web.Struts2" method="login">
-            <result name="success">index.jsp</result>
-            <result name="none">login.jsp</result>
-
-        </action>
 
 
 
-    </package>
+
+    <!--<package name="Day39" extends="struts-default" namespace="/user" >-->
+        <!--<action name="register" class="user.web.Struts2" method="register">-->
+            <!--<result name="success">login.jsp</result>-->
+            <!--<result name="none">register.jsp</result>-->
+        <!--</action>-->
+        <!--<action name="login" class="user.web.Struts2" method="login">-->
+            <!--<result name="success">../web/index.jsp</result>-->
+            <!--<result name="none">login.jsp</result>-->
+        <!--</action>-->
+    <!--</package>-->
+<package name="Day40" extends="struts-default">
+    <interceptors>
+        <interceptor name="my" class="user.interceptor.Interceptor">
+        </interceptor>
+    </interceptors>
+
+
+    <action name="register" class="user.action.UserAction" method="register">
+        <!--<interceptor-ref name="my"/>-->
+        <result name="success">login.jsp</result>
+        <result name="input">register.jsp</result>
+    </action>
+
+    <action name="login" class="user.action.LoginUserAction" method="login">
+        <!--<interceptor-ref name="my"/>-->
+        <result name="success">index.jsp</result>
+        <result name="input">login.jsp</result>
+        <result name="fail">error.jsp</result>
+    </action>
+
+    <action name="book" class="user.action.BookAction">
+        <interceptor-ref name="my"/>
+        <result name="success">index.jsp</result>
+        <result name="fail">error.jsp</result>
+
+    </action>
+
+</package>
+
+
+
+
 </struts>
