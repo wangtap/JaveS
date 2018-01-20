@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact name="Day43_Hibernate:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Day43_Hibernate_jar</output-path>
+    <root id="root">
+      <element id="archive" name="Day43_Hibernate.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/../META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="Day43_Hibernate" />
+      </element>
+      <element id="library" level="module" name="JUnit4" module-name="Day43_Hibernate" />
+      <element id="library" level="project" name="Hibernate" />
+    </root>
+  </artifact>
+</component>

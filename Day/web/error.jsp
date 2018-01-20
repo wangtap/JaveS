@@ -25,3 +25,6 @@
 <s:fielderror fieldName="register.phone"/>
 </body>
 </html>
+
+
+

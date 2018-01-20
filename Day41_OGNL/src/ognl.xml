@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="ognl" extends="struts-default">
+        <action name="hello" class="com.lanou3g.com.action.OGNLAction" method="hello">
+            <result name="success" >ognl.jsp</result>
+        </action>
+    </package>
+
+    <package name="context" extends="struts-default">
+        <global-results>
+            <result name="success">index.jsp</result>
+        </global-results>
+
+        <action name="context" class="com.lanou3g.com.action.ContextAction" method="context">
+        </action>
+        <action name="value" class="com.lanou3g.com.action.ContextAction" method="value">
+        </action>
+
+        <action name="show" class="com.lanou3g.com.action.OGNLAction" method="show">
+            <result name="success" >ognl.jsp</result>
+        </action>
+
+        <action name="el" class="com.lanou3g.com.action.OGNLAction" method="el">
+            <result name="success" >ognl.jsp</result>
+        </action>
+    </package>
+</struts>

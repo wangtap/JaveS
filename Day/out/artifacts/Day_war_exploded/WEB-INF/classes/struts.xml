@@ -20,13 +20,18 @@
         <!--</action>-->
     <!--</package>-->
 <package name="Day40" extends="struts-default">
+    <result-types>
+        <result-type name="codeing" class="user.result.CodeImgResult">
+        </result-type>
+    </result-types>
+
     <interceptors>
         <interceptor name="my" class="user.interceptor.Interceptor">
         </interceptor>
     </interceptors>
 
 
-    <action name="register" class="user.action.UserAction" method="register">
+    <action name="register" class="user.action.RegisterUserAction" method="register">
         <!--<interceptor-ref name="my"/>-->
         <result name="success">login.jsp</result>
         <result name="input">register.jsp</result>
@@ -43,7 +48,12 @@
         <interceptor-ref name="my"/>
         <result name="success">index.jsp</result>
         <result name="fail">error.jsp</result>
+    </action>
 
+
+
+    <action name="codeImg" class="user.action.CodeImgAction" >
+        <result name="success" type="codeing"/>
     </action>
 
 </package>

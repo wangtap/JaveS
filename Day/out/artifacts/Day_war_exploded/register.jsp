@@ -27,7 +27,8 @@
   <div> 确认密码：<input type="password" name="user.ps" ><span><s:fielderror fieldName="register.ps"/></span></div>
   <div> 电话号码：<input type="text" name="user.phone"><span><s:fielderror fieldName="register.phone"/></span></div>
   <div> 邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="user.email"><span><s:fielderror fieldName="register.email"/></span></div>
-  <div> 验证码：&nbsp;&nbsp;&nbsp;<input type="text" name="user.code"></div>
+  <div> 验证码：&nbsp;&nbsp;&nbsp;<input name="user.code" size="4"><img src="${pageContext.request.
+contextPath}/codeImg.action"></div><span><s:fielderror fieldName="register.code"/></span>
   <div><input type="submit" value="注册"></div>
 </form>
 </body>

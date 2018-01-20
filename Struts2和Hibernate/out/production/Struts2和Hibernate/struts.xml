@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+
+    <package name="login" extends="struts-default">
+        <interceptors>
+            <interceptor name="islogin" class="user.iterceptor.Interceptor"/>
+        </interceptors>
+        <global-results>
+            <result name="fail">login.jsp</result>
+        </global-results>
+        <action name="login" class="user.action.LoginAction" method="login" >
+            <result name="success" type="chain">showStaff</result>
+         </action>
+
+        <action name="showStaff" class="staff.action.ShowAction" method="show">
+            <!--<interceptor-ref name="islogin"/>-->
+            <result name="success">show.jsp</result>
+       </action>
+
+        <action name="edit" class="staff.action.EditAction" method="edit">
+            <result name="success">show.jsp</result>
+        </action>
+
+        <action name="save" class="staff.action.EditAction" method="save">
+            <result name="success">show.jsp</result>
+        </action>
+
+        <action name="desc" class="staff.action.DescAction" method="desc">
+            <!--<interceptor-ref name="islogin"/>-->
+            <result name="success">edit.jsp</result>
+        </action>
+
+
+
+
+    </package>
+</struts>
