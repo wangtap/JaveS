@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Spring" type="spring">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../jar包/core/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar包/core/spring-aop-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar包/core/spring-beans-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar包/core/spring-context-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar包/core/spring-core-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar包/core/spring-expression-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../新建文件夹 (2)/aspectjweaver.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../新建文件夹 (2)/aspectjrt.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
