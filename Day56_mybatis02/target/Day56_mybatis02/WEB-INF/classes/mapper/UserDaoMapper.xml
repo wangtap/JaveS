@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.study.user.dao.UserDao">
+    <insert id="insertUser"
+                parameterType="user" useGeneratedKeys="true">
+        INSERT INTO USER VALUES (#{id},#{username},#{sex},#{birthday},#{address})
+    </insert>
+
+    <select id="selectByName"
+            parameterType="java.lang.String"
+            resultType="user">
+        SELECT * FROM  USER WHERE username LIKE '%${value}%'
+    </select>
+
+    <delete id="deleteById"
+            parameterType="int">
+        DELETE FROM USER  WHERE id='${value}'
+    </delete>
+
+    <update id="updateUser" parameterType="user">
+        UPDATE USER SET username = #{username},sex=#{sex},birthday=#{birthday},address=#{address} WHERE id=#{id}
+    </update>
+
+    <select id="selectByUsername" parameterType="java.lang.String" resultType="user">
+        SELECT * FROM USER WHERE username='${value}'
+    </select>
+
+    <select id="findUserById" parameterType="int" resultType="user">
+        SELECT * FROM USER WHERE id='${value}'
+    </select>
+    
+
+
+</mapper>

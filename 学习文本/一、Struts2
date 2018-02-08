@@ -1,0 +1,336 @@
+一、Struts2
+	简介
+		Struts2是一个基于MVC设计模式的Web应用框架，它本质上相当于一个servlet，在MVC设计模式中，Struts2作为控制器(Controller)来建立模型与视图的数据交互。
+	体系结构
+		当Web容器收到请求（HttpServletRequest）它将请求传递给一个标准的的过滤链包括（ActionContextCleanUp）过滤器。
+		经过Other filters(SiteMesh ,etc)，需要调用FilterDispatcher核心控制器，然后它调用ActionMapper确定请求哪个Action，ActionMapper返回一个收集Action详细信息的ActionMaping对象。
+		FilterDispatcher将控制权委派给ActionProxy,ActionProxy调用配置管理器(ConfigurationManager) 从配置文件中读取配置信息(struts.xml)，然后创建ActionInvocation对象。
+		ActionInvocation在调用Action之前会依次的调用所用配置拦截器（Interceptor N）一旦执行结果返回结果字符串ActionInvocation负责查找结果字符串对应的(Result）然后执行这个Result Result会调用一些模版（JSP）来呈现页面。
+		拦截器(Interceptor N)会再被执行（顺序和Action执行之前相反）最后响应(HttpServletResponse)被返回在web.xml中配置的那些过滤器和核心控制器（FilterDispatcher）。
+	基类
+		标准返回值
+			String SUCCESS = "success"; //默认是 SUCCESS 类型
+			String NONE = "none";
+			String ERROR = "error";
+			String INPUT = "input";
+			String LOGIN = "login";
+	struts.xml
+		<constant>
+			    <constant name="struts.devMode"  value="true"/>
+				开发者模式
+			<constant name="struts.i18n.encoding"     value="UTF-8"/>
+				UTF-8格式
+			<constant name="struts.action.extension"              value="wt,,wang"/>
+				后缀名
+		package元素用于定义包配置
+			 name：必填属性，用来指定包的名字。
+			 extends：可选属性，用来指定该包继承其他包。
+			namespace：可选属性，用来指定该包的命名空间。
+				如果某个包没有指定namespace属性，即该包使用默认的命名空间
+			<action>
+				同一个命名空间不能有同名的Action
+				name属性 表示浏览器路径
+				class表示类路径
+				method表示类的方法
+				<result>
+					name表示返回值
+					value表示跳转地址
+				通配符
+					*_*
+					{1}
+					{2}
+			<default-class-ref class="DefaultAction"/>
+				指定默认的类
+		<include>
+			导入文件
+
+二、ACTION
+	 <global-results>
+		   当action中，找不到name属性为show的result标签时
+		            会到这个 全局变量结果里找
+		            找到了就显示对应的界面
+	<result-types>
+		<result-type>
+		自定义的结果视图集类型
+	result的type属性详解
+		（1）type="dispatcher" 为默认，用于jsp页面跳转 
+		（2）type="redirect" 重定向到jsp、action、外部网址 
+		(3)type="redirect-action" 重定向到另外一个action  
+		（4）type="chain" 用于action跳转。   
+			 对于转发到不同包的Action 因为包与包之间的命名空间不同所以需要在result标签中通过param子标签，拼接信息注意命名空间一定以/开头
+		（5）type="plaintext" 跳转显示源代码 
+	param的作用
+		如果页面Form表单的参数在Action类中有相应的setter方法，则会优先取页面Form表单传过来的值，如果页面没有该属性同名的参数，则会从配置文件中取同名的参数值作为它的默认值
+	 <interceptors>
+		把声明拦截器的标签放最上面
+		interceptor-stack 
+			栈拦截器 （多个拦截器放在一起）
+	<interceptor-ref>
+		拦截器
+			继承 AbstractInterceptor
+			复写 intercept(ActionInvocation invocation)
+			放行invocation.invoke()
+	<validators>
+		验证器
+			头到/validator包下找
+			一个属性可以有多个验证器
+			<field name="需要验证的属性名">
+			 <field-validator type="验证方式">
+			 <message>验证返回值</message>
+			验证一个方法
+				    定义一个方法命名方式为：要验证的 validate+方法名
+				 这个方法会由struts2帮为我们调用
+				只会验证single方法
+				只要添加了错误信息
+					  addFieldError("errorMsg","single不能为空");
+				那么就会将结果改为视图集
+				在方法里调用StringUtils类的方法可以验证String类型
+			@SkipValidation
+				跳过val1，让validate方法 ，不验证val1
+	 ModelDriven<>
+		所谓ModelDriven，意思是直接把实体类当成页面数据的收集对象
+		泛型里表示是要给什么对象赋值，驱动模型不会 帮助我们创建对象，需要手动创建
+	随机验证码
+		Stringoutput=erifyCode.getInstance().output(ServletActionContext.getResponse().getOutputStream()):	
+三、OGNL
+	文件下载
+		ServletActionContext.getServletContext().getResourceAsStream("img/123.jpg");
+		在action的<result>中类型为down
+		 <param name="inputName">stream</param>
+			 这个标签体中 ，就是要返回的流的名字
+			            这个名字要与DownloadAction中的成员变量一致
+			            会通过getter方法得到
+		            <param name="contentDisposition">attachment;filename=${filename}</param>
+			设置动态名字，名字通过get方法得到
+			通知浏览器以下载的方式打开，获取文件名是OGNL表达式，就是调用动作类中的getFilename方法
+		中文处理
+			fileName =
+			filenameEncoding(FilenameUtils.getName(realPath),ServletActionContext.getRequest(),
+			ServletActionContext.getResponse());
+	
+		
+	# 号的用法
+		在 JSP 中使用 OGNL 显示 contextMap. 访问OGNL上下文和Action上下文，#相当ActionContext.getContext()
+		构造Map，如#{‘foo1’:‘bar1’,‘foo2’:‘bar2’}
+		集合的投影(只输出部分属性) （过滤）
+	% 号的用法
+		“%”符号的用途是在标签的属性值被理解为字符串类型时，告诉执行环境%{}里的是OGNL表达式。
+	$ 号的用法
+		引用OGNL表达式
+	注意
+		OGNL 表达式当做字符串输出'', 字符串当做 OGNL 表达式 %{}
+	标签
+		<s:property/>
+			调用任意对象任意方法
+			value="@java.lang.Integer@MAX_VALUE"
+				访问静态变量
+			value="@@abs(-100)"
+				访问静态方法
+				@类的路径@方法名
+		set
+			设置某个值
+		action
+			通过制定命名空间和action名字，允许在 jsp页面调用Action
+		Iterator
+			迭代器相当于foreach
+		if elseif else
+			类似 when otherwise
+		url
+			可以通过<s:param>标签来拼接url
+		form
+			优点:表单回显|对页面进行布局和排版
+			action设置提交的action名字不需要添加   .action后缀
+			method默认是post
+		radio
+			单选框
+		select
+			下拉列表
+		textfield, password, hidden, submit
+			输入
+	ActionContext
+		ActionContext ac = ActionContext.getContext();
+			得到actionContext实例：绑定到当前线程
+			ac.put()存数据
+			ac.get()取数据
+			获取context map三种方式
+				ValueStack vs1 = ac.getValueStack();
+				Map<String, Object> reqAttrs = (Map<String, Object>) ac.get("request");ValueStack vs2 =(ValueStack)eqAttrs.get("struts.valueStack");
+				ValueStack vs3 = (ValueStack) ac.get("com.opensymphony.xwork2.u
+til.ValueStack.ValueStack");
+		ValueStack vs = ActionContext.getContext().getValueStack();
+			Map<String, Object> contextMap = vs.getContext();
+				取context
+			CompoundRoot root = vs.getRoot();取root
+				root.push("哈哈哈哈");压栈
+				Object peek =root.peek();取栈顶对象
+				root.pop();弹栈
+四、Hibernate
+	对象的状态
+		临时状态：数据库中没有临时状态里的数据
+		持久化状态：该状态里的数据和数据库里的数据一样
+		游离状态：hibernate不维护里面 的数据。
+		
+		save
+			该方法可以把一个对象从临时状态转换成持久化状态
+		get
+			从数据库中根据主键提取出一个对象，该对象就是一个持久化状态的对象.
+		update
+			把一个对象变成持久化状态
+		clear
+			把所有的 hibernate 中的持久化对象都转换成脱管状态的对像
+		flush
+			检查hibernate中的说有持久化 状态的对象，如果持久化状态的对象是由临时状态转换过来的，就发出insert语句如果是由get方法获得 的持久化状态的对象，查看副本【块照】，如果相同啥也不干
+	优点
+		完全面向对象编程
+		Hibernate 有缓存，一级，二级，查询缓存
+		编程时简单一些，跨平台性好
+		使用场合就是企业内部系统
+	缺点
+		效率比较低
+		表数据在千万以上不适合
+		表与表之间的关系特别复杂，不合适
+	ORM（对象关系映射
+		ORM映射：Object Relational Mapping
+		• O：面向对象领域的 Object（JavaBean 对象）
+		• R：关系数据库领域的 Relational（表的结构）
+		• M：映射 Mapping（XML 的配置文件）
+		它的作用就是在关系型数据库和对象之间做了一个映射。从对象（Object）映射到关系（Relation），再从关系映射到对象。这
+	alt+ctrl+o
+		快速删除类中无用的import语句
+	映射配置文件 JavaBean.hbm.xml
+		<class>标签 用来将类与数据库表建立映射关系
+			name是类的全路径
+			table表名（类与表名字相同可省略）
+			catalog数据库 的名称，可省略不写
+		<id>标签用来将类中的属性与表中 的主键建立映射（id标签就是用来配置主键的）
+			name类中属性名
+			colum表中字段名（与name相同可省略）
+			length字段的长度，数据库中有可以不写
+			<generator>主键的生成策略
+				increment
+					Hibernate提供的增长机制(查询最大值+1)
+				assigned
+					主键的生成不用Hibenate管理
+				identity
+					采用数据库底层的自增长机制，数据库必须有自增长
+				uuid
+					随机字符串为主键
+				native
+					本地策略
+		<property>用来将类中的普通属性与表中的字段建立映射
+			name类中的属性名
+			column表中的字段名
+			length数据长度
+			type数据类型
+	核心配置文件 hibernate.cfg.xml
+		hibernate.connection.driver_class
+			连接数据库驱动
+		hibernate.connection.url
+			连接数据库URL
+		hibernate.connection.username
+			数据库用户名
+		hibernate.connection.password
+			数据库密码
+		hibernate.dialect
+			可以使用方言操作数据库
+			Mysql5以前的使用:MySQLDialect
+			mysql5以后的使用：MySQL5Dialect
+		hibernate.show_sql
+			显示SQL
+		hibernate.format_sql
+			格式化SQL
+		hibernate.hbm2ddl.auto
+			create
+				每次都会创建一个新的表
+			create-drop
+				每次都会创建一个新的表，当执行结束后将创建的表删除
+			update
+				如果有表，使用原来的表，没有表创建一个新的表 ，同时更新表结构
+			如果有表，使用原来的表，同时效验映射文件与表中字段是否一致如果不一致就会报错
+		<mapping resource=“”>
+			加载映射
+	常用的接口和类
+		Configuration类
+			configuration接口负责配置并启动Hibernate
+			把Configeration对象中 的所有配置信息拷贝到SessionFactory的缓存中，SessionFactory的实例代表一个数据库存车源，创建后不再与Configeration对象关联。最好只能有一个，可以通过静态代码块来限制它的个数
+		SessionFactory接口
+			负责初始化Hibernate，hibernate中的配置文件、映射文件、持久化类的信息都在sessionFactory中
+			sessionFactory中存放的信息是共享的【每个操作都要用到】
+			sessionFactory是线程安全的
+			一个Hibernate框架sessionFactory只能有一个，它是重量级的，很耗资源
+		Session 接口
+			Session接口负责执行被持久化对象的CRUD操作，也被称为持久化管理器
+			Session是应用程序与数据库之间交互操作的一个单线程对象，非常安全，得到一个session相当于打开一次数据库的连接
+		Transaction 接口
+			事物的接口，Hibernate不会自动提交事物，需要手动提交事物
+			commit（）提交事物
+			rollback（）回滚事物		
+Hibernate
+	一级缓存
+		也叫session缓存自带的不可卸载
+		SessionImpl / StatefulPersistenceContext / private Map<EntityKey, Object> entitiesByKey;
+		getCurrentSession
+			先检查当前线程中是否有session如果有则拿出来直接使用，没有则使用openSession方法创建 session放入到ThreadLocal中
+			配置
+				<property name="current_session_context_class">thread</property>
+		再一次请求中尽量减少和数据库的交互次数. 在 session.flush 之前, 改变的是一级缓存的对象属性. 当 session.flush 时才和数据库交互, 一级缓存解决不了重复查询
+	一对多单向
+		配置
+			<one-to-many class="com.lanou.dao.ontomany.Student"/>
+		级联操作与关系操作
+			cascade指的是级联操作, 操作的是一般属性[除标识符属性和关联对象属性], 指的是对象与对象的操作
+				save-update : 在保存 classes 对象的时候，针对student进行保存或者更新的操作,在更新 classes 对象的时候，针对student进行保存或者更新的操作
+				delete : 级联删除
+				all : 级联保存、更新、删除
+			inverse指的是关系操作,针对的就是外键
+				true : classes 不维护 classes 和 student 之间的关系
+				false : classes 维护 classes 和 student 之间的关系 [默认]
+	一对多双向
+		<many-to-one name="clazz" column="cid" class="com.lanou.domain.Clazz"cascade="save-update"/>
+		当多的一方维护关系时, 不会发出更新关系的 update 语句, 而一的一方维护关系时, 需
+		要发出维护关系的 update 语句. 一般情况下, 多的一方维护关系效率更高. [特殊情况: 一
+		个班级解除所有学生关系. 这就不能从学生入手]
+		没有 inverse 属性, 因为操作了 student 本身了,没有存在维护不维护外键一说
+	多对多
+		一对多描述了对象和集合关系, 多对一描述了对象和对象关系, 多对多描述了集合和集合的关系.
+		维护关系: 多对多建立关系相当于在第三张表中插入一条数据. 解除关系就是在第三张表中删除一条数据.
+		多对多从谁那维护都一样, 看需求
+	一对一
+		一对多双向中 student 中的 cid 外键是唯一.
+		unique=“true” : 外键只能在这张表里出现一次
+		constrained="true"
+	二级缓存
+		sessionFactory
+		配置
+			1.首先当然是加入相关的jar包，同时将配置文件ehcache.xml加入到src下。
+				 maxElementsInMemory: 设置缓存最大的数值
+				        eternal:  设置缓存中的数据是否永恒.true为永不过期
+				        timeToIdleSeconds: 缓存数据的存活时间, 空闲时间.多久未被使用则被清理
+				        timeToLiveSeconds: 当存活 N 秒后被销毁，缓存的生命长度
+				        overflowToDisk: 当系统当机时, 是否保存在磁盘上
+			• 2.开启二级缓存，修改hibernate.cfg.xml文件
+				 <property name="cache.use_second_level_cache">true</property>
+			• 3.指定缓存产品提供商
+				<property name="hibernate.cache.region.factory_class">
+			• 4.指定哪些实体使用二级缓存
+				<class-cache class="com.lanou3g.bean.Clazz" usage="read-write"/>
+					一定要放在mapping下面
+					transactional（事务缓存）
+					read-write（读写缓存）
+					nonstrict-read-write（非严格读写缓存）
+					read-only（只读缓存）
+		哪些方法可以把对象放在二级缓存中?
+			[1] get
+			[2] save
+			[3] query
+		把 经常不改变, 常用的, 公共的数据放入进来. 可以重复查询. 利用 get/iterate可以得到二级缓存数据
+	查询缓存 QueryCache
+		一级缓存, 二级缓存都是对象缓存. 会把数据库中所有的字段都查询出来.
+		如果字段很多, 而程序中使用的又很少, 效率就会很低.
+		查询缓存: 也叫做数据缓存. 内存中需要多少数据就把多少数据放入查询缓存中
+		
+		<property name="hibernate.cache.use_query_cache">true</property>
+			开启可以使用查询缓存
+			在程序中必须要写query.setCacheable(true);
+		可以缓存对象或数据. 可以利用 list 可以添加得到查询缓存数据. 查询缓存中
+		放的是数据, 是数据缓存.			

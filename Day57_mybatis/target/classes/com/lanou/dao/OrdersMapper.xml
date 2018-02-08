@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.dao.OrdersMapper">
+
+    <insert id="insertOrders" parameterType="orders">
+        <selectKey keyProperty="id" keyColumn="id" order="AFTER"
+                   resultType="java.lang.Integer">
+            SELECT LAST_insert_id()
+        </selectKey>
+            INSERT INTO orders(id,number,user_id)
+        VALUES (#{id},#{number} ,#{user_id})
+    </insert>
+</mapper>

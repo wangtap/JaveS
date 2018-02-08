@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.custom.i18n.resources" value="res"></constant>
+    <package name="login" extends="struts-default" namespace="/">
+        <action name="login" class="LoginAction" method="login">
+            <result>/success.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="switch" class="SwitchAction">
+            <result>/index.jsp</result>
+        </action>
+    </package>  </struts>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDConfig 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wt.study.dao.DepartmentDao">
+
+    <select id="queryDepartment" resultMap="depMap">
+        SELECT * FROM crm.crm_department,crm.crm_post,crm.crm_staff
+         WHERE crm_staff.postId=crm_post.postId AND crm_department.depId=crm_post.depId
+    </select>
+
+    <resultMap id="queryOrder" type="staff">
+        <id column="staffId" property="staffId"/>
+        <result column="loginName" property="loginName"/>
+        <association property="post" javaType="post">
+            <id  column="postId" property="postId"/>
+            <result column="postName" property="postName"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="depMap" type="department" >
+        <id column="depId" property="depId"/>
+        <result column="depName" property="depName"/>
+        <collection property="postSet" ofType="post">
+                <id column="postId" property="postId"/>
+                <result column="postName" property="postName"/>
+               <collection property="staffSet" resultMap="queryOrder"/>
+        </collection>
+    </resultMap>
+</mapper>

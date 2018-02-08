@@ -1,14 +1,14 @@
 import java.util.List;
 
 public class PageBean {
-    private List<Book> books;
-//    private int totalPages;
-    private int pageCode;
-    private int totalData;
-    private int pageSize=10;
+    private List<Book> books;//分页数据
+//    private int totalPages;//总页数
+    private int pageCode;//当前页
+    private int totalData;//总数据量
+    private int pageSize=10;//每页显示的数据量
 
 
-    private  String params;
+    private  String params;//查询语句参数
 
     public String getParams() {
         return params;
@@ -35,8 +35,8 @@ public class PageBean {
     }
 
     public int getTotalPages() {
-        int ps = totalData / 10;
-        if (totalData % 10>0){
+        int ps = totalData / pageSize;
+        if (totalData % pageSize>0){
             ps++;
         }
         return ps;

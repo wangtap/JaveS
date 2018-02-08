@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.UserMapper">
+    <insert id="insertUser"
+                parameterType="com.lanou.domain.User" useGeneratedKeys="true">
+        INSERT INTO USER VALUES (#{id},#{username},#{sex},#{birthday},#{address})
+    </insert>
+
+    <select id="selectByName"
+            parameterType="java.lang.String"
+            resultType="com.lanou.domain.User">
+        SELECT * FROM  USER WHERE username LIKE '%${value}%'
+    </select>
+
+    <delete id="deleteById"
+            parameterType="int">
+        DELETE FROM USER  WHERE id='${value}'
+    </delete>
+
+    <update id="updateUser" parameterType="com.lanou.domain.User">
+        UPDATE USER SET username = #{username},sex=#{sex},birthday=#{birthday},address=#{address} WHERE id=#{id}
+    </update>
+
+    <select id="selectByUsername" parameterType="java.lang.String" resultType="com.lanou.domain.User">
+        SELECT * FROM USER WHERE username='${value}'
+    </select>
+
+    <select id="findUserById" parameterType="int" resultType="com.lanou.domain.User">
+        SELECT * FROM USER WHERE id='${value}'
+    </select>
+
+</mapper>

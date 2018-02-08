@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Jan 31 15:10:02 CST 2018
+ant-1.9.6-sources.jar>alimaven=
+ant-1.9.6.jar>alimaven=
+ant-1.9.6.pom>alimaven=
+ant-1.9.6-javadoc.jar>alimaven=

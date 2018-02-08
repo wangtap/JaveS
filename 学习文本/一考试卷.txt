@@ -1,0 +1,292 @@
+﻿1，int和integer有什么区别？二者如何转换？基本数据类型有哪些？String是属于什么数据类型？
+
+
+
+
+
+2，final修饰符都可以修饰什么，有什么用？
+
+
+
+3. 接口是否可继承（extends）接口？抽象类是否可实现（implements）接口？抽象类是否可继承具体类（concrete class）？
+
+
+
+4，方法的重载是如何定义的？为什么不能根据返回值类型来区分方法的重载？
+
+
+
+
+
+5，启动一个线程是调用run()还是start()方法？有什么区别？
+
+
+
+
+
+6，关于以下程序代码的说明正确的是?
+public class Test {
+	private static int t = 100;	
+	public static void main(String args[]) {
+		Test t1 = new Test();
+		t1.t++;
+		Test t2 = new Test();
+		t2.t++;
+		t1 = new Test();
+		t1.t++;
+		Test.t--;
+		System.out.println("t=" + t);
+	}
+}
+	A,程序通过编译，输出结果为：t=103
+	B,10行不能通过编译，因为x是私有静态变量
+	C,5行不能通过编译，因为引用了私有静态变量
+	D,程序通过编译，输出结果为：t=102
+7，给定以下JAVA代码，这段代码运行后输出的结果是?
+public class Test {
+	public static int aMethod(int i) throws Exception {
+		try {
+			return i / 10;
+		} catch (Exception ex) {
+			throw new Exception("exception in a Method");
+		} finally {
+			System.out.printf("finally");
+		}
+	}
+	public static void main(String[] args) {
+		try {
+			aMethod(0);
+		} catch (Exception ex) {
+			System.out.printf("exception in main");
+		}
+		System.out.printf("finished");
+	}
+}
+	A,exception in main finished
+	B,finally finished
+	C,exception in main finally
+	D,finally exception in main finished
+8，根据下面的程序代码，哪个选项的值返回true？
+public class Test {
+	int number;
+	public Test(int number) {
+		this.number = number;
+	}
+	public static void main(String[] args) {
+		Test a,b,c;
+		a = new Test(42);
+		b = new Test(42);
+		c = b;
+		int s = 42;
+	}
+}
+	A,	a==b
+	B,	s==a
+	C,	b==c
+	D,	a.equals(s)
+
+9，下列程序的执行结果:
+	class A {
+    		public int func1(int a, int b) {
+        			return a - b;
+    		}
+	}
+	class B extends A {
+   		public int func1(int a, int b) {
+        			return a + b;
+		}
+    	}
+	public class ChildClass {
+    		public static void main(String[] args) {
+    			A a = new B();//a只能使用B继承自A的方法
+    			B b = new B();//b可以使用B的所有方法
+    			System.out.print("Result=" + a.func1(100, 50));
+    			System.out.print(“  Result=" + b.func1(100, 50));
+    		}
+	}
+	A,Result=50  Result=150
+	B,Result=150  Result=50
+	C,Result=50  Result=50
+	D,Result=150  Result=150
+
+10，下列程序的输出结果为
+public class Test{
+    public static void main(String[] args){
+        int x = 0;
+        int y = 0;
+        int k = 0;
+        for (int z = 0; z < 5; z++) {
+            if ((++x > 2) && (++y > 2) && (k++ > 2)){
+                x++;
+                ++y;
+                k++;
+            }
+        }
+        System.out.println(x + ”” +y + ”” +k);
+    }
+}
+	A,432
+	B,531
+	C,101010
+	D,421
+
+11，A 是抽象父类或接口， B ， C 派生自 A ，或实现 A ，现在 Java 源代码中有如下声明：
+	1. 	A  a0=new  A();
+	2. 	A  a1 =new  B();
+	3. 	A  a2=new  C();
+	4.	B b = new C();
+问以下哪个说法是正确的？（ ）
+	A,只有第1行不能通过编译
+	B,第1、2行能通过编译，但第3,4行编译出错
+	C,第2行、第3行可以运行
+	D,第1行、第2行和第3行的声明都是正确的
+
+12，写出遍历Map的三种方式。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13，命名规范，while与do-while的区别，&与&&的区别，a++和++a的区别
+
+
+
+
+
+
+
+
+14，写出冒泡排序
+
+
+
+
+
+
+
+
+
+15，复写，重写，重载都是什么？什么是构造方法？构造方法重载存在的意义是什么？
+
+
+
+
+
+
+
+16，说出运行下列代码产生的结果，及产生该结果的原因（越详细越好）
+public class T {
+	private int a = 10;
+	public static void main(String[] args) {
+		System.out.println(a++);
+	}
+}
+
+
+
+
+
+
+17，写出权限修饰符及其所代表的含义。
+
+
+
+
+
+
+18，子类如何调用父类的方法？在调用父类的构造方法时需要注意什么？this关键字是什么含义？
+
+
+
+
+
+19，I/O流的两种分类方式？写出使用缓冲流读取文本文件的代码。
+
+
+
+
+
+
+
+
+
+
+
+20，创建线程的四种方式（代码）。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+21，TCP/UDP的区别，套接字的英文。
+
+
+
+
+
+
+
+
+22，写出下列SQL语句。
+	创建一个表，名字，性别，年龄，职业
+
+
+
+	查询姓名为三个字的，性别为男年龄大于20或性别为女年龄大于30的人。
+
+
+
+	查询每个职业中男性年龄的平均值。
+
+
+
+	查询姓张的女生的姓名及职业，如果没有职业则输出无业人员，按照年龄排序。
+
+
+	
+23，写出拉取网络数据需要使用的类，按照使用顺序来书写。写出一个JSON对象，写出一个JSON数组。
+
+
+
+
+
+
+
+
+
+
+22，英文考试环节：
+	
+	序列化________ 同步________ 正则______ 表达式______ 分支______
+	average______ 列______ 数据库______ 合并______ 提交________
+	viriable_______ element__________ status________ 影响________
+	询问________ 流________
+	
+	  
+	

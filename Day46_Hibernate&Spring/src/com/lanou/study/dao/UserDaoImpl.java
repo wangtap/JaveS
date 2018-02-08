@@ -9,6 +9,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao   {
     @Override
     public void add() {
         this.getHibernateTemplate().save(user);
+
         System.out.println("----------add------------添加好了");
     }
 

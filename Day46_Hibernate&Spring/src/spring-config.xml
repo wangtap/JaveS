@@ -59,7 +59,7 @@
                        propagation="REQUIRED"
                        read-only="false"/>
             <tx:method name="update*"/>
-            <tx:method name="*" read-only="true"/>
+            <tx:method name="*" read-only="false"/>
         </tx:attributes>
     </tx:advice>
 

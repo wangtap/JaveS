@@ -15,7 +15,7 @@
         <property name="user" ref="user"/>
     </bean>
 
-    <bean id="userAction" class="com.lanou.study.web.controll.UserAction" scope="prototype">
+    <bean id="userAction" class="com.lanou.study.web.controller.UserAction" scope="prototype">
         <property name="userService" ref="userService"/>
     </bean>
 

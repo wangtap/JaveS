@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Day52_Mappingrelation:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Day52_Mapping relation.war">
+      <element id="artifact" artifact-name="Day52_Mappingrelation:war exploded" />
+    </root>
+  </artifact>
+</component>

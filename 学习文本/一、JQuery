@@ -1,0 +1,143 @@
+一、JQuery
+	AJAX异步获取 
+		$.getJSON(接口地址，function(Data，status){}获取的数据与是否成功的标志)
+		var jsonData = $.parseJSON(data);
+			使用parseJSON方法将data数据解析成JS中json对象
+		 $.each(jsonData,function (index,obj)
+			遍历数据（角标，元素）
+			each：遍历数据，相当于eachfor
+	操作元素
+		$('div').attr({"class":"bigRed"}).attr("class")
+			属性
+		$('div').css({"width":"200px","height":"200px","backgroundColor":"red" })
+			样式
+		append：添加内容
+		before：在标签前面添加文本
+		after：在标齐后面添加文本
+	JQ的声明与使用
+		$:声明要使用JQ语法了
+		（'div'）:单引号里面 的是选择器
+		<script src="js/jquery-3.2.1.min.js" > ：导入js文件
+		选择了标签后可以设置标签样式，括号里表示传入的值，空表示接收值，会返回接受的值
+	动画
+		$(this).animate({执行语句如"marginLeft":"200px"},间隔时间,回调函数)
+	双击事件与链式调用进入进出
+		$('选择器').dblclick(执行函数)
+		mouseenter和mouseleave
+			范围是该元素与子元素的或
+		链式调用，有返回值的$('div')
+		mouseover与mouseout
+			范围是该元素与资源的与非
+	加载后执行
+		$(document).ready(function(){})
+			$(document)属于选择器
+			$(this)找到该语句的对象
+		$(function(){}))
+
+
+
+
+
+
+二、JS
+JS是弱类型,弱类型语言,解释型语言,使用时自动识别数据类型;
+		变量的声明方式 var 变量名 = 值
+		
+		JS中的null为一个值
+			null用作条件判断时代表false
+			null用作算数运算时表示零
+		进行算数运算时浏览器会自动将可以转换为数字的转换为数字参与运算
+		任何非数字与数字相加结果都是NAN
+	JS中的事件
+		标签中的事件
+			onclick点击事件
+			ondblclick鼠标双击事件
+			onmouseout 鼠标离开
+			onmouseup  鼠标进入
+			事件属性内为要执行的内容
+		onfocus
+			获得焦点
+		onblur
+			失去焦点
+	控制台函数
+		console.log(内容)输出到控制台
+	函数
+		函数声明方式：function 函数名(){函数体}
+		封装的函数需要被调用才能执行
+		函数的参数列表
+			对于带参数的函数
+           如果在调用函数式
+            传递的参数数量少于参数列表中的参数总数
+           那么，没被赋值的形参的值为undefined
+           如果在调用时
+           传递的参数数量大于参数列表参数总数
+           那么，多余的参数就不会进入函数体，不会有影响
+		JS中封装的函数都交给了Windows，属性也就成了Windows的属性
+		JS中任意一个function方法都可看做构造方法，构造方法名应当首字母大写
+		要使用对象的属性和方法必须用this调用，声明对象属性也要由this表示
+		关于JS中的方法
+			JS中带括号的表示执行方法，只会将返回值赋给对象，等于添加属性
+			不带括号的则表示方法整体
+		JS中查询元素
+			document.getElementById("");
+		window.onload
+			HTML文档加载完成后才会执行
+		innerText
+			以纯文本显示
+		innerHTML
+			会识别为标签
+		改变标签的属性
+			标签对象.style.属性名=“属性值”；
+		标签对象
+			添加元素：标签对象.appendChild()
+			删除元素：标签对象.removeChild()
+		document.write(文本)向文档中写入，如果文档已加载完成则会覆盖文档
+	JS中的交互
+		1.window.alter()
+		2.window.prompt()
+			返回输入的值
+			如果未输入则返回默认值
+			取消或者ESC返回null
+		3.window.confirm(message)
+			只返回true或false
+	 Document Object Model
+        文档      对象      模型
+	循环
+   使用forEach方法遍历数组， 该方法，接收一个回调函数，所以我们定义了一个匿名方法，并且给这个方法定义了两个参数，当浏览器解析到改代码，也就是foreach，会自动帮我们调用传入方法。
+并且第一个参数传入数组为元素
+第二个参数传入为脚标
+	display控制显示与隐藏（隐藏时不占位）
+	visibility控制元素隐藏依然占据空间
+	定时任务
+		setTimeout(函数,时间)
+		setInterval(函数,时间)
+		作用：定时执行与延迟执行
+
+
+三、Servlet
+	JSON数组
+		resp.getWriter().write（JSONArray.fromObject(users).toString）
+	配置访问路径
+		在<servlet>下用<servlet-name>给HttpServlet的实现类一个名字，用 <servlet-class>给该类指定一个路径
+		用<servlet-mapping>给类添加一个映射，用<url-pattern>给一个地址访问一个类，用servlet-name找到该类
+	导入tomcat和jay包，布置到服务器
+		 B/S 系统 Browser  Server
+		 C/S系统 Client  Server
+	复写HttpServlet的doGet和doPost
+		Request：请求。包含这次请求的所有数据
+			使用req，获得请求参数
+				 req.getParameter（参数名）
+		Response 响应，将这次请求还给请求方
+			使用resp，将请求的结果返回给请求方
+				resp.getWriter().write("<h1>SUCCESS</h1>");
+		500或500+表示服务器出错了
+			404表示未找到资源也就是你访问的路径，在服务器中不存在
+	设置字体格式
+		resp.setContentType("text/htm;charset=utf-8");
+	Srevlet的生命周期
+	1初始化设置（init），只会执行一次
+	2每次访问时执行一次service；
+	3当服务器关闭时调用destroy，垃圾回收机制GC；
+	当需要获得servletConfig时，手动调用；
+    当需要获得servletInfo时，手动调用
+    Servlet在web.xml中的配置内容会被抽象成一个ServletConfig的对象这个对象会在tomcat帮我们调用init（ServletConfig）的时候传入GenericServlet帮我们封装好了一步this.servletConfig=servletConfig

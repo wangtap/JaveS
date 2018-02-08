@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wt.study.dao.UserDao">
+    <resultMap id="user" type="com.wt.study.domain.User"/>
+
+    <sql id="condition">
+        <if test="username !=null and username!= '' ">AND username LIKE  '%${username}%'</if>
+        <if test="sex != null and sex!='' ">AND sex = #{sex}</if>
+        <if test="birthday!=null and birthday!='' ">AND birthday=#{birthday}</if>
+        <if test="address!=null and address!='' ">AND  address=#{address}</if>
+    </sql>
+    <select id="conditionQuery" parameterType="user" resultType="user">
+        SELECT * FROM USER <where>
+            <include refid="condition"/>
+    </where>
+    </select>
+
+    <select id="queryByIds" resultType="user" parameterType="java.util.List">
+        SELECT * FROM USER <where>
+        <if test="list != null and list.size > 0">
+            <foreach collection="list" item="id" open="AND id IN (" close=")" separator=",">
+                #{id}
+            </foreach>
+        </if>
+    </where>
+    </select>
+</mapper>

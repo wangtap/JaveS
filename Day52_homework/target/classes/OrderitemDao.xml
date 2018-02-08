@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wt.study.orderitem.dao.OrderitemDao">
+        <insert id="insert" parameterType="orderitem">
+            <selectKey keyProperty="iid" resultType="int" order="AFTER">
+                SELECT LAST_INSERT_ID()
+            </selectKey>
+            INSERT INTO orderitem(oid,cid,count,subtotal)
+            VALUES (#{oid},#{cid},#{count},#{subtotal})
+        </insert>
+</mapper>

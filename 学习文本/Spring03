@@ -1,0 +1,348 @@
+Spring03
+	annotation
+		使用注解需要在配置文件中手写<context:component-scan base-package="扫描包的路径 "resource-pattern="只扫描路径下的类"
+			表示扫描哪些包，获取包中被注解标识的bean，可以使用逗号区分路径
+			在xmlns：context和xsi:schemaLacation中会添加一些内容
+			<context:exclude-filter>
+				"不扫描repository注解的类"
+			<context:include-filter>use-default-filters="false"
+				(表示只扫描repository注解的类)
+		在<bean>中parent属性为继承，会把参数也继承下来
+		component(实例的名称)
+			一般就是不知道这个类型有什么具体的作用时使用这个注解
+		Controller
+			控制器，struts2的action使用这个注解
+		Repository
+			数据访问层使用（Dao）
+			仓库
+		Service
+			业务 层使用
+		test
+			@Before
+				在每次@Test前执行
+		配置 bean 的属性
+			@Autowired(required = false)
+				按类型自动装配(找不到就算了)
+				可以将注解应用到任意名称或参数的方法上
+			@Qualifier("car1")
+				按名字自动装配
+				合格者
+			@PostConstruct
+				初始化
+			@PreDestroy
+				销毁
+			@Required
+				@Required注解应用于Bean属性的setter方法
+			@Resource
+				默认按名称装配
+				标注在字段或属性的setter方法上.
+	AOP
+		Aspect Oriented Programming
+		代理模式
+			静态代理
+				代理者直接复写代理对象的方法
+			JDK动态代理
+				目标对象类型是可变的，使用Object类型结接收
+				同过构造方法，传入目标对象和功能对象
+				代理者实现InvocationHandler接口，复写invoke方法
+					当用户调用，生成的代理者的对象的任意一个方法时都会来执行这个invoke方法
+					invoke方法通过反射的形式，调用目标对象的对应方法，将参数传入
+				使用代理者
+					调用Proxy的静态方法new ProxyInstance()需要传入三个参数
+						目标类型的类加载器
+						目标类型实现了哪些接口
+						使用哪个InvocationHandler,去创建目标类的代理对象（只在运行时存在）（不会生成字节码 文件）
+					最后强转成接口调用实现类的方法
+			CGLIB动态代理
+				动态代理类实现MethodInterceptor接口
+				新建代理对象、功能对象和代理者对象
+				新建代码增强类Enhancer
+					设置生成类的父类类型，一般就是接口的类型
+					调用setCallback()方法参数为拦截器，
+					调用creat()方法动态生成字节码（class）
+			代理对象要抽象化一个接口
+		AOPXML
+			功能类为切面类Transaction，目标接口类为UseDao，目标类UserDaoImpl
+			引入 aop 命名空间
+				需要spring-aop这个包
+				  <aop:config>
+			配置切面类和目标接口类
+			切点表达式，确认目标类
+				 <aop:pointcut id="pointcut"expression="execution(* com.lanou.aop.UserDaoImpl.*(..))"/>
+			指定切面ref引用这个bean，被做为切面使用
+				<aop:aspect ref="transation">
+					<aop:before method="begin" pointcut-ref="pointcut"/>
+						前置通知
+					                <aop:after method="commit" pointcut-ref="pointcut"/>
+						正常返回通知
+			Spring AOP 原理:
+				1. 当spring容器启动的时候，加载两个bean,对两个bean进行实例化
+				2. 当spring容器对配置文件解析到<aop:config> 的时候
+				3. 把切入点表达式解析出来，按照切入点表达式匹配spring容器内容的bean
+				4. 如果匹配成功，则为该bean创建代理对象
+				5. 当客户端利用context.getBean获取一个对象时，如果该对象有代理对象，则返回代理对象; 如果没有代理对象，则返回对象本身
+				6. 切入点表达式如与springbean 没有一个匹配就会报错
+		概念
+			Aspect(切面)
+				比如说事务、权限等，与业务逻辑没有关系的部分
+			joinPoint(连接点)
+				目标类的目标方法。（由客户端在调用的时候决定）
+			pointCut(切入点
+				所谓切入点是指我们要对那些拦截的方法的定义.
+				被纳入spring aop中的目标类的方法。
+			Advice(通知)
+				所谓通知是指拦截到joinpoint之后所要做的事情就是通知.通知分为前置通知,后置通知,
+				异常通知,最终通知,环绕通知(切面要完成的功能)
+			Target(目标对象)
+				代理的目标对象
+			Weaving(织入)
+				是指把切面应用到目标对象来创建新的代理对象的过程.切面在指定的连接点织入到目标对象
+Spring_IOC_DI
+	applicationContext.xml
+		在Modules中添加配置信息
+		<bean>相当于执行一个构造方法
+		<property>用set方法设置属性
+		<constructor-arg>给构造方法传值
+			根据参数名传值
+			根据角标传值
+			根据类型传值
+	context=new ClassPathXmlApplicationContext("applicationContext.xml")
+		获取ApplicationContext的参数（执行构造方法）（prototype、指定lazy-init属性为true除外）
+		获得对象context.get(beanID)
+	静态工厂
+		静态工厂不需要实例化对象class指定的就是工厂模型factory-method就是工厂里的静态方法
+	scope
+		生命周期
+			创建
+			初始化
+				init-method=方法名
+			销毁
+				destroy-method=方法名
+		singleton
+			默认的。单例模式
+		prototyoe
+			允许bean可以被多次实例化(使用一次就创建一个实例)
+			无论lazy-init 的值是什么, 都在 context.getBean时才创建对象
+			创建对象后Spring不在进行维护
+	别名
+		name：可以使用，定义多个别名
+		id只能有一个
+		<alias>可以定义别名
+	工厂模式
+		factory-method=工厂里面的静态方法
+		factory-bean=工厂id
+			指定factory-method的工厂
+	依赖注入（DI）
+		依赖注入是控制反转的一种实现方法
+		依赖注入是将实例变量传到一个对象中去
+		使用构造器注入给空参的构造方法传值
+			<constructor-arg>
+		使用属性setter方法
+			<property>
+				name为属性名
+				value为值，可以是其他Bean
+				转配list集合、set、map、properties、Object时在property的标签体中设置标签传值
+	Hibernate
+	一级缓存
+		也叫session缓存自带的不可卸载
+		SessionImpl / StatefulPersistenceContext / private Map<EntityKey, Object> entitiesByKey;
+		getCurrentSession
+			先检查当前线程中是否有session如果有则拿出来直接使用，没有则使用openSession方法创建 session放入到ThreadLocal中
+			配置
+				<property name="current_session_context_class">thread</property>
+		再一次请求中尽量减少和数据库的交互次数. 在 session.flush 之前, 改变的是一级缓存的对象属性. 当 session.flush 时才和数据库交互, 一级缓存解决不了重复查询
+	对应关系
+		一对多双向
+			<many-to-one name="clazz" column="cid" class="com.lanou.domain.Clazz"cascade="save-update"/>
+			当多的一方维护关系时, 不会发出更新关系的 update 语句, 而一的一方维护关系时, 需
+			要发出维护关系的 update 语句. 一般情况下, 多的一方维护关系效率更高. [特殊情况: 一
+			个班级解除所有学生关系. 这就不能从学生入手]
+			没有 inverse 属性, 因为操作了 student 本身了,没有存在维护不维护外键一说
+		一对一
+			一对多双向中 student 中的 cid 外键是唯一.
+			unique=“true” : 外键只能在这张表里出现一次
+			constrained="true"
+		多对多
+			一对多描述了对象和集合关系, 多对一描述了对象和对象关系, 多对多描述了集合和集合的关系.
+			维护关系: 多对多建立关系相当于在第三张表中插入一条数据. 解除关系就是在第三张表中删除一条数据.
+			多对多从谁那维护都一样, 看需求
+		一对多单向
+			配置
+				<one-to-many class="com.lanou.dao.ontomany.Student"/>
+			级联操作与关系操作
+				cascade指的是级联操作, 操作的是一般属性[除标识符属性和关联对象属性], 指的是对象与对象的操作
+					save-update : 在保存 classes 对象的时候，针对student进行保存或者更新的操作,在更新 classes 对象的时候，针对student进行保存或者更新的操作
+					delete : 级联删除
+					all : 级联保存、更新、删除
+				inverse指的是关系操作,针对的就是外键
+					true : classes 不维护 classes 和 student 之间的关系
+					false : classes 维护 classes 和 student 之间的关系 [默认]
+		作用：它可以帮助我们联表操作数据库
+	二级缓存
+		sessionFactory
+		配置
+			1.首先当然是加入相关的jar包，同时将配置文件ehcache.xml加入到src下。
+				 maxElementsInMemory: 设置缓存最大的数值
+				        eternal:  设置缓存中的数据是否永恒.true为永不过期
+				        timeToIdleSeconds: 缓存数据的存活时间, 空闲时间.多久未被使用则被清理
+				        timeToLiveSeconds: 当存活 N 秒后被销毁，缓存的生命长度
+				        overflowToDisk: 当系统当机时, 是否保存在磁盘上
+			• 2.开启二级缓存，修改hibernate.cfg.xml文件
+				 <property name="cache.use_second_level_cache">true</property>
+			• 3.指定缓存产品提供商
+				<property name="hibernate.cache.region.factory_class">
+			• 4.指定哪些实体使用二级缓存
+				<class-cache class="com.lanou3g.bean.Clazz" usage="read-write"/>
+					一定要放在mapping下面
+					transactional（事务缓存）
+					read-write（读写缓存）
+					nonstrict-read-write（非严格读写缓存）
+					read-only（只读缓存）
+		哪些方法可以把对象放在二级缓存中?
+			[1] get
+			[2] save
+			[3] query
+		把 经常不改变, 常用的, 公共的数据放入进来. 可以重复查询. 利用 get/iterate可以得到二级缓存数据
+	查询缓存 QueryCache
+		一级缓存, 二级缓存都是对象缓存. 会把数据库中所有的字段都查询出来.
+		如果字段很多, 而程序中使用的又很少, 效率就会很低.
+		查询缓存: 也叫做数据缓存. 内存中需要多少数据就把多少数据放入查询缓存中
+		
+		<property name="hibernate.cache.use_query_cache">true</property>
+			开启可以使用查询缓存
+			在程序中必须要写query.setCacheable(true);
+		可以缓存对象或数据. 可以利用 list 可以添加得到查询缓存数据. 查询缓存中
+		放的是数据, 是数据缓存.
+ACTION
+	 <global-results>
+		   当action中，找不到name属性为show的result标签时
+		            会到这个 全局变量结果里找
+		            找到了就显示对应的界面
+	<result-types>
+		<result-type>
+		自定义的结果视图集类型
+	result的type属性详解
+		（1）type="dispatcher" 为默认，用于jsp页面跳转 
+		（2）type="redirect" 重定向到jsp、action、外部网址 
+		(3)type="redirect-action" 重定向到另外一个action  
+		（4）type="chain" 用于action跳转。   
+			 对于转发到不同包的Action 因为包与包之间的命名空间不同所以需要在result标签中通过param子标签，拼接信息注意命名空间一定以/开头
+		（5）type="plaintext" 跳转显示源代码 
+	param的作用
+		如果页面Form表单的参数在Action类中有相应的setter方法，则会优先取页面Form表单传过来的值，如果页面没有该属性同名的参数，则会从配置文件中取同名的参数值作为它的默认值
+	 <interceptors>
+		把声明拦截器的标签放最上面
+		interceptor-stack 
+			栈拦截器 （多个拦截器放在一起）
+	<interceptor-ref>
+		拦截器
+			继承 AbstractInterceptor
+			复写 intercept(ActionInvocation invocation)
+			放行invocation.invoke()
+	<validators>
+		验证器
+			头到/validator包下找
+			一个属性可以有多个验证器
+			<field name="需要验证的属性名">
+			 <field-validator type="验证方式">
+			 <message>验证返回值</message>
+			验证一个方法
+				    定义一个方法命名方式为：要验证的 validate+方法名
+				 这个方法会由struts2帮为我们调用
+				只会验证single方法
+				只要添加了错误信息
+					  addFieldError("errorMsg","single不能为空");
+				那么就会将结果改为视图集
+				在方法里调用StringUtils类的方法可以验证String类型
+			@SkipValidation
+				跳过val1，让validate方法 ，不验证val1
+	 ModelDriven<>
+		所谓ModelDriven，意思是直接把实体类当成页面数据的收集对象
+		泛型里表示是要给什么对象赋值，驱动模型不会 帮助我们创建对象，需要手动创建
+	随机验证码
+		Stringoutput=erifyCode.getInstance().output(ServletActionContext.getResponse().getOutputStream()):		
+S2SH
+	导包
+		导入spring的包
+		hibernate
+		spring
+		struts
+		c3p0
+		jdbc
+	配置modules
+	Struts2
+		配置web.xml
+			struts2的过滤器
+			Struts2的监听器
+				<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+				可以监听到应用启动，当应用启动时，它就会找到spring的配置文件    并且创建好applicationContext
+			初始化参数
+				一个全局初始化参数，该参数在应用刚启动时就已经存在
+				<param-name>contextConfigLocation</param-name>
+				        <param-value>classpath:spring-config.xml</param-value>
+		配置struts.xml
+			替换默认的产生动作实例的工厂为spring
+				<constant name="struts.objectFactory" value="spring"/>
+				userService是由BeanFactory管理的，userAction是由ObjectFactory管理的。ObjectFactory目前不能从spring容器取userService
+			写入有需求的action，class属性可以为spring配置文件中bean的ID或name属性，它会找到对应的类（动作类也交给spring 管理）
+		配置spring-config.xml
+			生成每个类对应的bean，在bean中装配好他们需要的实例（对象）
+	hibernate
+		配置c3p0.properties
+			jdbc.url=jdbc:mysql://localhost:3306/sph
+			jdbc.driver=com.mysql.jdbc.Driver
+			jdbc.username=root
+			jdbc.password=123
+		Dao
+			需要继承HibernateDaoSupport
+			this.getHibernateTemplate().save(user);为保存数据
+			调用HibernateDaoSupport的方法操作数据库
+		实体类要写个类名.hbt.xml文件
+			该映像文件将会在SQL中创建表
+		spring-config
+			将c3p0的配置文件导入到spring容器中
+				<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+				    <property name="locations" value="classpath:c3p0.properties"/>
+				</bean>
+			 创建一个ComboPooledDataSource类的对象
+    为该对象指定四个属性
+    属性值，从上面的配置文件中获取
+				    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+<property name="jdbcUrl" value="${jdbc.url}"/>
+<property name="driverClass" value="${jdbc.driver}"/>
+<property name="user" value="${jdbc.username}"/>
+<property name="password" value="${jdbc.password}"/></bean>
+			让spring帮我们创建sessionFactory对象
+    指定该对象的dataSource属性（c3p0中的配置的信息）
+    指定了configLocation（Hibernate的配置文件）
+				<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="datasource"/>
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+    </bean>
+			创建transactionManager事物的声明，事物管理器
+				<bean id="transactionManager"class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+ <property name="sessionFactory"		 ref="sessionFactory"/>    </bean>
+			事物属性配置
+				<tx:advice id="txAdvice"
+               transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="add*"
+                       isolation="DEFAULT"
+                       propagation="REQUIRED"
+                       read-only="false"/>
+            <tx:method name="update*"/>
+            <tx:method name="*" read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
+
+				isolation:事物隔离级别，处理事物并发问题
+				DEFAULT：当前数据库默认的隔离级别
+				propagation：事务的传播属性
+				REQUIRED：当前的方法必须要在事务中进行，如果有实物环境就加入，如果没有就新建事务。默认值
+				read-only：是否只读
+			配置事务切点，并把切点和事务管关联起来
+				 <aop:config>
+    <aop:pointcut id="txPointcut"
+                  expression="execution(* com.lanou.study.dao.*Impl.*(..))"/>
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+</aop:config>									

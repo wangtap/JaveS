@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wt.study.user.dao.UserDao">
+    <insert id="insert"
+            parameterType="user" >
+        INSERT INTO USER(uname,password)
+        VALUES (#{uname},#{password})
+        <selectKey keyProperty="userid" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <select id="queryAll" resultMap="alluser">
+        SELECT  * FROM user,orders,orderitem,commodity WHERE
+        orders.userid=user.userid
+        AND orderitem.oid=orders.oid
+         AND orderitem.cid=commodity.cid
+    </select>
+
+    <resultMap id="alluser" type="userExample">
+        <id column="userid" property="userid"/>
+        <result column="uname" property="uname"/>
+        <result column="password" property="password"/>
+        <collection property="orderList" ofType="orderExample">
+           <id column="oid" property="oid"/>
+            <result property="oname" column="oname"/>
+            <collection property="orderitemList" ofType="orderitemExample">
+                <id column="iid" property="iid"/>
+                <result column="count" property="count"/>
+                <result column="subtotal" property="subtotal"/>
+                <association property="commodity" javaType="commodity">
+                    <id column="cid" property="cid"/>
+                    <result column="cname" property="cname"/>
+                    <result column="cprice" property="cprice"/>
+                </association>
+            </collection>
+        </collection>
+    </resultMap>
+
+</mapper>

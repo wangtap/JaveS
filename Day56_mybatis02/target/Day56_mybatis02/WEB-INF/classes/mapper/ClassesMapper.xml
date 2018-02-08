@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.study.user.dao.ClassesDao">
+    <insert id="insertClasses" parameterType="classes">
+<selectKey keyProperty="cid" resultType="int" order="AFTER">
+    SELECT LAST_INSERT_ID()
+</selectKey>
+        INSERT INTO Classes(name,sex) VALUES (#{name},#{sex})
+    </insert>
+
+    <resultMap id="foreach" type="classes">
+        <id column="cid" property="cid"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+     </resultMap>
+
+    <select id="queryByForEach"
+            resultMap="foreach"
+            parameterType="classesQueryParamber">
+        SELECT * FROM classes<where>
+        <if test="classesIds!=null and classesIds.size>0">
+            <foreach collection="classesIds" item="cid" open="and cid in  (" close=")" separator=",">
+                #{cid}
+            </foreach>
+        </if>
+    </where>
+    </select>
+
+
+
+
+</mapper>

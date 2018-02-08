@@ -1,0 +1,241 @@
+一，Servlet
+	JSON数组
+		resp.getWriter().write（JSONArray.fromObject(users).toString）
+	配置访问路径
+		在<servlet>下用<servlet-name>给HttpServlet的实现类一个名字，用 <servlet-class>给该类指定一个路径
+		用<servlet-mapping>给类添加一个映射，用<url-pattern>给一个地址访问一个类，用servlet-name找到该类
+	导入tomcat和jay包，布置到服务器
+		 B/S 系统 Browser  Server
+		 C/S系统 Client  Server
+	复写HttpServlet的doGet和doPost
+		Request：请求。包含这次请求的所有数据
+			使用req，获得请求参数
+				 req.getParameter（参数名）
+		Response 响应，将这次请求还给请求方
+			使用resp，将请求的结果返回给请求方
+				resp.getWriter().write("<h1>SUCCESS</h1>");
+		500或500+表示服务器出错了
+			404表示未找到资源也就是你访问的路径，在服务器中不存在
+	设置字体格式
+		resp.setContentType("text/htm;charset=utf-8");
+	生命周期
+		init(config)
+		service(req,rsp)
+		destory()
+	特性
+		每个Sservlet都是单例模式，可存在多个Servlet线程但是不安全
+		Servlet类由我们创建，Servlet对象由服务器（Tomcat）创建，Servlet对象的方法由服务器调用
+	重定向
+		特点
+			浏览器地址变化
+			两次请求
+			路径范围是任意URL
+			路径格式为绝对路径
+		 response.sendRedirect("http://localhost:8080/index.jsp");
+		response.setStatus(302);
+			response.setHeader("location","http://localhost:8080/index.jsp");
+	响应头和响应体，请求头
+		响应体
+			比如是传递给前端的JSON数据
+		响应头
+			后端发送一些键值对到前端，一般用来设置某些信息
+		状态码
+			成功（200）
+			重定向（302）
+			路径错（405）
+			服务器错（500）
+		请求头
+			浏览器发起请求时，会封装一些键值对传输给服务器， 这些键值对就叫请求头（因为是在发起请求时封装的）
+			通过Referer请求头的值，可以判断当次请求是不是从本应用发起的
+	请求转发与请求包含
+		请求转发
+			只有最后一个目标资源（Target），可以响应浏览器
+		请求包含：
+			多个Servlet都可以响应浏览器
+	请求转发/包含于重定向的区别
+		请求次数
+		地址栏路径变化
+		范围
+		效率
+		路径
+		重定向实际上是在浏览器执行的
+		而请求转发是在服务器上执行的
+	域对象
+		域表示一个范围（请求发起，请求被响应)request对象
+		域属性与参数的区别
+			参数是由浏览器传递给服务器的，域属性是内部设置的
+		Request域
+			request,session,application
+	ServletContext
+		ServletContext是Servlet上下文对象表示Servlet所处的环境
+		Tomcat也叫Servlet容器
+		当Tomat启动时，对应应用的ServletContext对象创建，关闭时，ServletContext销毁
+	初始化参数
+		全局参数：当应用启动时，就已经被设置好的内容，全局参数需要在web.xml中配置，每个Servlet都能得到
+	局部参数
+		为每个Servlet单独配置的初始化参数
+		                在web.xml中，对每个Servlet的配置都会被抽象成一个ServletConfig的对象
+		                在AServlet中获得的ServletConfig，则这个
+		                ServletConfig中的内容就是AServlet的配置信息
+
+二，编码
+	
+		服务器与客户端（浏览器）必须使用相同的编码
+		便捷方法：response.setContentType("text/html;charset=utf-8")
+	
+		POST在获取参数前request.setCharacterEncoding("utf-8");
+		GET
+			String name = new String(request.getParameter("name").getBytes("iso-8859-1"),"utf-8");
+
+三，JSP
+	JSP简介
+		脚本语言，可开发动态网页
+		静态网页HTML代码中加入Java程序片段（Scriotlet）和JSP标签（Tag）扩展名为：.jsp
+		客户端请求JSP文件时，服务器执行后以HTML格式返回，即JSP程序由Web服务器完成
+	9个内置对象
+		Resquest
+			提供对请求数据的访问
+		application
+			代表应用程序上下文
+		config
+			初始化数据
+		exception
+			只能由指定的“JSP错误处理页面”访问的异常数据
+		page
+			代表JSP页面对应的Servlet实例==this
+		pageContext
+			JSP页面的上下文
+		response
+			用来向客户端传输数据
+		session
+			保存数据，客户端关闭网站所有的网页时，session变量消失
+		out
+			提供对象输出流的访问
+	3种java脚本
+		<% ... %>:java代码块
+		<%= ... %>:java表达式，输出一天表达式的结果
+		<%! ... %>:声明，创建类的成员变量和方法
+	指令元素
+		<%@指令名称 属性="属性值1" 属性2="属性值2"....%>
+		page指令用来定义JSP页面的全局属性，作用域为JSP页面
+		include指令称为文件加载指令，可以将其他的文件（JSP，HTML，其他文本文件）插入JSP网页，必须保证插入后形成后 的新文件符合JSP页面的语法规则
+	JSP四大域
+		servletContext
+		session
+		request
+		pageContext
+	动作标签
+		jsp：include在页面得到请求时动态包含一个文件
+		jsp：forward引导请求进入新的页面（请去转发）
+四Filter过滤器
+	当用户请求某个Servlet时，会先执行部署在这个请求上的Firter，如果Firter通过，那么就无法执行用户请求的Servlet
+	过滤器会在一组资源（jsp，servlet，.css,.html等等)的前面执行，可以放过请求，也可以拦截请求
+	生命周期
+		init
+		doFilter
+		destroy
+五，JSTL
+	<c:out value="" default=""/>
+		value：输出的信息，可以是EL表达式 或者常量
+		default：可选项，当value为null时，显示default信息
+	JSP Standard Tag Library:是JSP标准标签库，使用JSTL中的标签，可以提高开发效率，减少JSP页面中代码量，保持页面的整洁性和良好性，可维护性
+	<c:set target="" value="" var="" property="" scope=""/>
+		var：可选项，创建需要保持的变量
+		value:可选项，要保存的信息，可以是EL表达式或常量
+		scope：可选项，保存变量的变量访围（page，request，session，applicatoin）
+		target：可选项，需要修改属性的变量名，一般为JavaBean实例，若指定了target属性，则必须指定propety属性
+		property：可选项，需要修改的JavaBean的属性
+	core，format，xml，sql标记库
+	<c:remove var="gender" scope="session"/>
+	<c:if test="判断条件" var="" scope="">
+		var：要求保存条件结果的变量名，这样做的目的是为了避免在页面中多次进行相同的判断
+	\<c:forEach var="" items="" varStatus="" begin="" end="" step="">
+		items：可选项，进行循环的元素
+		var：可选项，代表当前元素 的变量名
+		begin：可选项，开始条件
+		end：可选项，结束条件
+		step：可选项步长，默认值为1
+		varStatus：可选项，显示循环变量的状态
+	JSTL是apache对EL表达式的扩展，JSTL依赖EL，JSTL是一种标签语言
+六MVC
+	web
+	service
+	dao
+	util
+	domain
+	六大原则
+		单一职责原则
+			不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责
+		里氏替换原则
+			所有引用基类的地方必须能透明地使用其子类的对象。
+		依赖倒置原则
+			高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。 
+		接口隔离原则
+			客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在最小的接口上。 
+		迪米特法则
+			一个对象应该对其他对象保持最少的了解。 
+		开闭原则
+			一个软件实体如类、模块和函数应该对扩展开放，对修改关闭。 
+七EL与Cookie
+	${}
+		替代<%=....%>
+	${name}
+		全域查找：获得属性并在页面中显示。如果没有指定域则优先获得范围小，优先级高的name
+	十一个内置对象
+	applicationScope
+应用程序范围内的scoped变量组成的集合
+cookie
+所有cookie组成的集合
+header
+HTTP请求头部，字符串
+headerValues
+HTTP请求头部，字符串集合
+initParam
+全部应用程序参数名组成的集合
+pageContext
+当前页面的javax.servlet.jsp.PageContext对象
+pageScope
+页面范围内所有对象的集合
+param
+所有请求参数字符串组成的集合
+paramValues
+所有作为字符串集合的请求参数
+requestScope
+所有请求范围的对象的集合
+sessionScope
+所有会话范围的对象的集合
+
+	EL函数库
+		fn:contains
+		fn:containsIgnoreCase
+		fn:endsWith
+		fn:escapeXml
+		fn:join
+		fn:replace
+		fn:startsWith
+		fn:substring
+	自定义EL函数
+		写一个java类，方法必须是静态方法，有返回值
+		在WEB-INF目录下创建一个.tld文件
+		在jsp页面导入标签库
+	请求参数和域属性的区别
+		请求参数是浏览器发起请求时。传递给服务器的
+		        域属性是在服务器中 的，后来添加的
+		        请求参数不可修改
+		        域属性可以添加，修改，移除
+	Cookie
+		Cookie是由服务器创建保存到客户端的一个键值对，当客户端又一次访问服务器时，会将上次得到的Cookie在发送给服务器
+		用途
+			跟踪客户端状态
+			保存购物车
+			显示上次登入名
+		生命是一次会话开始到结束
+		使用
+			response.addCookie()
+			request.getCookies()
+		属性
+			maxAge
+				秒为单位
+				等于0删除
+			path
+				决定Cookie的上传路径

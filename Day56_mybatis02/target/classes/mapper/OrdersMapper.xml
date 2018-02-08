@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.study.user.dao.OrdersMapper" >
+
+
+<resultMap id="orders" type="ordersExt">
+  <id column="id" property="id"/>
+  <result column="number" property="number"/>
+  <result column="user_id" property="userId"/>
+  <association property="user" javaType="user">
+    <id column="id" property="id"/>
+    <result column="username" property="username"/>
+  </association>
+
+</resultMap>
+
+  <select id="findOrdersUser"
+          resultMap="orders">
+    SELECT * FROM orders,user    where Orders.user_id = USER.id
+  </select>
+
+  <resultMap id="findOrderDetails" type="orderDetail" >
+    <id column="id" property="id"/>
+    <result column="orders_id" property="orders_id"/>
+    <result column="items_id" property="items_id"/>
+    <collection property="orders" ofType="orders">
+      <id column="id" property="id"/>
+      <result column="number" property="number"/>
+      <result column="user_id" property="userId"/>
+      <association property="user" javaType="user">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="sex" property="sex"/>
+      </association>
+    </collection>
+    <collection property="items" javaType="items">
+      <id column="id" property="id"/>
+      <result column="name" property="name"/>
+    </collection>
+  </resultMap>
+
+  <select id="findOrdersAll" resultMap="findOrderDetails">
+    SELECT * FROM user,ORDERs,orderdetail,items WHERE orders.id=orderdetail.orders_id
+    AND  orders.user_id =user.id AND orderdetail.items_id=items.id
+  </select>
+
+
+</mapper>

@@ -9,11 +9,5 @@
     <property name="hbm2ddl.auto">update</property>
     <property name="format_sql">true</property>
     <mapping resource="com/lanou/study/domain/User.hbt.xml"/>
-
-    <!-- <property name="connection.username"/> -->
-    <!-- <property name="connection.password"/> -->
-
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>
 </hibernate-configuration>

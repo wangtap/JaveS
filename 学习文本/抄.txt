@@ -1,0 +1,61 @@
+for (int i = a.length - 1; i > 0; --i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                if (a[j + 1] < a[j])
+                {
+                    temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                }
+            }
+        }
+
+list和set都继承于Collection
+相同：都是是抽象类不能直接新建对象
+不同：List有序，可重复
+Set无序，不可重复
+
+
+自定义异常应该在执行程序时，程序偏离了预定方案时，采用自定义异常
+1，Try2，Catch，3finally，finally最后执行，且一定执行
+
+泛型可以接收不同的数据类型，泛型的参数类型可以用在类、接口和方法的创建中
+泛型类:class Pair<T> {  },泛型接口interface Show<T>，
+泛型方法：public static <T> void get(){ }
+
+递归就是自己调用自己，当需要多次使用重复代码且不知道使用次数时，使用递归
+public void practice(int num){
+
+		for (int j = 1; j <= num; j++) {
+			System.out.print(j+"*"+num+"="+(j*num));
+			System.out.print("\t");
+		}
+		System.out.println();
+		num++;
+		if(num == 10){
+			return;
+		}
+		practice(num);
+
+Map中装的是键值对，Key和Value 他们之间存在一一映射的关系，在map中是有序的
+
+
+Thread thread =new Thread（new Runnable() ）；
+
+Thread thread =new Thread（new Runnable(){public void run(){}} ）；
+
+抢占式运行就是多个线程同时运行强占CPU的资源来执行
+
+锁是线程执行的钥匙，当一个线程有钥匙时就执行这个线程，直到该线程执行完毕才会释放锁
+synchronized表示同步
+当有数据共享时需要使用同步
+int a =1；就是原子性操作
+int b = 2 ；就不是
+
+
+相同 ：都不能直接创建对象，需要在他们的实现类才能创造对象
+不同：	接口里的方法都是抽象的，抽象 类里可以有非抽象方法
+		一个类只可以继承一个抽象类。但可以实现多个接口
+抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 public static final 类型的。
+

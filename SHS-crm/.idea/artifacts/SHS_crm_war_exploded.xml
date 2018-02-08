@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SHS-crm:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SHS_crm_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SHS-crm/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SHS-crm" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-fileupload-1.3.2" />
+          <element id="library" level="project" name="aspectjrt" />
+          <element id="library" level="project" name="antlr-2.7.7" />
+          <element id="library" level="project" name="mchange-commons-java-0.2.3.4" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
