@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.service.dao.ServiceMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.service.domain.Service" >
+    <constructor >
+      <idArg column="service_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="account_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="unix_host" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="os_username" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="login_passwd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="status" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="create_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="pause_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="close_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="cost_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+ <resultMap id="ResultMap" type="extendService" >
+     <id property="serviceId" column="service_id"/>
+     <result property="accountId" column="account_id"/>
+     <result property="unixHost" column="unix_host"/>
+     <result property="osUsername" column="os_username"/>
+     <result property="status" column="status"/>
+     <result property="costId" column="cost_id"/>
+   <association property="account" javaType="account">
+     <id property="accountId" column="account_id"/>
+     <result property="idcardNo" column="idcard_no"/>
+     <result property="realName" column="real_name"/>
+   </association>
+   <association property="cost" javaType="cost">
+     <id property="id" column="id"/>
+     <result property="descr" column="descr"/>
+      <result property="name" column="name"/>
+   </association>
+ </resultMap>
+  <sql id="Base_Column_List" >
+   service.service_id ,
+   service.account_id ,
+   unix_host ,
+   os_username ,
+   service.login_passwd ,
+   service.status,
+   service.create_date ,
+   service.pause_date ,
+   service.close_date ,
+   cost_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from service
+    where service_id = #{serviceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from service
+    where service_id = #{serviceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.service.domain.Service" >
+    insert into service (service_id, account_id, unix_host, 
+      os_username, login_passwd, status, 
+      create_date, pause_date, close_date, 
+      cost_id)
+    values (#{serviceId,jdbcType=INTEGER}, #{serviceId,jdbcType=INTEGER}, #{unixHost,jdbcType=VARCHAR}, 
+      #{osUsername,jdbcType=VARCHAR}, #{loginPasswd,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{pauseDate,jdbcType=TIMESTAMP}, #{closeDate,jdbcType=TIMESTAMP}, 
+      #{costId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.service.domain.Service" >
+    insert into service
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="serviceId != null" >
+        service_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="unixHost != null" >
+        unix_host,
+      </if>
+      <if test="osUsername != null" >
+        os_username,
+      </if>
+      <if test="loginPasswd != null" >
+        login_passwd,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="pauseDate != null" >
+        pause_date,
+      </if>
+      <if test="closeDate != null" >
+        close_date,
+      </if>
+      <if test="costId != null" >
+        cost_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="serviceId != null" >
+        #{serviceId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="unixHost != null" >
+        #{unixHost,jdbcType=VARCHAR},
+      </if>
+      <if test="osUsername != null" >
+        #{osUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPasswd != null" >
+        #{loginPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pauseDate != null" >
+        #{pauseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closeDate != null" >
+        #{closeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="costId != null" >
+        #{costId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.service.domain.Service" >
+    update service
+    <set >
+      <if test="serviceId != null" >
+        service_id = #{serviceId,jdbcType=INTEGER},
+      </if>
+      <if test="unixHost != null" >
+        unix_host = #{unixHost,jdbcType=VARCHAR},
+      </if>
+      <if test="osUsername != null" >
+        os_username = #{osUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPasswd != null" >
+        login_passwd = #{loginPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pauseDate != null" >
+        pause_date = #{pauseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closeDate != null" >
+        close_date = #{closeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="costId != null" >
+        cost_id = #{costId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where service_id = #{serviceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.service.domain.Service" >
+    update service
+    set service_id = #{serviceId,jdbcType=INTEGER},
+      unix_host = #{unixHost,jdbcType=VARCHAR},
+      os_username = #{osUsername,jdbcType=VARCHAR},
+      login_passwd = #{loginPasswd,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      pause_date = #{pauseDate,jdbcType=TIMESTAMP},
+      close_date = #{closeDate,jdbcType=TIMESTAMP},
+      cost_id = #{costId,jdbcType=INTEGER}
+    where service_id = #{serviceId,jdbcType=INTEGER}
+  </update>
+
+
+  <update id="updateStatus"
+          parameterType="service">
+    update service set status=#{status}
+    where service_id=#{serviceId}
+  </update>
+
+  <select id="findTotalData" resultType="int" >
+    select count(*) from service
+  </select>
+
+  <select id="findAllByPage" parameterType="servicePageBean" resultMap="ResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+      ,account.account_id
+      ,account.real_name
+      ,account.idcard_no
+      ,cost.id
+      ,cost.name
+      ,cost.descr
+      FROM service,account,cost
+      WHERE service.account_id=account.account_id
+      AND service.cost_id=cost.id
+
+       limit #{pageData},#{pageSize}
+  </select>
+
+  <select id="findAll" parameterType="servicePageBean" resultMap="ResultMap">
+    SELECT
+      <include refid="Base_Column_List" />
+      ,account.account_id
+      ,account.real_name
+      ,account.idcard_no
+      ,cost.id
+      ,cost.name
+      ,cost.descr
+    FROM service,account,cost
+    WHERE service.account_id=account.account_id
+    AND service.cost_id=cost.id
+    limit #{pageData},#{pageSize}
+  </select>
+    <select id="findByIdcardNo" resultType="account" parameterType="string">
+      SELECT real_name realName,account_id accountId FROM account where idcard_no=#{idcardNo}
+    </select>
+  <select id="findAllCost" resultType="com.lanou.cost.domain.Cost">
+    SELECT * FROM cost
+  </select>
+</mapper>

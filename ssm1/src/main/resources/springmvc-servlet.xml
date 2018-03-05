@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <!--加⼊入注解扫描驱动，自动扫描注解-->
+    <mvc:annotation-driven/>
+        <!--配置注解扫描的基础包-->
+    <context:component-scan base-package="com.lanou"/>
+
+    <!--将静态资源的处理理经由Spring MVC框架交回Web应⽤用服务器器处理理-->
+    <!--将静态资源，交由web处理SpringMVC不管 -->
+    <mvc:default-servlet-handler/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/login/toLogin"/>
+            <mvc:exclude-mapping path="/login/login"/>
+            <mvc:exclude-mapping path="/login/createImage"/>
+            <bean class="com.lanou.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+           <!--<bean class="com.lanou.interceptor.CurrentModuleInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<mvc:mapping path="/login/*"/>-->
+            <!--<bean class="com.lanou.interceptor.CheckModuleInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    </mvc:interceptors>
+
+    <!--配置Spring MVC视图解析-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--访问 控制器得到结果时，这个结果就是要展示的视图名字-->
+        <!--那么对于这个视图来讲，除了名字还有扩展名（什么文件）路径（找到这个文件）-->
+
+        <!--视图路路径的前缀，这里会作为前缀，加到视图名字前面-->
+        <property name="prefix" value="/WEB-INF/"/>
+
+        <!--视图路路径的后缀，这里会当做后缀，加到视图名字后面-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+    <context:property-placeholder location="classpath:db.properties"/>
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${db.driver}"/>
+        <property name="jdbcUrl" value="${db.url}"/>
+        <property name="user" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+        <property name="initialPoolSize" value="${db.initialPoolSize}"/>
+
+        <property name="maxPoolSize" value="${db.maxPoolSize}"/>
+        <property name="minPoolSize" value="${db.minPoolSize}"/>
+
+        <property name="acquireIncrement" value="${db.acquireIncrement}"/>
+
+        <property name="acquireRetryDelay" value="${db.acquireRetryDelay}"/>
+
+        <property name="acquireRetryAttempts" value="${db.acquireRetryAttempts}"/>
+
+        <property name="breakAfterAcquireFailure" value="${db.breakAfterAcquireFailure}"/>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+
+        <property name="configLocation" value="classpath:SqlMapConfig.xml"/>
+
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="add*"/>
+            <tx:method name="delete*"/>
+            <tx:method name="update*"/>
+            <tx:method name="find*"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+
+        <aop:pointcut id="pointcut"
+                      expression="execution(* com.lanou.*.dao.*.*(..))"/>
+
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+    </aop:config>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+
+        <property name="basePackage" value="com.lanou.*.dao"/>
+
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+</beans>

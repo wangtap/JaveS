@@ -1,13 +1,8 @@
 package com.wt.crm.course_type.web.action;
 
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 import com.wt.crm.base.baseAction.BaseAction;
 import com.wt.crm.course_type.domain.CrmCourseType;
-import com.wt.crm.course_type.service.impl.CourseTypeServiceImpl;
 import com.wt.crm.page.PageBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
