@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+   <mapping resource="com/wt/crm/staff/domain/CrmStaff.hbm.xml"/>
+    <mapping resource="com/wt/crm/post/domain/CrmPost.hbm.xml"/>
+      <mapping resource="com/wt/crm/department/domain/CrmDepartment.hbm.xml"/>
+      <mapping resource="com/wt/crm/course_type/domain/CrmCourseType.hbm.xml"/>
+      <mapping resource="com/wt/crm/classes/domain/CrmClasses.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

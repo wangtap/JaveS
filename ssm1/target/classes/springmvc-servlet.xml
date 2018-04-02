@@ -32,6 +32,14 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
             <mvc:exclude-mapping path="/login/toLogin"/>
             <mvc:exclude-mapping path="/login/login"/>
             <mvc:exclude-mapping path="/login/createImage"/>
+            <mvc:exclude-mapping path="/styles/global.css"/>
+            <mvc:exclude-mapping path="/styles/global_color.css"/>
+            <mvc:exclude-mapping path="/js/jquery-3.2.1.min.js"/>
+            <mvc:exclude-mapping path="/images/valicode.jpg"/>
+            <mvc:exclude-mapping path="/images/login_btn.png"/>
+            <mvc:exclude-mapping path="/images/login_box.png"/>
+            <mvc:exclude-mapping path="/images/index_bg.jpg"/>
+
             <bean class="com.lanou.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
 

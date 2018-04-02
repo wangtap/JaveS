@@ -30,11 +30,11 @@
         <!--Logo区域开始-->
         <div id="header">
             <img src="../images/logo.png" alt="logo" class="left"/>
-            <a href="#">[退出]</a>
+            <a href="#">[退出]</a>            
         </div>
         <!--Logo区域结束-->
         <!--导航区域开始-->
-        <div id="navi">
+        <div id="navi">                        
             <ul id="menu">
                 <li><a href="../index.html" class="index_off"></a></li>
                 <li><a href="../role/role_list.html" class="role_off"></a></li>
@@ -46,7 +46,7 @@
                 <li><a href="../report/report_list.html" class="report_off"></a></li>
                 <li><a href="../user/user_info.html" class="information_off"></a></li>
                 <li><a href="../user/user_modi_pwd.html" class="password_off"></a></li>
-            </ul>
+            </ul>            
         </div>
         <!--导航区域结束-->
         <!--主要区域开始-->
@@ -60,14 +60,14 @@
                         <input type="button" value="时长" class="sort_asc" onclick="sort(this);" />
                     </div>
                     <input type="button" value="增加" class="btn_add" onclick="location.href='fee_add.html';" />
-                </div>
+                </div> 
                 <!--启用操作的操作提示-->
                 <div id="operate_result_info" class="operate_success">
                     <img src="../images/close.png" onclick="this.parentNode.style.display='none';" />
                     删除成功！
-                </div>
-                <!--数据区域：用表格展示数据-->
-                <div id="data">
+                </div>    
+                <!--数据区域：用表格展示数据-->     
+                <div id="data">            
                     <table id="datalist">
                         <tr>
                             <th>资费ID</th>
@@ -79,7 +79,7 @@
                             <th>开通时间</th>
                             <th class="width50">状态</th>
                             <th class="width200"></th>
-                        </tr>
+                        </tr>                      
                         <tr>
                             <td>1</td>
                             <td><a href="fee_detail.html">包 20 小时</a></td>
@@ -89,7 +89,7 @@
                             <td>2013/01/01 00:00:00</td>
                             <td></td>
                             <td>暂停</td>
-                            <td>
+                            <td>                                
                                 <input type="button" value="启用" class="btn_start" onclick="startFee();" />
                                 <input type="button" value="修改" class="btn_modify" onclick="location.href='fee_modi.html';" />
                                 <input type="button" value="删除" class="btn_delete" onclick="deleteFee();" />
@@ -104,7 +104,7 @@
                             <td>2013/01/21 00:00:00</td>
                             <td>2013/01/23 00:00:00</td>
                             <td>开通</td>
-                            <td>
+                            <td>                                
                             </td>
                         </tr>
                     </table>

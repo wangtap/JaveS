@@ -24,17 +24,17 @@
     <table id="myform">
         <tr>
             <td class="login_info">账号：</td>
-            <td colspan="2"><input id="adminCode" name="adminCode" type="text" class="width150" /></td>
+            <td colspan="2"><input value="admin" id="adminCode" name="adminCode" type="text" class="width150" /></td>
             <td class="login_error_info"><span class="required">30长度的字母、数字和下划线</span></td>
         </tr>
         <tr>
             <td class="login_info">密码：</td>
-            <td colspan="2"><input id="password" name="password" type="password" class="width150" /></td>
+            <td colspan="2"><input value="123456" id="password" name="password" type="password" class="width150" /></td>
             <td><span class="required">30长度的字母、数字和下划线</span></td>
         </tr>
         <tr>
             <td class="login_info">验证码：</td>
-            <td class="width70"><input id="code" name="code" type="text" class="width70" /></td>
+            <td class="width70"><input value="8251" id="code" name="code" type="text" class="width70" /></td>
             <td><img src="${pageContext.request.contextPath}/images/valicode.jpg" alt="验证码" title="点击更换" /></td>
             <td><span class="required">验证码错误</span></td>
         </tr>

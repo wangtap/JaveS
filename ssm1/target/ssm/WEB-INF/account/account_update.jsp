@@ -47,7 +47,7 @@
 <!--导航区域开始-->
 <div id="navi">
     <ul id="menu">
-        <li><a href="${pageContext.request.contextPath}/login/toIndex" class="off"></a></li>
+        <li><a href="${pageContext.request.contextPath}/login/toIndex" class="index_off"></a></li>
         <li><a href="${pageContext.request.contextPath}/role_info/findAll" class="role_off"></a></li>
         <li><a href="${pageContext.request.contextPath}/admin_info/findAll" class="admin_off"></a></li>
         <li><a href="${pageContext.request.contextPath}/cost/findAll" class="fee_off"></a></li>
